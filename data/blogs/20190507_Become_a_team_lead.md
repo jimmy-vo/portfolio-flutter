@@ -1,0 +1,10 @@
+### Going back to school
+After 4 months of working really hard on the facial recognition problem. We were quite happy with the progress we made. Thanks to that, the president brought some more funding. We expanded the team to welcome 2 more software developers and 1 analysis. Unfortunately, I had one more term to finish at Red River College. My Student Visa doesn't allow me to work more than the summertime. However, working part-time as an option. I discussed it with him several times. Finally, we ended up with a deal. He decided to pay me double and hire me working part-time as a team lead. Other than that, I was requested to develop another simple Natural Language Processing (NLP) application. I took the deal.
+
+### Get things done and move on
+I could manage to complete the NLP application within 2 weeks. He was quite surprised at how fast I got it done. The requirement wasn't really complicated. The open-source I found could simply make him happy. He then asked me to train the new guys and launch the next project.
+
+### Being a team lead
+I started to work with my boss on the requirement. The architect decided to use Django for the Content Management System (CMS) that we were developing. And we used MQTT as a communication protocol between the server and embedded device nodes. I was responsible for the software architect and database design of this application while the architect was taking care of the deployment. It took us a month to ramp up until the team gets familiar with the framework.
+
+Being a team lead changes me a lot in my career. My concern was no longer writing good code but to maintain a scalable system and to make sure the development running smoothly. I found myself spending more time talking to the developers to figure out their problems, helping them remove the obstacles on their way. I also had a chance to reflect on experience at Hella (a global organization) and 24-7 Intouch (a smaller company). I picked up here and there, the best practice to build a good team.

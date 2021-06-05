@@ -1,0 +1,25 @@
+
+.name {
+  color: black;
+  text-decoration: none;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.title:first-child {
+  margin-top: 0px;
+}
+
+.gridLayout {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+}
+
+.flexLayout {
+  display: flex;
+  flex-direction: column;
+}

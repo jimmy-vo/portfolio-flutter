@@ -1,0 +1,302 @@
+[
+    {
+        "id": 20120101,
+        "heading": "Ultrasonic Bot",
+        "mdFile": "blogs/20120101_UltraSonicBot.md",
+        "hidden": false
+    },
+    {
+        "id": 20140102,
+        "heading": "How I put my first step into Embedded World",
+        "mdFile": "blogs/20140102_Getting_Started_With_Embedded.md",
+        "hidden": false
+    },
+    {
+        "id": 20140103,
+        "heading": "Military Truck",
+        "mdFile": "blogs/20140103_Military_Project.md",
+        "hidden": false
+    },
+    {
+        "id": 20140501,
+        "heading": "Day Life at VSKLINE",
+        "mdFile": "blogs/20140501_VietSkyLine_DayLife.md",
+        "hidden": false
+    },
+    {
+        "id": 20140502,
+        "heading": "Electronic Speed Control Module on UAV System",
+        "mdFile": "blogs/20140502_VietSkyLine_ESC.md",
+        "hidden": false
+    },
+    {
+        "id": 20140503,
+        "heading": "Power Management Monitor Module in UAV System",
+        "mdFile": "blogs/20140503_VietSkyLine_PMM.md",
+        "hidden": false
+    },
+    {
+        "id": 20140504,
+        "heading": "GPS Module in UAV System",
+        "mdFile": "blogs/20140504_VietSkyLine_GPS.md",
+        "hidden": false
+    },
+    {
+        "id": 20140505,
+        "heading": "Object Orientation Estimation System",
+        "mdFile": "blogs/20140505_OSES.md",
+        "hidden": false
+    },
+    {
+        "id": 20140601,
+        "heading": "RaspiBot",
+        "mdFile": "blogs/20140601_RaspiBot.md",
+        "hidden": false
+    },
+    {
+        "id": 20140602,
+        "heading": "VND Play",
+        "mdFile": "blogs/20140602_VNDPlay.md",
+        "hidden": false
+    },
+    {
+        "id": 20140603,
+        "heading": "SenseIMU",
+        "mdFile": "blogs/20140603_SenseIMU.md",
+        "hidden": false
+    },
+    {
+        "id": 20140604,
+        "heading": "TestLab Starter Kit",
+        "mdFile": "blogs/20140604_StarterKit.md",
+        "hidden": false
+    },
+    {
+        "id": 20140605,
+        "heading": "TestLab GPS IMU Reader",
+        "mdFile": "blogs/20140605_GPS_IMU_Reader.md",
+        "hidden": false
+    },
+    {
+        "id": 20160501,
+        "heading": "Bachelor of Engineering - Electrical - Electronics Engineering",
+        "mdFile": "blogs/20160501_HCMUT_degree.md",
+        "hidden": true
+    },
+    {
+        "id": 20160502,
+        "heading": "Program Transcript",
+        "mdFile": "blogs/20160502_HCMUT_transcript.md",
+        "hidden": true
+    },
+    {
+        "id": 20160901,
+        "heading": "Body Control Unit (BCM - Platform)",
+        "mdFile": "blogs/20160901_BcmPlatform.md",
+        "hidden": false
+    },
+    {
+        "id": 20170109,
+        "heading": "Body Control Unit (BCM - LX1)",
+        "mdFile": "blogs/20170109_BcmLx1.md",
+        "hidden": false
+    },
+    {
+        "id": 20170402,
+        "heading": "NFC Door Handle module (NFC DHM)",
+        "mdFile": "blogs/20170402_NfcDhm.md",
+        "hidden": false
+    },
+    {
+        "id": 20180303,
+        "heading": "[Android] Money Manage",
+        "mdFile": "blogs/20180303_MoneyManage.md",
+        "hidden": false
+    },
+    {
+        "id": 20180404,
+        "heading": "[.Net] Ipv4 Address Analyzer",
+        "mdFile": "blogs/20180404_Ipv4AddressAnalyzer.md",
+        "hidden": false
+    },
+    {
+        "id": 20180629,
+        "heading": "How I got my first paid-job in Canada?",
+        "mdFile": "blogs/20180629_First_Job_In_Canada.md",
+        "hidden": false
+    },
+    {
+        "id": 20180607,
+        "heading": "Great-West Life Award - Jun 07 2018",
+        "mdFile": "blogs/20180607_Great_West_Life_Award.md",
+        "hidden": false
+    },
+    {
+        "id": 20180607,
+        "heading": "Great-West Life Award - Jun 07 2018",
+        "mdFile": "blogs/20180607_Great_West_Life_Award.md",
+        "hidden": false
+    },
+    {
+        "id": 20180608,
+        "heading": "Applied Computer Education Department Award - Jun 08 2018",
+        "mdFile": "blogs/20180608_ACE_Department_Award.md",
+        "hidden": false
+    },
+    {
+        "id": 20180612,
+        "heading": "[Unity] Galaxy - VR spaceship shooting game",
+        "mdFile": "blogs/20180612_Galaxy.md",
+        "hidden": false
+    },
+    {
+        "id": 20181030,
+        "heading": "[JQuery] Online Portfolio",
+        "mdFile": "blogs/20181030_OnlinePortfolio.md",
+        "hidden": false
+    },
+    {
+        "id": 20181031,
+        "heading": "[.NET] Canadian Resume Generator",
+        "mdFile": "blogs/20181031_ResumeGenerator.md",
+        "hidden": false
+    },
+    {
+        "id": 20181126,
+        "heading": "[PHP] RrcNews",
+        "mdFile": "blogs/20181126_RrcNews.md",
+        "hidden": false
+    },
+    {
+        "id": 20181207,
+        "heading": "[Flask] Blog Demo",
+        "mdFile": "blogs/20181207_BlogFlask.md",
+        "hidden": false
+    },
+    {
+        "id": 20190109,
+        "heading": "[GDP] Deploy an web app to Google App Engine",
+        "mdFile": "blogs/20190109_GAE.md",
+        "hidden": false
+    },
+    {
+        "id": 20190501,
+        "heading": "Three job offers - Why I chose Life Elevated?",
+        "mdFile": "blogs/20190501_Three_job_offers.md",
+        "hidden": false
+    },
+    {
+        "id": 20190502,
+        "heading": "Being A Machine Learning Engineer",
+        "mdFile": "blogs/20190502_Being_A_Machine_Learning_Engineer.md",
+        "hidden": false
+    },
+    {
+        "id": 20190503,
+        "heading": "Data Driven Approaches",
+        "mdFile": "blogs/20190503_Data_Driven_Approaches.md",
+        "hidden": false
+    },
+    {
+        "id": 20190504,
+        "heading": "Stuff you should know before you work with a Convolution Neural Network (CNN)",
+        "mdFile": "blogs/20190504_Stuff_You_Should_know_CNN.md",
+        "hidden": false
+    },
+    {
+        "id": 20190505,
+        "heading": "Siamese Network - How human recognizes individuals",
+        "mdFile": "blogs/20190505_Siamese_Network.md",
+        "hidden": false
+    },
+    {
+        "id": 20190506,
+        "heading": "On-device Machine Learning Optimization",
+        "mdFile": "blogs/20190506_On_device_Machine_Learning_Optimization.md",
+        "hidden": false
+    },
+    {
+        "id": 20190507,
+        "heading": "Become a team lead",
+        "mdFile": "blogs/20190507_Become_a_team_lead.md",
+        "hidden": false
+    },
+    {
+        "id": 20190613,
+        "heading": "Applied Computer Education Innovation Award - Jun 13 2019",
+        "mdFile": "blogs/20190613_ACE_Innovation_Award.md",
+        "hidden": false
+    },
+    {
+        "id": 20190614,
+        "heading": "Paterson GlobalFoods Business Information Technology Award - Jun 13 2019",
+        "mdFile": "blogs/20190614_Paterson_GlobalFoods_Award.md",
+        "hidden": false
+    },
+    {
+        "id": 20180630,
+        "heading": "[Unity] Bluetooth Plug-in",
+        "mdFile": "blogs/20180630_WheelChair_UnityPlugin.md",
+        "hidden": false
+    },
+    {
+        "id": 20191212,
+        "heading": "Become An Entrepreneur",
+        "mdFile": "blogs/20191212_Become_An_Entrepreneur.md",
+        "hidden": true
+    },
+    {
+        "id": 20191215,
+        "heading": "All terms' Honor Role Certificates",
+        "mdFile": "blogs/20191215_Honor_Role_Certificates.md",
+        "hidden": false
+    },
+    {
+        "id": 20191229,
+        "heading": "Diploma with Honours in Business Information Technology ",
+        "mdFile": "blogs/20191229_RRC_diploma.md",
+        "hidden": true
+    },
+    {
+        "id": 20191230,
+        "heading": "Program Transcript",
+        "mdFile": "blogs/20191230_RRC_transcript.md",
+        "hidden": true
+    },
+    {
+        "id": 20200115,
+        "heading": "Why SolarSkyrise?",
+        "mdFile": "blogs/20200115_Why_SolarSkyrise.md",
+        "hidden": false
+    },
+    {
+        "id": 20200501,
+        "heading": "The Proposal",
+        "mdFile": "blogs/20200501_The_proposal.md",
+        "hidden": true
+    },
+    {
+        "id": 20200811,
+        "heading": "[Unity] Generic Polygon Clipping Solution",
+        "mdFile": "blogs/20200811_Polygon_Clipping.md",
+        "hidden": true
+    },
+    {
+        "id": 20200827,
+        "heading": "Career tips: Acknowledge the struggles",
+        "mdFile": "blogs/20200827_Career_tips_acknowledge_the_struggles.md",
+        "hidden": false
+    },
+    {
+        "id": 20200828,
+        "heading": "Career tips: Develop strategy",
+        "mdFile": "blogs/20200828_Career_tips_Develop_strategy.md",
+        "hidden": false
+    },
+    {
+        "id": 20200829,
+        "heading": "Career tips: Interview",
+        "mdFile": "blogs/20200829_Career_tips_Interview.md",
+        "hidden": false
+    }
+]

@@ -1,0 +1,11 @@
+It was the time I was working for 24-7 Intouch in my COOP term, I found 3 job postings website. They were IO Air Flow, SolarSkyrise, and Life Elevated. I applied to all of them. After the interviews, I was so excited that I got 3 job offers. 
+
+IO Air Flow was looking for the machine learning guy to work on thermal data from sensors in buildings. Not so sure how they would come up with a good way to make the data useful. Based on my past experience related to thermal data, I didn't feel like I could do much for them or learn something new. 
+
+SolarSkyrise was an interesting one. They wanted to build a solar production prediction report, which is cool. The CTO who interviewed me is visionary and full of energy. I can't say I didn't want to work for him, but Life Elevated got my attention at that time. You can read more about [System Developer at SolarSkyrise](/details/1/6).
+
+Life Elevated was looking for Machine Learning solutions to create a network of Senior Home Care devices. It includes Image Processing and Natural Language Processing. But one thing I liked the best was the Co-Founder, who was working at Silicon Valley as a software architect. He has many years of experience in the biggest tech industry. I was convinced that I could learn a lot from him and worked under his guidance.
+
+Actually the person who interviewed me was the president of Life Elevated. He was more on management, but he impressed me by putting a lot of questions about Data Science and Machine Learning that I could not answers. However, I think I was selected because I had experience with OpenCv and Face Recognition in the past. I could also show how good I was at coding and database management which are useful on our way. 
+
+Having a chance to work at Life Elevated is my greatest experience ever. It is not about how cool was the office, how well they paid me. But on top of that, I enjoyed working with them. I have never had that kind of experience before, where my mentors tried their best to support me, fed me with all of their knowledge in the industry. When the team is trying to do the best for you, you will never regret throwing yourself out there for them.

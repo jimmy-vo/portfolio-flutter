@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  # backend:
+  #   image: ${IMAGE_BACKEND}
+  #   container_name: container_backend
+  #   build:
+  #     context: ./backend
+  #   ports:
+  #     - 80:80 
+
+  nginx-tech: 
+    image: ${IMAGE_NGINX_TECH}
+    container_name: container_nginx_tech 
+    build:
+      dockerfile: ./nginx/Dockerfile
+      context: ./
+      args:
+        - SUBDOMAIN=tech
+    ports:
+      - 80:80
+
+  nginx-dev:
+    image: ${IMAGE_NGINX_DEV}
+    container_name: container_nginx_dev
+    build:
+      dockerfile: ./nginx/Dockerfile
+      context: ./
+      args:
+        - SUBDOMAIN=dev
+    ports:
+      - 80:80

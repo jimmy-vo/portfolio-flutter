@@ -1,0 +1,18 @@
+.footer {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+.right {
+    flex-shrink: 1;
+    text-align: right;
+}
+.left {
+    flex-shrink: 1;
+    text-align: left;
+}
+.center {
+    flex-grow: 1;
+    text-align: center;
+}

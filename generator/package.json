@@ -1,0 +1,43 @@
+{
+  "name": "portfolio-generator",
+  "private": true,
+  "description": "A simplified bare-bones starter for Gatsby",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "gen-tech": "env-cmd -f ./env/tech.env gatsby develop",
+    "gen-dev": "env-cmd -f ./env/dev.env gatsby develop",
+    "start": "env-cmd -f ./env/start.env gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "gatsby": "^2.20.25",
+    "gatsby-plugin-env-variables": "^1.0.2",
+    "gatsby-plugin-exclude": "^1.0.2",
+    "gatsby-plugin-sass": "^2.2.3",
+    "gatsby-plugin-sharp": "^2.6.2",
+    "gatsby-source-filesystem": "^2.2.4",
+    "gatsby-transformer-sharp": "^2.4.7",
+    "node-sass": "^4.14.1",
+    "path": "^0.12.7",
+    "puppeteer": "^3.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "prettier": "2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/portfolio-generator"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}

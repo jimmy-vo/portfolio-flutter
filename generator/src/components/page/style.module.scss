@@ -1,0 +1,46 @@
+$page-height: 300mm; //297
+$page-width: 210mm; //210mm
+$page-padding: 0.7cm 0.7cm 0.7cm 0.7cm;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: $page-height;
+  max-height: $page-height;
+  height: $page-height;
+  width: $page-width;
+  max-width: $page-width;
+  max-width: $page-width;
+  padding: $page-padding;
+  page-break-after: always; 
+	font-family: "Calibri (Body)";
+  
+}
+.page:last-child{
+  page-break-after: unset; 
+}
+
+.section {
+  flex-shrink: 1;
+  justify-content: start;
+}
+
+.footer {
+  flex-grow: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+
+h3{
+  text-transform: uppercase;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  margin: 10px 0px 0px 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px; 
+}
+

@@ -1,0 +1,8 @@
+frontend/dist
+frontend/node_modules
+
+generator/node_modules
+generator/.cache
+generator/public
+
+Dockerfile
