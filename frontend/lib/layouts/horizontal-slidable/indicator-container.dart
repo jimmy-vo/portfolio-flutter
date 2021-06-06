@@ -1,0 +1,144 @@
+/// Builds indication marks for PageView from any Widget and/or Animation.
+import 'dart:math';
+import 'package:flutter/material.dart';
+import 'package:frontend/layouts/horizontal-slidable/indicator.dart';
+import 'package:frontend/main.dart';
+
+typedef Widget IndicatorBuilder(AnimationController controller, int index);
+
+// ignore: must_be_immutable
+class IndicatorContainer extends StatefulWidget {
+  IndicatorContainer({
+    Key? key,
+    required this.pageIndexNotifier,
+    required this.length,
+    required this.normalBuilder,
+    required this.highlightedBuilder,
+    required this.highlightedName,
+    this.currentPage = 0,
+    this.indicatorPadding = const EdgeInsets.all(8.0),
+    this.alignment = MainAxisAlignment.center,
+  }) : super(key: key);
+
+  ValueNotifier<int> pageIndexNotifier;
+  int length;
+  IndicatorBuilder normalBuilder;
+  IndicatorBuilder highlightedBuilder;
+  String Function(int) highlightedName;
+  int currentPage;
+  EdgeInsets indicatorPadding;
+  MainAxisAlignment alignment;
+
+  @override
+  _IndicatorContainerState createState() => _IndicatorContainerState();
+}
+
+class _IndicatorContainerState extends State<IndicatorContainer>
+    with TickerProviderStateMixin {
+  List<Indicator> _indicators = [];
+  late int _prevPage;
+
+  void _generateIndicators() {
+    _indicators.forEach((indicator) => indicator.dispose());
+    _indicators = List.generate(
+        widget.length,
+        (index) => Indicator(
+            index: index,
+            normalController: AnimationController(
+              vsync: this,
+              duration: Duration(microseconds: 200),
+            )..forward(),
+            highlightedController: AnimationController(
+              vsync: this,
+              duration: Duration(milliseconds: 200),
+            )));
+  }
+
+  void _indicatorsListener() {
+    final currPage = widget.pageIndexNotifier.value;
+
+    if (currPage != _prevPage) {
+      _indicators[_prevPage].normalController.forward();
+      _indicators[_prevPage].highlightedController.reverse();
+
+      _indicators[currPage].normalController.reverse();
+      _indicators[currPage].highlightedController.forward();
+
+      _prevPage = currPage;
+    }
+  }
+
+  void _addIndicatorsListener() {
+    widget.pageIndexNotifier.removeListener(_indicatorsListener);
+    widget.pageIndexNotifier.addListener(_indicatorsListener);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _prevPage = max(0, widget.currentPage);
+
+    _generateIndicators();
+
+    _indicators[widget.currentPage].normalController.reverse();
+    _indicators[widget.currentPage].highlightedController.forward();
+
+    _addIndicatorsListener();
+  }
+
+  @override
+  void didUpdateWidget(IndicatorContainer oldWidget) {
+    if (oldWidget.length != widget.length) {
+      final currPage = min(widget.pageIndexNotifier.value, widget.length - 1);
+
+      _generateIndicators();
+
+      _indicators[currPage].normalController.reverse();
+      _indicators[currPage].highlightedController.forward();
+
+      _prevPage = currPage;
+    }
+
+    super.didUpdateWidget(oldWidget);
+
+    _addIndicatorsListener();
+  }
+
+  @override
+  void dispose() {
+    _indicators.forEach((indicator) => indicator.dispose());
+    widget.pageIndexNotifier.removeListener(_indicatorsListener);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(children: [
+      Row(
+        mainAxisAlignment: widget.alignment,
+        children: _indicators
+            .map<Widget>(
+              (indicator) => Padding(
+                padding: widget.indicatorPadding,
+                child: Stack(
+                  alignment: AlignmentDirectional.center,
+                  children: [
+                    widget.normalBuilder(
+                        indicator.normalController, indicator.index),
+                    widget.highlightedBuilder(
+                        indicator.highlightedController, indicator.index),
+                  ],
+                ),
+              ),
+            )
+            .toList(),
+      ),
+      Center(
+        child: SelectableText(
+          this.widget.highlightedName(widget.currentPage),
+          style: TextStyleBase.itemTitle,
+        ),
+      )
+    ]);
+  }
+}

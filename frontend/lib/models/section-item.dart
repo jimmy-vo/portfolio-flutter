@@ -13,7 +13,9 @@ class SectionItem {
   String? organization;
   String? organizationUrl;
   String? location;
+  String? image;
   EnvConfig? config;
+  @JsonKey(name: "description")
   List<SectionItemDescription>? descriptions;
 
   SectionItem({
@@ -24,6 +26,7 @@ class SectionItem {
     required this.organizationUrl,
     required this.location,
     required this.config,
+    required this.image,
     required this.descriptions,
   });
 

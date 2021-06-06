@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/main.dart';
 import 'package:frontend/models/section-item-description.dart';
 
+// ignore: must_be_immutable
 class DescriptionView extends StatelessWidget {
   SectionItemDescription data;
 
@@ -9,17 +11,23 @@ class DescriptionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> bullet = this.data.bullet ?? [];
-    return ListView(
-      shrinkWrap: true,
-      physics: ScrollPhysics(),
-      children: [
-        Text(this.data.text ?? ""),
-        ListView(
-          shrinkWrap: true,
-          physics: ScrollPhysics(),
-          children: bullet.map((e) => Text(" - " + e)).toList(),
-        ),
-      ],
+    String bulletText = bullet.length != 0 ? " - " + bullet.join("\n - ") : "";
+    return Padding(
+      padding: const EdgeInsets.all(3.0),
+      child: ListView(
+        shrinkWrap: true,
+        physics: ScrollPhysics(),
+        children: [
+          SelectableText(
+            this.data.text ?? "",
+            style: TextStyleBase.itemDescritionText,
+          ),
+          SelectableText(
+            bulletText,
+            style: TextStyleBase.itemDescritionBullet,
+          ),
+        ],
+      ),
     );
   }
 }
