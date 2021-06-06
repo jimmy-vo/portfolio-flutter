@@ -11,19 +11,8 @@ class PositionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<SectionItemDescription> descriptions = this.data.descriptions ?? [];
-    // return Text(this.data.title ?? "");
     return Card(
-      child: Row(
-        children: [
-          PositionHeaderView(data: this.data),
-          // ListView(
-          //   shrinkWrap: true,
-          //   physics: ScrollPhysics(),
-          //   children:
-          //       descriptions.map((e) => DescriptionView(data: e)).toList(),
-          // ),
-        ],
-      ),
+      child: Center(child: PositionHeaderView(data: this.data)),
     );
   }
 }
@@ -58,13 +47,16 @@ class PositionHeaderView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicWidth(
-      child: Row(
-        children: [
-          PositionPicture(data: this.data),
-          PositionInfoView(data: this.data)
-        ],
-      ),
+    return Row(
+      children: [
+        PositionPicture(data: this.data),
+        Expanded(
+          child: Container(
+              height: 96,
+              color: Colors.amberAccent,
+              child: PositionInfoView(data: this.data)),
+        ),
+      ],
     );
   }
 }
@@ -76,17 +68,25 @@ class PositionInfoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return Center(child: Text("dsd"));
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(this.data.title ?? ""),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(this.data.title ?? ""),
+        ),
         Row(
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(this.data.organization ?? ""),
             Text(this.data.date ?? ""),
           ],
         ),
-        Text(this.data.location ?? ""),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(this.data.location ?? ""),
+        ),
       ],
     );
   }

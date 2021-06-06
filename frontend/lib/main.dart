@@ -16,7 +16,8 @@ class HomeView extends StatelessWidget {
         if (!controller.isReady) return Spacer();
 
         print("Consumer<Controller> in Main");
-        return ExperienceView(data: controller.experiences as Section);
+        return Center(
+            child: ExperienceView(data: controller.experiences as Section));
       },
     );
   }
