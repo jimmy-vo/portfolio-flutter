@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Flutter Web",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/frontend",
+            "type": "dart",
+            "args": [
+                "--web-port",
+                "4200"
+            ]
+        },
+    ]
+}

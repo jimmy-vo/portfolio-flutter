@@ -1,0 +1,1051 @@
+[
+    {
+        "id": 0,
+        "name": "Summary",
+        "menuName": "title",
+        "items": [
+            {
+                "id": 1,
+                "config": {
+                    "dev": true,
+                    "tech": false
+                },
+                "title": "A problem solver leverages businesses with Software Engineering",
+                "description": [
+                    {
+                        "bullet": [
+                            "Started his career as an embedded engineer in a startup and a global automotive company in Vietnam since 2014",
+                            "Has been working for few startups and local clients in Winnipeg, majored in Web Development, DevOps, Data Science and Machine Learning",
+                            "Has been been involved in leader and management roles in the past year",
+                            "Is looking for a challenging part-time position"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "config": {
+                    "dev": false,
+                    "tech": true
+                },
+                "title": "A problem solver leverages businesses with tech",
+                "description": [
+                    {
+                        "bullet": [
+                            "Started his career as an embedded engineer in a startup and a global automotive company in Vietnam since 2014",
+                            "Has been working for few startups and local clients in Winnipeg, majored in Web Development, DevOps, Data Science and Machine Learning",
+                            "Has been been involved in leader and management roles in the past year",
+                            "Is looking for more responsibility in larger organization"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Work And Experience",
+        "menuName": "organization",
+        "items": [
+            {
+                "id": 0,
+                "title": "Embedded Developer",
+                "date": "January 2014 – Jun 2014",
+                "organization": "VSKYLINE",
+                "organizationUrl": "#",
+                "location": "Ho Chi Minh city, Vietnam",
+                "description": [
+                    {
+                        "text": "Overview:",
+                        "bullet": [
+                            "The first company in Vietnam that invested R&D for UAV for military and filming industry leading the market in Vietnam and Germany at the time",
+                            "Joined the team as a second year student, Improved power efficiency and stability of the prototypes"
+                        ]
+                    },
+                    {
+                        "text": "Technical details:",
+                        "bullet": [
+                            "Researched and developed embedded solutions in unmanned aerial vehicle (UAV) system",
+                            "Designed hardware schematics/layouts and embedded software for UAV modules: GPS, PMM, ESC",
+                            "Performed system integration and testing on flying prototypes"
+                        ]
+                    }
+                ],
+                "image": "img/logo/VietSkyLine.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20140501,
+                    20140502,
+                    20140503,
+                    20140504
+                ]
+            },
+            {
+                "id": 1,
+                "title": "Freelance Embedded Developer",
+                "date": "January 2014 – May 2016",
+                "organization": "Self Employed",
+                "organizationUrl": "#",
+                "location": "Ho Chi Minh city, Vietnam",
+                "description": [
+                    {
+                        "text": "Overview:",
+                        "bullet": [
+                            "Worked for few local clients including small embedded firms, academic projects, military projects",
+                            "Helped students to focus on their things by helping them prepare embedded prototypes"
+                        ]
+                    },
+                    {
+                        "text": "Technical details:",
+                        "bullet": [
+                            "Designed PCB and provided embedded software solution to local clients and funded projects",
+                            "Mainly focused on IoT applications, M2M, Wifi and Bluetooth"
+                        ]
+                    }
+                ],
+                "image": "img/avatar.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20140102,
+                    20140103,
+                    20140601,
+                    20140602,
+                    20140603,
+                    20140604,
+                    20140605
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Embedded Software Engineer",
+                "date": "May 2016 – July 2017",
+                "organization": "HELLA",
+                "organizationUrl": "https://www.hella.com/",
+                "location": "Ho Chi Minh city, Vietnam",
+                "description": [
+                    {
+                        "text": "Overview:",
+                        "bullet": [
+                            "Was part of the team in Vietnam office, customized and maintained Body Control Module (BCM) platform for Geely and Volkswagen",
+                            "Was offered a promotion and invited by Chinese engineers to be a team leader of the RF team",
+                            "Performed software design, maintenance, bugs fixing in 4 projects at the same time",
+                            "Ensured automotive industry standards by unit testing, integration testing, software quality auditing, maintaining implementation document",
+                            "Assisted Germany engineer debugging prototypes",
+                            "Completed Geely project from the first phase to the Start-Of-Production (SOP)"
+                        ]
+                    },
+                    {
+                        "text": "Technical details:",
+                        "bullet": [
+                            "Customized Body Control Module (BCM) for 3 customers using both model base (Matlab) and manual code (C/C++)",
+                            "Researched NFC technology and standards, developed testing strategy, implemented peripheral drivers"
+                        ]
+                    }
+                ],
+                "image": "img/logo/hella.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20160901,
+                    20170109,
+                    20170402
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Researcher",
+                "date": "June 2018 - December 2018",
+                "organization": "ACE Project Space",
+                "organizationUrl": "https://www.rrc.ca/ace/",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "Overview:",
+                        "bullet": [
+                            "Was funded by Health Sciences Centre to build a VR system connecting with sensor on a wheelchair, which help people learn how to use wheelchair better",
+                            "Joined the project as a volunteer, stated being paid after 2 weeks of performance demonstration",
+                            "Proposed an embedded solution to process IMU data with power efficiency improvement",
+                            "Developed project objectives, work plans and implement strategy on the system architect"
+                        ]
+                    },
+                    {
+                        "text": "Technical details:",
+                        "bullet": [
+                            "Assisted the research team with the most difficult issues such as communications and protocols",
+                            "Researched and developed a Bluetooth plug-in for a VR applications with Unity, Android Studio and Visual Studio",
+                            "Designed schematics and layout using Eagle, developed embedded driver and Kalman filter for IMU processing"
+                        ]
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20180629,
+                    20180630
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Jr. Software Developer",
+                "date": "January 2019 - April 2019",
+                "organization": "LaivLy - 24-7 Intouch",
+                "organizationUrl": "https://laivly.com/",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "Overview:",
+                        "bullet": [
+                            "Joined one of the teams at LaivLy for the COOP term at Red River College",
+                            "Focusing on maintaining Robotic Process Automation (RPA), collecting data from multiple databases to build analytic reports"
+                        ]
+                    },
+                    {
+                        "text": "Technical details:",
+                        "bullet": [
+                            "Used multiple programming languages such as C#, HTML, CSS, JavaScript, XAML on .NET platform with Entity Framework and MS SQL Database"
+                        ]
+                    }
+                ],
+                "image": "img/logo/24-7.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 5,
+                "title": "Machine Learning Researcher - Team Lead",
+                "date": "May 2019 - December 2019",
+                "organization": "Life Elevated",
+                "organizationUrl": "http://www.lifeelevated.ca/",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "Overview:",
+                        "bullet": [
+                            "Worked on a research project as Machine Learning Researcher, built and trained various Deep Learning models to solve Stranger Identification problem on an embedded linux device",
+                            "Successfully demonstrated working ML/DL concepts with a real-time application which was a key factor of winning a funding round",
+                            "Kicked off the project Virtual Health Assistant",
+                            "Trained and assisted the team as a Team Lead to build a Content Management System (CMS)",
+                            "Integrated Question Answering system into the CMS system"
+                        ]
+                    },
+                    {
+                        "text": "Machine Learning Researcher:",
+                        "bullet": [
+                            "Built and trained various deep Convolutional Neural networks (CNN) focusing on similarity models on a High-Performance Computer",
+                            "Integrate the trained model onto the target embedded device",
+                            "Set up and deployed an auto-training process, which automatically generate various of CNNs and monitor the training process continuously in real-time",
+                            "Integrated ML modules include with the complexity of various hardware components (CPU/GPU/TPU)"
+                        ]
+                    },
+                    {
+                        "text": "Team Lead:",
+                        "bullet": [
+                            "Led the team on the funded project, trained team members, analyze requirements and assigned tasks to team members",
+                            "Designed the CMS system with Django and Postgres Database, Integrated on-device AI nodes using machine-to-machine (M2M) protocol",
+                            "Experimented different Natural Language Processing (NLP) approaches to build Question Answering system"
+                        ]
+                    }
+                ],
+                "image": "img/logo/LifeElevated.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20190501,
+                    20190502,
+                    20190503,
+                    20190504,
+                    20190505,
+                    20190506,
+                    20190507
+                ]
+            },
+            {
+                "id": 6,
+                "title": "System Developer",
+                "date": "December 2019 - September 2020",
+                "organization": "SolarSkyrise Inc.",
+                "location": "Winnipeg, MB, Canada",
+                "organizationUrl": "https://www.solarskyrise.com/",
+                "description": [
+                    {
+                        "text": "Overview:",
+                        "bullet": [
+                            "Was part of the core development team that helps the company reaching the market-leading position",
+                            "Designed the automated process of collecting 3D building data and reconstructing it into the useful form",
+                            "Estimated BIPV solar irradiant and production power based on the effect of the sunlight and weather condition"
+                        ]
+                    },
+                    {
+                        "text": "Technical details:",
+                        "bullet": [
+                            "Implemented a C++ engine processed architect data and reconstruct sketchup files",
+                            "Implemented a Unity engine that simulates weather condition and and the effect of sunlight on BIPV materials",
+                            "Cleaned and studied data (Jupyter Notebook), reconstructed data with the analysis result",
+                            "Dockerize and built the automated report pipeline (NodeJs, Gatsby, React)"
+                        ]
+                    }
+                ],
+                "image": "img/logo/SolarSkyrise.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20200115,
+                    20200501,
+                    20200811
+                ]
+            },
+            {
+                "id": 777,
+                "title": "Technical Writer",
+                "date": "December 2019 - Current",
+                "organization": "Hobbies",
+                "location": "Winnipeg, MB, Canada",
+                "organizationUrl": "/blogs",
+                "description": [
+                    {
+                        "text": "",
+                        "bullet": [
+                            "Wrote about the technologies I learned on my way",
+                            "Shared my thought about career development and life"
+                        ]
+                    }
+                ],
+                "image": "img/avatar.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": false
+                },
+                "details": [
+                    20120101,
+                    20140505,
+                    20180303,
+                    20180404,
+                    20180612,
+                    20181030,
+                    20181031,
+                    20181126,
+                    20181207,
+                    20190109,
+                    20200827,
+                    20200828,
+                    20200829
+                ]
+            },
+            {
+                "id": 888,
+                "title": "Tech Lead",
+                "date": "December 2019 - September 2020",
+                "organization": "Origatou",
+                "location": "Winnipeg, MB, Canada",
+                "organizationUrl": "https://www.origatou.com/",
+                "description": [
+                    {
+                        "text": "Overview:",
+                        "bullet": [
+                            "Maintained the web app integrated with NFC technology to reduce the use of paper and enhance marketing effectiveness for businesses",
+                            "Kicked off the project, defined the technology and project scope",
+                            "Led functional teams including design, development, management",
+                            "Reviewed code, supported development team removing the obstacles on their way",
+                            "Trained new members, researched and applied new technology to new projects"
+                        ]
+                    },
+                    {
+                        "text": "Technical details:",
+                        "bullet": [
+                            "Designed the system and software architect (Django web app), maintained structural database (Postgres)",
+                            "Configured Google Cloud Platform for scalability, Developed CI/CD pipeline"
+                        ]
+                    }
+                ],
+                "image": "img/logo/OriGatou.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20191212
+                ]
+            },
+            {
+                "id": 999,
+                "title": "Full-stack Developer",
+                "date": "September 2020 - Current",
+                "organization": "Librestream",
+                "location": "Winnipeg, MB, Canada",
+                "organizationUrl": "https://librestream.com/",
+                "description": [
+                    {
+                        "text": "Overview:",
+                        "bullet": [
+                            "Maintained the Onsight augmented reality service platform empowers workers to rapidly diagnose, inspect, and manage assets in even the most difficult field environments",
+                            "Implemented and integrated screen sharing feature into the streaming pipeline",
+                            "Analyzed specs, implemented and integrated SCIM into Azure Active Directory",
+                            "Assisted COOP students on building model for a Computer Vision project, maintained NLP feature (text-to-speech, and speech-to-text)"
+                        ]
+                    },
+                    {
+                        "text": "Technical details:",
+                        "bullet": [
+                            "Fixed bugs on Xamarin application (Android, IOS, Windows, VR headsets) and ASP.NET backend, using different tech stacks (C#, C++, Java, Objective C, Swift)",
+                            "Integrated new features, resolved complexity of conflicts with the existing infrastructure"
+                        ]
+                    }
+                ],
+                "image": "img/logo/Librestream.png",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": []
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Skills",
+        "menuName": "title",
+        "items": [
+            {
+                "id": 10,
+                "title": "Embedded System",
+                "description": [
+                    {
+                        "bullet": [
+                            "Controls/Sensors: ultrasonic, EPPROM, DMA, gyroscope, accelerate-meter, magneto-meter, RF receivers, NFC, capacity touch sensor",
+                            "Hardware: 2-layer PCB layout and schematic designs",
+                            "Software: C/C++ and assembly, m-script, model based generation",
+                            "Protocol: UART, SPI, I2C, GPIO, SDIO, CAN, LIN, Ethernet",
+                            "Tools: MATLAB, Keil, IAR, Eagle, Altium, oscilloscopes and logic analyzer"
+                        ]
+                    }
+                ],
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 11,
+                "title": "Embedded Automotive",
+                "description": [
+                    {
+                        "bullet": [
+                            "Software Components: UDS Diagnostics, Active/passive Entry, UDS Diagnostics, RF receiver stack, NFC stack",
+                            "Basic Software: Diag Stack (DEH, IsoTP); System Stack (SysStateM, BleM, ucDrv, Gpt); Memory Stack (NvM); Io Stack (AdcDrv, DioDrv, SpiDrv, TauDrv)",
+                            "Tools: CANoe, IAR, CppUTest, Tessy, Rhapsody, IBM DOORS"
+                        ]
+                    }
+                ],
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 20,
+                "title": "Computer Graphics",
+                "description": [
+                    {
+                        "bullet": [
+                            "Geometry Processing, Computer Animation, Vector Graphics, 3D physical modeling, Shader",
+                            "Rotation and Transformation (Quaternion and Rotation Matrix)",
+                            "VR, AR, WebGL",
+                            "Frameworks: Unity, OpenGL, WebGL, SketchupAPI"
+                        ]
+                    }
+                ],
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 31,
+                "title": "Cross-Platform",
+                "description": [
+                    {
+                        "bullet": [
+                            "Xamarin (Android - IOS - Window): C#, C++, Java, Objective C, Swift, Android studio, XCode",
+                            "Flutter (Android - IOS - Web): Dart",
+                            "Unity (Android - IOS - Window - Ubuntu): C#"
+                        ]
+                    }
+                ],
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 30,
+                "title": "Development Operations (DevOps)",
+                "description": [
+                    {
+                        "bullet": [
+                            "Cloud: GCP, AWS, DigitalOcean",
+                            "Database: Firebase, Google Cloud SQL, MongoDB Atlas, Amazon RDS",
+                            "Platform: Ubuntu, CentOs, Server Core, Window Server, Android",
+                            "Container: docker, docker compose, Google Cloud Run,  Google Cloud Registry (GCR), Amazon Elastic Container Service (ECS), Amazon Elastic Container Registry (ECR)",
+                            "Virtual Machine: Google App Engine (GAE), Google Compute Engine (GCE), Amazon Elastic Compute Cloud (EC2), Amazon Lightsail",
+                            "Continuous Integration and Deployment: dockerize apps and tests, Github Action, environment configuration",
+                            "Networking: Nginx, Apache",
+                            "Monitor: Sentry, Splunk, container log",
+                            "Environment: node, pip, Anaconda"
+                        ]
+                    }
+                ],
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 41,
+                "title": "Backend",
+                "description": [
+                    {
+                        "bullet": [
+                            "RESTful APIs, MQTT, M2M",
+                            "C/C++, Java,  C#, Javascript, Typescript, Python, Dart",
+                            "JSON Web Token (JWT), middleware",
+                            "Backend architect, design pattern"
+                        ]
+                    }
+                ],
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 42,
+                "title": "Frontend",
+                "description": [
+                    {
+                        "bullet": [
+                            "HTML, CSS, SCSS, SASS, JavaScript, Dart, Bootstrap",
+                            "jQuery, Ajax",
+                            "Angular, React, Flutter, Gatsby, WebFlow"
+                        ]
+                    }
+                ],
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 43,
+                "title": "Fullstack",
+                "description": [
+                    {
+                        "text": "Model-View-Controller (MVC):",
+                        "bullet": [
+                            "Bootstrap, jQuery - Entity .NET - MsSQL",
+                            "React - Express Node - Mongodb",
+                            "Flutter - Aqueduct/Express Node  - Mongodb"
+                        ]
+                    },
+                    {
+                        "text": "Model-View-Presenter (MVP):",
+                        "bullet": [
+                            "Material, Angular - Express Node - Mongodb/Postgres"
+                        ]
+                    },
+                    {
+                        "text": "Model-View-Template (MVT):",
+                        "bullet": [
+                            "WebFlow, jQuery - Django - Postgres",
+                            "Bootstrap - Flask - MsSQL"
+                        ]
+                    }
+                ],
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 50,
+                "title": "Data Engineering",
+                "description": [
+                    {
+                        "bullet": [
+                            "NoSQL Database: MongoDB, Neo4j",
+                            "SQL Database: Oracle Sql, MsSql, SQLite, MySQl, Postgres",
+                            "SQL Tasks: Trigger, Procedure, Report, SQL Server Profiler, Export-Transform-Load ETL, Relational Normalization, Query Optimization, Data Migration"
+                        ]
+                    }
+                ],
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 51,
+                "title": "Machine Learning - Deep Learning",
+                "description": [
+                    {
+                        "bullet": [
+                            "Deep Neural Network: Convolutional Neural Network (CNN), Recurrent Neural Network (RNN)",
+                            "Computer vision: Object detection/classification, Image segmentation, Facial recognition/verification (Siamese Network, One Shot Learning, Triplet loss)",
+                            "Classifiers (SVM, KNN, Softmax, ...), Optimizers (GRD, Adam, ...), Hyperparameter",
+                            "Data Cleaning, training from scratch, transfer learning, automate training process, monitor training",
+                            "Tools: Jupyter Notebooks, Numpy, Tensorflow, Keras, Pytorch, Tensorboard, OpenCV"
+                        ]
+                    }
+                ],
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 52,
+                "title": "Data Science",
+                "description": [
+                    {
+                        "bullet": [
+                            "Geometry data: GeoJSON, PostGIS, GeoRSS",
+                            "Architectural data: Sketchup",
+                            "Signal Processing: Analog/Digital Signal Processing, Low-level optimization with C/C++ and assembly",
+                            "Optimizations: Kalman filter (KF, EKF), data encryption, signal modulation (RF), proportional–integral–derivative control (PID)",
+                            "Tools: Jupyter Notebooks, Numpy, Panda, Matlab modelling"
+                        ]
+                    }
+                ],
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Education",
+        "menuName": "title",
+        "items": [
+            {
+                "id": 1,
+                "title": "Bachelor of Engineering",
+                "date": "August 2010 - May 2016",
+                "organization": "HCM University Of Technology",
+                "location": "Ho Chi Minh city, Vietnam",
+                "description": [
+                    {
+                        "text": "Electrical - Electrical Engineering, Electronics - Telecommunication, Embedded System Software and Hardware"
+                    }
+                ],
+                "image": "img/logo/HCMUT.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20160501,
+                    20160502
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Business Information Technology Diploma",
+                "date": "August 2017 - December 2019",
+                "organization": "Red River College",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "Application Development, Database management, Web Development, Web Security, Technology in Business"
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20191229,
+                    20191230
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Awards",
+        "menuName": "title",
+        "items": [
+            {
+                "id": 5,
+                "title": "Applied Computer Education Innovation Award",
+                "organization": "Applied Computer Education Department, Red River College",
+                "date": "June 13, 2019",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "The purpose of this award is to recognize innovative achievement, including the process of discovery, and creation or conception of the innovation."
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20190613
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Paterson GlobalFoods Business Infomation Technology Award",
+                "organization": "Paterson GlobalFoods",
+                "date": "September 30, 2018",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "Demonstrated career aspirations and volunteer activity in the community and displayed a strong work ethic in class with a minimum GPA of 3.00."
+                    }
+                ],
+                "image": "img/logo/PatersonGlobalFoods.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20190614
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Applied Computer Education Department Award",
+                "organization": "Applied Computer Education Department, Red River College",
+                "date": "June 7, 2018",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "Criteria include a letter of recommendation from an instructor, a portfolio of work, a grade report, as well as an essay that describes the experience in the program, career aspirations, and include examples of class leadership."
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20180608
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Great-West Life Award",
+                "organization": "Great-West Life",
+                "date": "June 7, 2018",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "Criteria include financial need, a strong academic record (minimum cumulative GPA of 3.00), as well as an essay or letter outlining volunteerism/community involvement."
+                    }
+                ],
+                "image": "img/logo/GreatWestLife.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20180607
+                ]
+            },
+            {
+                "id": 1,
+                "title": "School of Business and Applied Arts Award",
+                "organization": "Red River College",
+                "date": "February 16, 2018",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "Red River College award endowment fund, established in part from contributions from the Province of Manitoba's Manitoba Scholarship and Bursary Initiative and from funds established at The Winnipeg Foundation."
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 6,
+                "title": "Red River College's Honor Role Certificate - All terms",
+                "organization": "Applied Computer Education Department, Red River College",
+                "date": "2018 - 2019",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "GPA above 3.8"
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                },
+                "details": [
+                    20191215
+                ]
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Volunteer",
+        "menuName": "title",
+        "items": [
+            {
+                "id": 1,
+                "title": "Note Taker",
+                "date": "February 1, 2018",
+                "organization": "DisruptED 2018",
+                "location": "Red River College",
+                "description": [
+                    {
+                        "text": "An event sponsored by leading institutes (University of Manitoba, RRC) and the giants in the industry (DELL, INTEL, CISCO, IBM), to explore the future of work.",
+                        "bullet": [
+                            "Hosted an unconference on how to bridge the digital divides",
+                            "Took notes in the unconference and reported to the event coordinator"
+                        ]
+                    }
+                ],
+                "image": "img/logo/disrupted.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 2,
+                "title": "Student Representative, Activity Facilitator",
+                "date": "February 20, 2018",
+                "organization": "RRC Open house 2018",
+                "location": "Red River College",
+                "description": [
+                    {
+                        "text": "An event held by RRC to provide RRC’s program tour",
+                        "bullet": [
+                            "Prepared LEGO Mindstorms demonstration",
+                            "Represented RRC’s students to answer CTV interview questions about LEGO Mindstorms",
+                            "Led the Coding-And-Networks-Games room, introducing high school students to basic concepts of programming"
+                        ]
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 3,
+                "title": "Workshop Organizer",
+                "date": "March 2018 - April 2018",
+                "organization": "Unity Workshops",
+                "location": "New Media Manitoba",
+                "description": [
+                    {
+                        "text": "Series of workshops held by Dylan Fries biweekly to introduce Unity developers’ skill sets",
+                        "description": "Set up training materials"
+                    }
+                ],
+                "image": "img/logo/NMM.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 4,
+                "title": "Project Team Leader",
+                "date": "January 2018 – February 2018",
+                "organization": "Canadian Inventory Project",
+                "location": "ACE Project Space, Red River College",
+                "description": [
+                    {
+                        "text": "An Android project sponsored by RRC to improve an inventory system in Canadian stores",
+                        "bullet": [
+                            "Led the team on the software architecture and kept the software clean and maintainable",
+                            "Trained the team members on Android development and new technologies"
+                        ]
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 5,
+                "title": "Session Organizer",
+                "date": "April 12, 2018",
+                "organization": "DigiGirlz Day 2018, Microsoft",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "A great event hosted by Microsoft that RRC have had the fun and privilege to assist with for several years.",
+                        "bullet": [
+                            "Robot Cars: Working with Adafruit Circuit Playground and some common household items, get an introduction to programming and electronics.",
+                            "Cognitive Thinking: Assist students through a series on non-technical activities to illustrate how they use critical and creative thinking."
+                        ]
+                    }
+                ],
+                "image": "img/logo/MS.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 6,
+                "title": "Guest Speaker",
+                "date": "May 24, 2018",
+                "organization": "The Campus tour, Red River College",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "A day tour where international and ESL students come to see the college's facilities and the college lives.",
+                        "bullet": [
+                            "Invited to come and discuss about the courses and the difficulties of international students at RRC",
+                            "Gave advise to ESL students about what they could do to prepare for the courses"
+                        ]
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 7,
+                "title": "Sessions Organizer",
+                "date": "June 5, 2018 - June 6, 2018",
+                "organization": "Prairie Developer Conference",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "A 2-day event provided a high-quality professional development opportunity locally, without the high costs of travel and accommodation typically associated with remote conferences",
+                        "bullet": [
+                            "Answered questions at the welcome booth",
+                            "Ensured the machines worked properly during the presentations"
+                        ]
+                    }
+                ],
+                "image": "img/logo/PrairieDevCon.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 8,
+                "title": "Technology Camps Instructor",
+                "date": "May 2018",
+                "organization": "Red River College",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "A great event hosted by RRC that explained the technology world to high school students",
+                        "bullet": [
+                            "Explained the technologies used in Web Development, Database. Networking and Web Security",
+                            "Led the discussion about ethical hacking and build up a simple website with database"
+                        ]
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 9,
+                "title": "Representor",
+                "date": "August 27 2018",
+                "organization": "Orientation Day, Red River College",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "A new-students-welcome day with the campus tour and orientation session",
+                        "bullet": [
+                            "Guided new students on the campus tour",
+                            "Represented given slices and discussed about different texts related to RRC student life"
+                        ]
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 10,
+                "title": "Education Assistant",
+                "date": "March 2018 - December 2018",
+                "organization": "Red River College",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "Assisted the instructor in the course Network Computing 1, Data Management 2",
+                        "bullet": [
+                            "Indicated the issues, helped students with troubleshooting and explained network behaviors",
+                            "Explained the concepts in the courses to the students"
+                        ]
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            },
+            {
+                "id": 11,
+                "title": "Peer Tutor",
+                "date": "January 2018 - December 2019",
+                "organization": "Red River College",
+                "location": "Winnipeg, MB, Canada",
+                "description": [
+                    {
+                        "text": "Assisted students with programming skills",
+                        "bullet": [
+                            "Worked individually with students and facilitated group study",
+                            "Identified and filled out the students’ learning needs by reasoning and visualization"
+                        ]
+                    }
+                ],
+                "image": "img/logo/RRC.jpg",
+                "config": {
+                    "dev": true,
+                    "tech": true
+                }
+            }
+        ]
+    }
+]
