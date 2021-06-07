@@ -11,6 +11,7 @@ class DescriptionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> bullet = this.data.bullet ?? [];
+    String text = this.data.text ?? "";
     String bulletText = bullet.length != 0 ? " - " + bullet.join("\n - ") : "";
     return Padding(
       padding: const EdgeInsets.all(3.0),
@@ -18,14 +19,15 @@ class DescriptionView extends StatelessWidget {
         shrinkWrap: true,
         physics: ScrollPhysics(),
         children: [
-          SelectableText(
-            this.data.text ?? "",
-            style: TextStyleBase.itemDescritionText,
-          ),
-          SelectableText(
-            bulletText,
-            style: TextStyleBase.itemDescritionBullet,
-          ),
+          ...text != ""
+              ? [SelectableText(text, style: TextStyleBase.itemDescritionText)]
+              : [],
+          ...bulletText != ""
+              ? [
+                  SelectableText(bulletText,
+                      style: TextStyleBase.itemDescritionBullet)
+                ]
+              : [],
         ],
       ),
     );

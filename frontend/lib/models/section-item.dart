@@ -30,6 +30,13 @@ class SectionItem {
     required this.descriptions,
   });
 
+  bool hasInfo() {
+    bool value =
+        this.organization != null || this.location != null || this.date != null;
+
+    return value;
+  }
+
   //////////////////////////////////////////////////////////////////////////////
   factory SectionItem.fromJson(Map<String, dynamic> json) =>
       _$SectionItemFromJson(json);

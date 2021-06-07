@@ -13,6 +13,9 @@ class ImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? imageUrl = this.data.image;
+    if (imageUrl == null) return Spacer();
+
     return Container(
       width: 96.0,
       height: 96.0,
@@ -21,7 +24,7 @@ class ImageView extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         image: DecorationImage(
           fit: BoxFit.fill,
-          image: AssetImage(this.data.image ?? ""),
+          image: AssetImage(imageUrl),
         ),
       ),
     );

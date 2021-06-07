@@ -60,9 +60,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ChangeNotifierProvider<Controller>(
-        create: (_) => Controller(),
-        child: HomeView(),
+      home: Scaffold(
+        body: ChangeNotifierProvider<Controller>(
+          create: (_) => Controller(),
+          child: HomeView(),
+        ),
       ),
     );
   }

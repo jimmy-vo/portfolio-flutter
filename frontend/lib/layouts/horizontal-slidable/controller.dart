@@ -22,22 +22,15 @@ class HorizontalSlidableController {
 
 // ignore: must_be_immutable
 class HorizontalSlidableSummary extends HorizontalSlidablePage {
-  late Section summary;
-  late Section education;
-
   HorizontalSlidableSummary({required List<Section> sections}) {
-    this.summary = sections.firstWhere((element) => element.id == 0);
-    this.education = sections.firstWhere((element) => element.id == 3);
-    this.icon = Icons.account_circle_outlined;
-    this.name = this.summary.name ?? "";
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
+    Section summary = sections.firstWhere((element) => element.id == 0);
+    Section education = sections.firstWhere((element) => element.id == 3);
+    super.icon = Icons.account_circle_outlined;
+    super.name = summary.name ?? "";
+    super.child = Column(
       children: [
-        SectionListView(data: this.summary),
-        SectionListView(data: this.education),
+        SectionListView(data: summary),
+        SectionListView(data: education),
       ],
     );
   }
@@ -45,30 +38,22 @@ class HorizontalSlidableSummary extends HorizontalSlidablePage {
 
 // ignore: must_be_immutable
 class HorizontalSlidableExperience extends HorizontalSlidablePage {
-  late Section experience;
-
   HorizontalSlidableExperience({required List<Section> sections}) {
-    this.experience = sections.firstWhere((element) => element.id == 1);
-    this.icon = Icons.work_outline_rounded;
-    this.name = this.experience.name ?? "";
+    Section experience = sections.firstWhere((element) => element.id == 1);
+    super.icon = Icons.work_outline_rounded;
+    super.name = experience.name ?? "";
+    super.child = SectionListView(data: experience);
   }
-
-  @override
-  Widget build(BuildContext context) => SectionListView(data: this.experience);
 }
 
 // ignore: must_be_immutable
 class HorizontalSlidableSkills extends HorizontalSlidablePage {
-  late Section skills;
-
   HorizontalSlidableSkills({required List<Section> sections}) {
-    this.skills = sections.firstWhere((element) => element.id == 2);
-    this.icon = Icons.lightbulb_outline_rounded;
-    this.name = this.skills.name ?? "";
+    Section skills = sections.firstWhere((element) => element.id == 2);
+    super.icon = Icons.lightbulb_outline_rounded;
+    super.name = skills.name ?? "";
+    super.child = SectionListView(data: skills);
   }
-
-  @override
-  Widget build(BuildContext context) => SectionListView(data: this.skills);
 }
 
 // ignore: must_be_immutable
@@ -76,25 +61,19 @@ class HorizontalSlidableAchivement extends HorizontalSlidablePage {
   late Section achivements;
 
   HorizontalSlidableAchivement({required List<Section> sections}) {
-    this.achivements = sections.firstWhere((element) => element.id == 4);
-    this.icon = Icons.wine_bar_outlined;
-    this.name = this.achivements.name ?? "";
+    Section achivements = sections.firstWhere((element) => element.id == 4);
+    super.icon = Icons.wine_bar_outlined;
+    super.name = achivements.name ?? "";
+    super.child = SectionListView(data: achivements);
   }
-
-  @override
-  Widget build(BuildContext context) => SectionListView(data: this.achivements);
 }
 
 // ignore: must_be_immutable
 class HorizontalSlidableVolunteer extends HorizontalSlidablePage {
-  late Section activities;
-
   HorizontalSlidableVolunteer({required List<Section> sections}) {
-    this.activities = sections.firstWhere((element) => element.id == 5);
-    this.icon = Icons.sports_kabaddi_outlined;
-    this.name = this.activities.name ?? "";
+    Section activities = sections.firstWhere((element) => element.id == 5);
+    super.icon = Icons.sports_kabaddi_outlined;
+    super.name = activities.name ?? "";
+    super.child = SectionListView(data: activities);
   }
-
-  @override
-  Widget build(BuildContext context) => SectionListView(data: this.activities);
 }

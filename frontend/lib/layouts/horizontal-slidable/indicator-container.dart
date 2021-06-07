@@ -15,7 +15,6 @@ class IndicatorContainer extends StatefulWidget {
     required this.normalBuilder,
     required this.highlightedBuilder,
     required this.highlightedName,
-    this.currentPage = 0,
     this.indicatorPadding = const EdgeInsets.all(8.0),
     this.alignment = MainAxisAlignment.center,
   }) : super(key: key);
@@ -25,7 +24,6 @@ class IndicatorContainer extends StatefulWidget {
   IndicatorBuilder normalBuilder;
   IndicatorBuilder highlightedBuilder;
   String Function(int) highlightedName;
-  int currentPage;
   EdgeInsets indicatorPadding;
   MainAxisAlignment alignment;
 
@@ -76,12 +74,12 @@ class _IndicatorContainerState extends State<IndicatorContainer>
   @override
   void initState() {
     super.initState();
-    _prevPage = max(0, widget.currentPage);
+    _prevPage = max(0, widget.pageIndexNotifier.value);
 
     _generateIndicators();
 
-    _indicators[widget.currentPage].normalController.reverse();
-    _indicators[widget.currentPage].highlightedController.forward();
+    _indicators[widget.pageIndexNotifier.value].normalController.reverse();
+    _indicators[widget.pageIndexNotifier.value].highlightedController.forward();
 
     _addIndicatorsListener();
   }
@@ -135,7 +133,7 @@ class _IndicatorContainerState extends State<IndicatorContainer>
       ),
       Center(
         child: SelectableText(
-          this.widget.highlightedName(widget.currentPage),
+          this.widget.highlightedName(widget.pageIndexNotifier.value),
           style: TextStyleBase.itemTitle,
         ),
       )

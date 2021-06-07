@@ -5,8 +5,7 @@ import 'package:frontend/views/item.dart';
 
 // ignore: must_be_immutable
 class SectionListView extends StatelessWidget {
-  Section data;
-
+  late Section data;
   SectionListView({required this.data}) {}
 
   @override

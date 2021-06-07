@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/layouts/horizontal-slidable/controller.dart';
-import 'package:frontend/main.dart';
 import 'package:frontend/models/section.dart';
 
 import 'indicator-container.dart';
@@ -35,32 +34,47 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
     return Stack(
       alignment: FractionalOffset.topCenter,
       children: <Widget>[
-        PageView.builder(
-            controller: pageController,
-            onPageChanged: (index) => pageIndexNotifier.value = index,
-            itemCount: this.controller.widgets.length,
-            itemBuilder: (_, int index) => this.controller.widgets[index]),
+        PageView(
+          controller: pageController,
+          onPageChanged: (index) => pageIndexNotifier.value = index,
+          children: this.controller.widgets,
+        ),
         _buildIndicator()
       ],
     );
   }
 
+  void moveToPage(int index) => pageController.animateToPage(
+        index,
+        duration: Duration(
+            milliseconds:
+                (250 * ((index - pageIndexNotifier.value)).abs() + 1)),
+        curve: Curves.linear,
+      );
+  int? hoveringIndex;
   Widget _buildGestureDetector(int index, bool isSelected) {
-    return GestureDetector(
-      onTap: () {
-        pageController.animateToPage(
-          index,
-          duration: Duration(
-              milliseconds:
-                  (250 * ((index - pageIndexNotifier.value)).abs() + 1)),
-          curve: Curves.linear,
-        );
+    bool highlight = hoveringIndex != null
+        ? (isSelected || hoveringIndex == index)
+        : isSelected;
+    return InkWell(
+      onTap: () => moveToPage(index),
+      onHover: (hovering) {
+        moveToPage(index);
+        setState(() => hoveringIndex = hovering ? index : null);
       },
-      // The custom button
-      child: Icon(
-        controller.widgets[index].icon,
-        size: isSelected ? 40 : 30,
-        color: isSelected ? Colors.blue : Colors.black87,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 100),
+        curve: Curves.ease,
+        // padding: EdgeInsets.all(5),
+        // decoration: BoxDecoration(
+        //   color: hoveringIndex == index ? Colors.blue[50] : Colors.transparent,
+        //   borderRadius: BorderRadius.circular(100),
+        // ),
+        child: Icon(
+          controller.widgets[index].icon,
+          size: highlight ? 40 : 30,
+          color: highlight ? Colors.blue : Colors.black87,
+        ),
       ),
     );
   }
