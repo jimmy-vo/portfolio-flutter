@@ -7,17 +7,6 @@ class HorizontalSlidablePage extends StatefulWidget {
   late Widget child;
 
   @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        Container(height: 100),
-        child,
-        Container(height: 100),
-      ],
-    );
-  }
-
-  @override
   _HorizontalSlidablePageState createState() => _HorizontalSlidablePageState();
 }
 
@@ -45,7 +34,6 @@ class _HorizontalSlidablePageState extends State<HorizontalSlidablePage> {
         Container(height: 100),
       ],
     );
-    a.build(context);
     return a;
   }
 }

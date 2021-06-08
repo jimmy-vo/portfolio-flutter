@@ -19,6 +19,7 @@ class HorizontalSlidable extends StatefulWidget {
 
 // ignore: must_be_immutable
 class HorizontalSlidableState extends State<HorizontalSlidable> {
+  int? hoveringIndex;
   final pageIndexNotifier = ValueNotifier<int>(0);
 
   HorizontalSlidableController controller;
@@ -38,8 +39,26 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
           controller: pageController,
           onPageChanged: (index) => pageIndexNotifier.value = index,
           children: this.controller.widgets,
+          physics: AlwaysScrollableScrollPhysics(),
         ),
-        _buildIndicator()
+        IndicatorContainer(
+          pageIndexNotifier: pageIndexNotifier,
+          length: this.controller.widgets.length,
+          highlightedName: (index) => this.controller.getName(index),
+          normalBuilder: (animationController, index) => ScaleTransition(
+              scale: CurvedAnimation(
+                parent: animationController,
+                curve: Curves.ease,
+              ),
+              child: _buildGestureDetector(index, false)),
+          highlightedBuilder: (animationController, index) => ScaleTransition(
+            scale: CurvedAnimation(
+              parent: animationController,
+              curve: Curves.ease,
+            ),
+            child: _buildGestureDetector(index, true),
+          ),
+        ),
       ],
     );
   }
@@ -51,7 +70,7 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
                 (250 * ((index - pageIndexNotifier.value)).abs() + 1)),
         curve: Curves.linear,
       );
-  int? hoveringIndex;
+
   Widget _buildGestureDetector(int index, bool isSelected) {
     bool highlight = hoveringIndex != null
         ? (isSelected || hoveringIndex == index)
@@ -65,37 +84,11 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 100),
         curve: Curves.ease,
-        // padding: EdgeInsets.all(5),
-        // decoration: BoxDecoration(
-        //   color: hoveringIndex == index ? Colors.blue[50] : Colors.transparent,
-        //   borderRadius: BorderRadius.circular(100),
-        // ),
         child: Icon(
           controller.widgets[index].icon,
           size: highlight ? 40 : 30,
           color: highlight ? Colors.blue : Colors.black87,
         ),
-      ),
-    );
-  }
-
-  IndicatorContainer _buildIndicator() {
-    return IndicatorContainer(
-      pageIndexNotifier: pageIndexNotifier,
-      length: this.controller.widgets.length,
-      highlightedName: (index) => this.controller.getName(index),
-      normalBuilder: (animationController, index) => ScaleTransition(
-          scale: CurvedAnimation(
-            parent: animationController,
-            curve: Curves.ease,
-          ),
-          child: _buildGestureDetector(index, false)),
-      highlightedBuilder: (animationController, index) => ScaleTransition(
-        scale: CurvedAnimation(
-          parent: animationController,
-          curve: Curves.ease,
-        ),
-        child: _buildGestureDetector(index, true),
       ),
     );
   }

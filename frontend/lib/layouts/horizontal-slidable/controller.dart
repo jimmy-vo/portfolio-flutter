@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/layouts/horizontal-slidable/template.dart';
 import 'package:frontend/models/section.dart';
+import 'package:frontend/views/section-grid.dart';
 import 'package:frontend/views/section-list.dart';
 
 class HorizontalSlidableController {
@@ -30,7 +31,7 @@ class HorizontalSlidableSummary extends HorizontalSlidablePage {
     super.child = Column(
       children: [
         SectionListView(data: summary),
-        SectionListView(data: education),
+        SectionGridView(maxColumnWidth: 700, data: education),
       ],
     );
   }
@@ -52,7 +53,7 @@ class HorizontalSlidableSkills extends HorizontalSlidablePage {
     Section skills = sections.firstWhere((element) => element.id == 2);
     super.icon = Icons.lightbulb_outline_rounded;
     super.name = skills.name ?? "";
-    super.child = SectionListView(data: skills);
+    super.child = SectionGridView(maxColumnWidth: 400, data: skills);
   }
 }
 
