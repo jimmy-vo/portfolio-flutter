@@ -41,7 +41,9 @@ class ItemHeaderView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        ...(this.data.image != null ? [ImageView(data: this.data)] : []),
+        ...(this.data.image != null
+            ? [ImageView(imageUrl: this.data.image)]
+            : []),
         Expanded(
           child: Container(
             padding: EdgeInsets.all(5.0),

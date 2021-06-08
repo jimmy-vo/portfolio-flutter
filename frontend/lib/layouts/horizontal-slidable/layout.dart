@@ -1,34 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/controller.dart';
 import 'package:frontend/layouts/horizontal-slidable/controller.dart';
 import 'package:frontend/models/section.dart';
+import 'package:provider/provider.dart';
 
 import 'indicator-container.dart';
 
+class HorizontalSlidableWrapper extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<Controller>(
+      builder: (_, Controller controller, __) {
+        if (!controller.isReady)
+          return Center(child: CircularProgressIndicator());
+
+        return HorizontalSlidable(
+            manager: HorizontalSlidableManager(
+                contact: controller.contact, sections: controller.sections));
+      },
+    );
+  }
+}
+
 // ignore: must_be_immutable
 class HorizontalSlidable extends StatefulWidget {
-  late HorizontalSlidableController controller;
-  HorizontalSlidable({required List<Section> sections}) {
-    this.controller = HorizontalSlidableController(sections: sections);
-  }
+  late HorizontalSlidableManager manager;
+  HorizontalSlidable({required this.manager});
 
   @override
-  HorizontalSlidableState createState() {
-    return HorizontalSlidableState(controller: this.controller);
-  }
+  HorizontalSlidableState createState() => HorizontalSlidableState();
 }
 
 // ignore: must_be_immutable
 class HorizontalSlidableState extends State<HorizontalSlidable> {
   int? hoveringIndex;
   final pageIndexNotifier = ValueNotifier<int>(0);
-
-  HorizontalSlidableController controller;
   PageController pageController = PageController(
     viewportFraction: 1,
     keepPage: true,
   );
-
-  HorizontalSlidableState({required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +48,13 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
         PageView(
           controller: pageController,
           onPageChanged: (index) => pageIndexNotifier.value = index,
-          children: this.controller.widgets,
+          children: this.widget.manager.widgets,
           physics: AlwaysScrollableScrollPhysics(),
         ),
         IndicatorContainer(
           pageIndexNotifier: pageIndexNotifier,
-          length: this.controller.widgets.length,
-          highlightedName: (index) => this.controller.getName(index),
+          length: this.widget.manager.widgets.length,
+          highlightedName: (index) => this.widget.manager.getName(index),
           normalBuilder: (animationController, index) => ScaleTransition(
               scale: CurvedAnimation(
                 parent: animationController,
@@ -96,7 +106,7 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
         duration: const Duration(milliseconds: 100),
         curve: Curves.ease,
         child: Icon(
-          controller.widgets[index].icon,
+          this.widget.manager.widgets[index].icon,
           size: size,
           color: color,
         ),

@@ -38,20 +38,6 @@ void main() {
   runApp(MyApp());
 }
 
-class HomeView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<Controller>(
-      builder: (_, Controller controller, __) {
-        if (!controller.isReady) return Spacer();
-
-        print("Consumer<Controller> in Main");
-        return HorizontalSlidable(sections: controller.sections);
-      },
-    );
-  }
-}
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -63,7 +49,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: ChangeNotifierProvider<Controller>(
           create: (_) => Controller(),
-          child: HomeView(),
+          child: HorizontalSlidableWrapper(),
         ),
       ),
     );

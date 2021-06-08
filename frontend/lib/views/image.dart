@@ -1,19 +1,16 @@
 // ignore: must_be_immutable
 import 'package:flutter/material.dart';
-import 'package:frontend/models/section-item.dart';
 
 // ignore: must_be_immutable
 class ImageView extends StatelessWidget {
-  late SectionItem data;
+  String? imageUrl;
 
   ImageView({
-    Key? key,
-    required this.data,
-  }) : super(key: key);
+    required this.imageUrl,
+  });
 
   @override
   Widget build(BuildContext context) {
-    String? imageUrl = this.data.image;
     if (imageUrl == null) return Spacer();
 
     return Container(
@@ -24,7 +21,7 @@ class ImageView extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         image: DecorationImage(
           fit: BoxFit.fill,
-          image: AssetImage(imageUrl),
+          image: AssetImage(imageUrl ?? ""),
         ),
       ),
     );
