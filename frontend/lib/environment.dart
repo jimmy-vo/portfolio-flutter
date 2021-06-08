@@ -1,18 +1,18 @@
-import 'package:frontend/models/env-config.dart';
+import 'package:frontend/models/config.dart';
 
 class Environment {
   static const String CONFIG =
       String.fromEnvironment('CONFIG', defaultValue: 'tech');
-  static EnvConfig _config = EnvConfig(
+  static Config _config = Config(
     dev: CONFIG == "dev",
     tech: CONFIG == "tech",
   );
-  EnvConfig getConfig() => _config;
+  Config getConfig() => _config;
 
-  static bool isConfigMatched(EnvConfig? input) {
+  static bool isConfigMatched(Config? input) {
     if (input == null) return false;
 
-    EnvConfig newInput = input as EnvConfig;
+    Config newInput = input as Config;
 
     if (_config.dev) {
       return newInput.dev;

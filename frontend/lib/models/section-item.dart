@@ -1,7 +1,7 @@
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:json_annotation/json_annotation.dart';
-import 'package:frontend/models/section-item-description.dart';
-import 'package:frontend/models/env-config.dart';
+import 'package:frontend/models/description.dart';
+import 'package:frontend/models/config.dart';
 
 part 'section-item.g.dart';
 
@@ -14,9 +14,9 @@ class SectionItem {
   String? organizationUrl;
   String? location;
   String? image;
-  EnvConfig? config;
+  Config? config;
   @JsonKey(name: "description")
-  List<SectionItemDescription>? descriptions;
+  List<Description>? descriptions;
 
   SectionItem({
     required this.id,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/models/section-item-description.dart';
+import 'package:frontend/models/description.dart';
 import 'package:frontend/models/section-item.dart';
 import 'package:frontend/views/description.dart';
 import 'package:frontend/views/image.dart';
@@ -14,7 +14,7 @@ class ItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<SectionItemDescription> descriptions = (this.data.descriptions ?? []);
+    List<Description> descriptions = (this.data.descriptions ?? []);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       margin: EdgeInsets.all(10),

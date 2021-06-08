@@ -1,0 +1,94 @@
+{
+    "avatar": "img/avatar.jpg",
+    "name": "Jimmy Vo",
+    "pdfUrf": "files/jimmy-vo-resume.pdf",
+    "description": [
+        {
+            "text": "Let's see how I can help",
+            "bullet": [
+                "You have have a brilliant ideas for your start-up but you are struggling to find a solution",
+                "You want to improve your business with data but you don't know how",
+                "You need a DevOps to improve your development process",
+                "You want me to be part of your development team"
+            ]
+        }
+    ],
+    "social": [
+        {
+            "config": {
+                "dev": true,
+                "tech": false
+            },
+            "data": [
+                {
+                    "url": "https://goo.gl/maps/ioDsGZqAqiWgADMp6",
+                    "text": "Winnipeg, Manitoba",
+                    "icon": "img/icon/address.jpg"
+                },
+                {
+                    "url": "tel:++1 (204) 599 1138",
+                    "text": "+1 (204) 599 1138",
+                    "icon": "img/icon/phone.jpg"
+                },
+                {
+                    "url": "mailto:jimmy.vo.mb@gmail.com",
+                    "text": "jimmy.vo.mb@gmail.com",
+                    "icon": "img/icon/email.jpg"
+                },
+                {
+                    "url": "https://dev.jimmy-vo.com",
+                    "text": "dev.jimmy-vo.com",
+                    "icon": "img/icon/web.jpg"
+                },
+                {
+                    "url": "https://www.linkedin.com/in/jimmy-vo-space/",
+                    "text": "linkedin.com/in/jimmy-vo-space",
+                    "icon": "img/icon/linkedin.jpg"
+                },
+                {
+                    "url": "https://github.com/jimmy-vo",
+                    "text": "github.com/jimmy-vo",
+                    "icon": "img/icon/github.jpg"
+                }
+            ]
+        },
+        {
+            "config": {
+                "dev": false,
+                "tech": true
+            },
+            "data": [
+                {
+                    "url": "https://goo.gl/maps/ioDsGZqAqiWgADMp6",
+                    "text": "Winnipeg, Manitoba",
+                    "icon": "img/icon/address.jpg"
+                },
+                {
+                    "url": "tel:++1 (204) 599 1138",
+                    "text": "+1 (204) 599 1138",
+                    "icon": "img/icon/phone.jpg"
+                },
+                {
+                    "url": "mailto:jimmy.vo.mb@gmail.com",
+                    "text": "jimmy.vo.mb@gmail.com",
+                    "icon": "img/icon/email.jpg"
+                },
+                {
+                    "url": "https://tech.jimmy-vo.com",
+                    "text": "dev.jimmy-vo.com",
+                    "icon": "img/icon/web.jpg"
+                },
+                {
+                    "url": "https://www.linkedin.com/in/jimmy-vo-space/",
+                    "text": "linkedin.com/in/jimmy-vo-space",
+                    "icon": "img/icon/linkedin.jpg"
+                },
+                {
+                    "url": "https://github.com/jimmy-vo",
+                    "text": "github.com/jimmy-vo",
+                    "icon": "img/icon/github.jpg"
+                }
+            ]
+        }
+    ]
+}

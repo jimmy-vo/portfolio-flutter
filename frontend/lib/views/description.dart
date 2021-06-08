@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/main.dart';
-import 'package:frontend/models/section-item-description.dart';
+import 'package:frontend/models/description.dart';
 
 // ignore: must_be_immutable
 class DescriptionView extends StatelessWidget {
-  SectionItemDescription data;
+  Description data;
 
   DescriptionView({required this.data}) {}
 
