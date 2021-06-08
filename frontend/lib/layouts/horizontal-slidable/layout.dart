@@ -72,22 +72,33 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
       );
 
   Widget _buildGestureDetector(int index, bool isSelected) {
-    bool highlight = hoveringIndex != null
-        ? (isSelected || hoveringIndex == index)
-        : isSelected;
+    double size = 30;
+    Color? color = Colors.black87;
+
+    if (isSelected) {
+      size = 45;
+      color = Colors.blue;
+    }
+
+    if (hoveringIndex == index) {
+      size = 45;
+      color = Colors.greenAccent;
+    }
+
     return InkWell(
       onTap: () => moveToPage(index),
       onHover: (hovering) {
-        moveToPage(index);
+        // hoveringIndex = hovering ? index : null;
         setState(() => hoveringIndex = hovering ? index : null);
+        moveToPage(index);
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 100),
         curve: Curves.ease,
         child: Icon(
           controller.widgets[index].icon,
-          size: highlight ? 40 : 30,
-          color: highlight ? Colors.blue : Colors.black87,
+          size: size,
+          color: color,
         ),
       ),
     );
