@@ -12,7 +12,7 @@ class Environment {
   static bool isConfigMatched(Config? input) {
     if (input == null) return false;
 
-    Config newInput = input as Config;
+    Config newInput = input;
 
     if (_config.dev) {
       return newInput.dev;

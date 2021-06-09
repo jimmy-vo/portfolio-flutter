@@ -3,7 +3,7 @@ import 'package:frontend/models/contact.dart';
 import 'package:frontend/models/section-item.dart';
 import 'package:frontend/models/section.dart';
 import 'package:frontend/views/image.dart';
-import 'package:frontend/views/item.dart';
+import 'package:frontend/views/socials.dart';
 
 // ignore: must_be_immutable
 class IntroductionView extends StatelessWidget {
@@ -18,16 +18,11 @@ class IntroductionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
         ImageView(imageUrl: contact.avatar),
-        Spacer(),
+        SocialView(contactSocial: contact.social.first.data),
       ],
-    );
-    return ListView(
-      shrinkWrap: true,
-      physics: ScrollPhysics(),
-      children: items.map((e) => ItemView(data: e)).toList(),
     );
   }
 }

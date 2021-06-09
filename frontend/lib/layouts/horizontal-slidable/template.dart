@@ -26,7 +26,7 @@ class _HorizontalSlidablePageState extends State<HorizontalSlidablePage> {
 
   Future<Widget> load() async {
     // await Future.delayed(Duration(seconds: 4));
-    print("load " + (this.widget.name as String));
+    print("load " + this.widget.name);
     ListView a = ListView(
       children: [
         Container(height: 100),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/layouts/horizontal-slidable/template.dart';
 import 'package:frontend/models/contact.dart';
+import 'package:frontend/models/section-item.dart';
 import 'package:frontend/models/section.dart';
+import 'package:frontend/views/flex-grid.dart';
 import 'package:frontend/views/introduction.dart';
-import 'package:frontend/views/section-grid.dart';
+import 'package:frontend/views/item.dart';
 import 'package:frontend/views/section-list.dart';
 
 class HorizontalSlidableManager {
@@ -12,10 +14,9 @@ class HorizontalSlidableManager {
 
   HorizontalSlidableManager(
       {required Contact contact, required this.sections}) {
-    this.widgets.add(HorizontalSlidableSummary(
-          sections: sections,
-          contact: contact,
-        ));
+    this
+        .widgets
+        .add(HorizontalSlidableSummary(sections: sections, contact: contact));
     this.widgets.add(HorizontalSlidableExperience(sections: sections));
     this.widgets.add(HorizontalSlidableSkills(sections: sections));
     this.widgets.add(HorizontalSlidableAchivement(sections: sections));
@@ -40,7 +41,12 @@ class HorizontalSlidableSummary extends HorizontalSlidablePage {
     super.child = Column(
       children: [
         IntroductionView(summary: summary, contact: contact),
-        SectionGridView(maxColumnWidth: 700, data: education),
+        FlexGridView<SectionItem>(
+          maxColumnWidth: 700,
+          items: education.items ?? [],
+          // ignore: unnecessary_cast
+          builder: (dynamic e) => ItemView(data: e as SectionItem) as Widget,
+        ),
       ],
     );
   }
@@ -62,7 +68,12 @@ class HorizontalSlidableSkills extends HorizontalSlidablePage {
     Section skills = sections.firstWhere((element) => element.id == 2);
     super.icon = Icons.lightbulb_outline_rounded;
     super.name = skills.name ?? "";
-    super.child = SectionGridView(maxColumnWidth: 400, data: skills);
+    super.child = FlexGridView<SectionItem>(
+      maxColumnWidth: 500,
+      items: skills.items ?? [],
+      // ignore: unnecessary_cast
+      builder: (dynamic e) => ItemView(data: e as SectionItem) as Widget,
+    );
   }
 }
 

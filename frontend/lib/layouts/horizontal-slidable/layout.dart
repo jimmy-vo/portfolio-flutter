@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/controller.dart';
-import 'package:frontend/layouts/horizontal-slidable/controller.dart';
-import 'package:frontend/models/section.dart';
+import 'package:frontend/layouts/horizontal-slidable/manager.dart';
 import 'package:provider/provider.dart';
 
 import 'indicator-container.dart';

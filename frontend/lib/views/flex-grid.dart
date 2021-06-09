@@ -1,34 +1,36 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:frontend/models/section-item.dart';
-import 'package:frontend/models/section.dart';
-import 'package:frontend/views/item.dart';
 
 // ignore: must_be_immutable
-class SectionGridView extends StatefulWidget {
-  late List<SectionItem> items;
+class FlexGridView<T> extends StatefulWidget {
+  List<T> items;
   int maxColumnWidth;
-  SectionGridView({required this.maxColumnWidth, required Section data}) {
-    items = data.items ?? [];
-  }
+  double? wrapperWidth;
+  Widget Function(T) builder;
+  FlexGridView({
+    required this.maxColumnWidth,
+    this.wrapperWidth,
+    required this.items,
+    required this.builder,
+  });
+
   @override
-  SectionGridViewState createState() => SectionGridViewState();
+  FlexGridViewState<T> createState() => FlexGridViewState<T>();
 }
 
 // ignore: must_be_immutable
-class SectionGridViewState extends State<SectionGridView> {
-  late List<List<SectionItem>> processedItems;
-  late double previousScreenWidth = 0;
+class FlexGridViewState<T> extends State<FlexGridView> {
+  late List<List<T>> processedItems;
 
   bool getIsReady(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
+    double bound = (widget.wrapperWidth != null)
+        ? widget.wrapperWidth as double
+        : MediaQuery.of(context).size.width;
 
-    int columns = (screenWidth / this.widget.maxColumnWidth).floor();
+    int columns = (bound / this.widget.maxColumnWidth).floor();
     columns = columns == 0 ? 1 : columns;
 
     final lenght = (this.widget.items.length / columns).ceil();
-    List<List<SectionItem>> newProcessedItems = [];
+    List<List<T>> newProcessedItems = [];
     for (int i = 0; i < this.widget.items.length; i++) {
       if (i % lenght == 0) {
         newProcessedItems.add([]);
@@ -57,7 +59,7 @@ class SectionGridViewState extends State<SectionGridView> {
               .map(
                 (e) => Expanded(
                   child: Column(
-                    children: e.map((e) => ItemView(data: e)).toList(),
+                    children: e.map((e) => widget.builder(e)).toList(),
                   ),
                 ),
               )
