@@ -40,6 +40,12 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
   );
 
   @override
+  initState() {
+    super.initState();
+    this.widget.manager.moveToPage = this.moveToPage;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: FractionalOffset.topCenter,

@@ -32,6 +32,11 @@ class TextStyleBase {
     fontWeight: FontWeight.normal,
     fontStyle: FontStyle.normal,
   );
+  static const cardTitle = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+    fontStyle: FontStyle.normal,
+  );
 }
 
 void main() {

@@ -1,7 +1,7 @@
 // ignore: must_be_immutable
 import 'package:flutter/material.dart';
-import 'package:frontend/main.dart';
 import 'package:frontend/models/contact-social.dart';
+import 'package:frontend/views/card-group.dart';
 import 'package:frontend/views/flex-grid.dart';
 import 'package:frontend/views/link-text.dart';
 
@@ -12,7 +12,8 @@ class SocialView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return CardGroup(
+      title: 'Info',
       child: FlexGridView<ContactSocial>(
         items: this.contactSocial,
         maxColumnWidth: 210,
@@ -28,7 +29,7 @@ class SocialView extends StatelessWidget {
               LinkText(text: e.text, url: e.url, size: 12)
             ],
           ),
-        ) as Widget,
+        ),
       ),
     );
   }

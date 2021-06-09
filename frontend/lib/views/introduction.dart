@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:frontend/models/contact.dart';
 import 'package:frontend/models/section-item.dart';
 import 'package:frontend/models/section.dart';
+import 'package:frontend/views/card-group.dart';
+import 'package:frontend/views/description.dart';
 import 'package:frontend/views/image.dart';
-import 'package:frontend/views/socials.dart';
 
 // ignore: must_be_immutable
 class IntroductionView extends StatelessWidget {
@@ -18,11 +19,16 @@ class IntroductionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ImageView(imageUrl: contact.avatar),
-        SocialView(contactSocial: contact.social.first.data),
-      ],
+    items.first.descriptions!.first.text = items.first.title;
+    return CardGroup(
+      title: "Hightlights",
+      child: Row(
+        children: [
+          ImageView(imageUrl: contact.avatar),
+          Expanded(
+              child: DescriptionView(data: items.first.descriptions!.first))
+        ],
+      ),
     );
   }
 }

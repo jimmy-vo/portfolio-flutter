@@ -6,17 +6,21 @@ import 'package:frontend/models/section.dart';
 import 'package:frontend/views/flex-grid.dart';
 import 'package:frontend/views/introduction.dart';
 import 'package:frontend/views/item.dart';
+import 'package:frontend/views/recent-items.dart';
 import 'package:frontend/views/section-list.dart';
+import 'package:frontend/views/socials.dart';
 
 class HorizontalSlidableManager {
   List<HorizontalSlidablePage> widgets = [];
   late List<Section> sections;
+  Function(int)? moveToPage;
 
-  HorizontalSlidableManager(
-      {required Contact contact, required this.sections}) {
-    this
-        .widgets
-        .add(HorizontalSlidableSummary(sections: sections, contact: contact));
+  HorizontalSlidableManager({
+    required Contact contact,
+    required this.sections,
+  }) {
+    this.widgets.add(HorizontalSlidableSummary(
+        sections: sections, contact: contact, moveToPage: moveToPage));
     this.widgets.add(HorizontalSlidableExperience(sections: sections));
     this.widgets.add(HorizontalSlidableSkills(sections: sections));
     this.widgets.add(HorizontalSlidableAchivement(sections: sections));
@@ -33,20 +37,35 @@ class HorizontalSlidableSummary extends HorizontalSlidablePage {
   HorizontalSlidableSummary({
     required List<Section> sections,
     required Contact contact,
+    required Function(int)? moveToPage,
   }) {
     Section summary = sections.firstWhere((element) => element.id == 0);
     Section education = sections.firstWhere((element) => element.id == 3);
+    Section experience = sections.firstWhere((element) => element.id == 1);
+    Section activities = sections.firstWhere((element) => element.id == 5);
     super.icon = Icons.account_circle_outlined;
     super.name = summary.name ?? "";
     super.child = Column(
       children: [
         IntroductionView(summary: summary, contact: contact),
-        FlexGridView<SectionItem>(
-          maxColumnWidth: 700,
-          items: education.items ?? [],
-          // ignore: unnecessary_cast
-          builder: (dynamic e) => ItemView(data: e as SectionItem) as Widget,
+        RecentItems(
+          title: "Recent Experiences",
+          items: experience.items ?? [],
+          count: 2,
+          onPressed: () => moveToPage!(1),
         ),
+        RecentItems(
+          title: education.name ?? "",
+          items: education.items ?? [],
+          count: 2,
+        ),
+        RecentItems(
+          title: "Recent Activities",
+          items: activities.items ?? [],
+          count: 2,
+          onPressed: () => moveToPage!(3),
+        ),
+        SocialView(contactSocial: contact.social.first.data),
       ],
     );
   }

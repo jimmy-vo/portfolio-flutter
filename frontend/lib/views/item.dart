@@ -9,8 +9,9 @@ import '../main.dart';
 // ignore: must_be_immutable
 class ItemView extends StatelessWidget {
   SectionItem data;
+  bool? hideDescription;
 
-  ItemView({required this.data}) {}
+  ItemView({required this.data, this.hideDescription}) {}
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,9 @@ class ItemView extends StatelessWidget {
         child: Column(
           children: [
             ItemHeaderView(data: this.data),
-            ...descriptions.map((e) => DescriptionView(data: e)).toList(),
+            ...hideDescription != true
+                ? descriptions.map((e) => DescriptionView(data: e)).toList()
+                : [],
           ],
         ),
       ),
