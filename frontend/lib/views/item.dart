@@ -15,7 +15,6 @@ class ItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Description> descriptions = (this.data.descriptions ?? []);
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       margin: EdgeInsets.all(10),
@@ -25,7 +24,7 @@ class ItemView extends StatelessWidget {
           children: [
             ItemHeaderView(data: this.data),
             ...hideDescription != true
-                ? descriptions.map((e) => DescriptionView(data: e)).toList()
+                ? [DescriptionView(data: this.data.descriptions ?? [])]
                 : [],
           ],
         ),

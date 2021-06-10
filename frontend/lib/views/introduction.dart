@@ -25,8 +25,7 @@ class IntroductionView extends StatelessWidget {
       child: Row(
         children: [
           ImageView(imageUrl: contact.avatar),
-          Expanded(
-              child: DescriptionView(data: items.first.descriptions!.first))
+          Expanded(child: DescriptionView(data: items.first.descriptions ?? []))
         ],
       ),
     );

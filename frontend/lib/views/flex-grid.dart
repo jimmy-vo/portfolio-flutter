@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class FlexGridView<T> extends StatefulWidget {
-  List<T> items;
+class FlexGridView extends StatefulWidget {
+  List<Widget> children;
   int maxColumnWidth;
   double? wrapperWidth;
-  Widget Function(T) builder;
   FlexGridView({
     required this.maxColumnWidth,
     this.wrapperWidth,
-    required this.items,
-    required this.builder,
+    required this.children,
   });
 
   @override
-  FlexGridViewState<T> createState() => FlexGridViewState<T>();
+  FlexGridViewState createState() => FlexGridViewState();
 }
 
 // ignore: must_be_immutable
-class FlexGridViewState<T> extends State<FlexGridView> {
-  late List<List<T>> processedItems;
+class FlexGridViewState extends State<FlexGridView> {
+  late List<List<Widget>> processedItems;
 
   bool getIsReady(BuildContext context) {
     double bound = (widget.wrapperWidth != null)
@@ -29,13 +27,13 @@ class FlexGridViewState<T> extends State<FlexGridView> {
     int columns = (bound / this.widget.maxColumnWidth).floor();
     columns = columns == 0 ? 1 : columns;
 
-    final lenght = (this.widget.items.length / columns).ceil();
-    List<List<T>> newProcessedItems = [];
-    for (int i = 0; i < this.widget.items.length; i++) {
+    final lenght = (this.widget.children.length / columns).ceil();
+    List<List<Widget>> newProcessedItems = [];
+    for (int i = 0; i < this.widget.children.length; i++) {
       if (i % lenght == 0) {
         newProcessedItems.add([]);
       }
-      newProcessedItems.last.add(this.widget.items[i]);
+      newProcessedItems.last.add(this.widget.children[i]);
     }
 
     this.processedItems = newProcessedItems;
@@ -59,7 +57,7 @@ class FlexGridViewState<T> extends State<FlexGridView> {
               .map(
                 (e) => Expanded(
                   child: Column(
-                    children: e.map((e) => widget.builder(e)).toList(),
+                    children: e,
                   ),
                 ),
               )

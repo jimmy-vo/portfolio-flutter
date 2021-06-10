@@ -25,14 +25,15 @@ class RecentItems extends StatelessWidget {
       children: [
         CardGroup(
           title: title,
-          child: FlexGridView<SectionItem>(
+          child: FlexGridView(
             maxColumnWidth: 700,
-            items: items.sublist(0, count),
-            // ignore: unnecessary_cast
-            builder: (dynamic e) => ItemView(
-              data: e as SectionItem,
-              hideDescription: true,
-            ) as Widget,
+            children: items
+                .sublist(0, count)
+                .map((e) => ItemView(
+                      data: e,
+                      hideDescription: onPressed != null,
+                    ))
+                .toList(),
           ),
         ),
         onPressed != null

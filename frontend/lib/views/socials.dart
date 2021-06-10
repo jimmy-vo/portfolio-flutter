@@ -14,22 +14,26 @@ class SocialView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CardGroup(
       title: 'Info',
-      child: FlexGridView<ContactSocial>(
-        items: this.contactSocial,
+      child: FlexGridView(
+        children: this
+            .contactSocial
+            .map(
+              (e) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: SocialIconView(imageUrl: e.icon),
+                    ),
+                    LinkText(text: e.text, url: e.url, size: 12)
+                  ],
+                ),
+              ),
+            )
+            .toList(),
         maxColumnWidth: 210,
         wrapperWidth: MediaQuery.of(context).size.width - 100,
-        builder: (dynamic e) => Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: SocialIconView(imageUrl: e.icon),
-              ),
-              LinkText(text: e.text, url: e.url, size: 12)
-            ],
-          ),
-        ),
       ),
     );
   }

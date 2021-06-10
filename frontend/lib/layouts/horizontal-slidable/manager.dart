@@ -87,11 +87,9 @@ class HorizontalSlidableSkills extends HorizontalSlidablePage {
     Section skills = sections.firstWhere((element) => element.id == 2);
     super.icon = Icons.lightbulb_outline_rounded;
     super.name = skills.name ?? "";
-    super.child = FlexGridView<SectionItem>(
+    super.child = FlexGridView(
       maxColumnWidth: 500,
-      items: skills.items ?? [],
-      // ignore: unnecessary_cast
-      builder: (dynamic e) => ItemView(data: e as SectionItem) as Widget,
+      children: (skills.items ?? []).map((e) => ItemView(data: e)).toList(),
     );
   }
 }

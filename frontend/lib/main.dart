@@ -4,16 +4,21 @@ import 'package:frontend/layouts/horizontal-slidable/layout.dart';
 import 'package:provider/provider.dart';
 
 class TextStyleBase {
+  static const cardTitle = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+    fontStyle: FontStyle.normal,
+  );
   static const itemTitle = TextStyle(
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: FontWeight.w900,
   );
   static const itemOrganization = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w700,
+    fontSize: 19,
+    fontWeight: FontWeight.w600,
   );
   static const itemDate = TextStyle(
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: FontWeight.normal,
     fontStyle: FontStyle.italic,
   );
@@ -30,11 +35,6 @@ class TextStyleBase {
   static const itemDescritionBullet = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,
-    fontStyle: FontStyle.normal,
-  );
-  static const cardTitle = TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.bold,
     fontStyle: FontStyle.normal,
   );
 }
