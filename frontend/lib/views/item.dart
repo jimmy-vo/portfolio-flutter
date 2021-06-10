@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/models/description.dart';
 import 'package:frontend/models/section-item.dart';
 import 'package:frontend/views/description.dart';
+import 'package:frontend/views/flex-grid.dart';
 import 'package:frontend/views/image.dart';
 
 import '../main.dart';
@@ -64,40 +65,32 @@ class ItemInfoView extends StatelessWidget {
 
   ItemInfoView({required this.data}) {}
 
-  List<Widget> _buildInfo() {
-    String organization = this.data.organization ?? "";
-    String location = this.data.location ?? "";
-    String date = this.data.date ?? "";
-    return [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SelectableText(organization, style: TextStyleBase.itemOrganization),
-          SelectableText(date, style: TextStyleBase.itemDate),
-        ],
-      ),
-      Align(
-        alignment: Alignment.centerLeft,
-        child: SelectableText(location, style: TextStyleBase.itemLocation),
-      ),
-    ];
-  }
-
-  Widget _buildTitle() {
-    String title = this.data.title ?? "";
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: SelectableText(title, style: TextStyleBase.itemTitle),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    if (!this.data.hasInfo()) return this._buildTitle();
+    String title = this.data.title ?? "";
+    if (!this.data.hasInfo())
+      return SelectableText(title, style: TextStyleBase.itemTitle);
 
-    return Column(
+    String organization = "\n" + (this.data.organization ?? "");
+    String location = "\n" + (this.data.location ?? "") + "\n";
+    String date = this.data.date ?? "";
+
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [this._buildTitle(), ...this._buildInfo()],
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Align(
+          alignment: Alignment.topLeft,
+          child: SelectableText.rich(TextSpan(children: [
+            TextSpan(text: title, style: TextStyleBase.itemTitle),
+            TextSpan(text: organization, style: TextStyleBase.itemOrganization),
+            TextSpan(text: location, style: TextStyleBase.itemLocation)
+          ])),
+        ),
+        Align(
+            alignment: Alignment.topRight,
+            child: SelectableText(date, style: TextStyleBase.itemDate))
+      ],
     );
   }
 }
