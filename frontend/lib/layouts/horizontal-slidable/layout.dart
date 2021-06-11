@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/controller.dart';
+import 'package:frontend/layouts/horizontal-slidable/indicator-group.dart';
 import 'package:frontend/layouts/horizontal-slidable/manager.dart';
+import 'package:frontend/main.dart';
 import 'package:provider/provider.dart';
 
 import 'indicator-container.dart';
@@ -75,7 +77,6 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
           child: IndicatorContainer(
             pageIndexNotifier: pageIndexNotifier,
             length: this.widget.manager.widgets.length,
-            highlightedName: (index) => this.widget.manager.getName(index),
             normalBuilder: (animationController, index) => ScaleTransition(
                 scale: CurvedAnimation(
                   parent: animationController,
@@ -104,34 +105,18 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
       );
 
   Widget _buildIndicator(int index, bool isSelected) {
-    double size = 30;
-    Color? color = Colors.white;
-
-    if (hoveringIndex == index) {
-      size = 45;
-      color = Colors.greenAccent;
-    }
-
-    if (isSelected) {
-      size = 45;
-      color = Colors.blue;
-    }
-    return InkWell(
-      onTap: () => moveToPage(index),
-      onHover: (hovering) {
-        // hoveringIndex = hovering ? index : null;
-        setState(() => hoveringIndex = hovering ? index : null);
+    return IndicatorGroup(
+      hoveringIndex: hoveringIndex,
+      icon: this.widget.manager.widgets[index].icon,
+      index: index,
+      isSelected: isSelected,
+      onHover: (bool hovering) {
+        setState(() {
+          hoveringIndex = hovering ? index : null;
+        });
         moveToPage(index);
       },
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 100),
-        curve: Curves.ease,
-        child: Icon(
-          this.widget.manager.widgets[index].icon,
-          size: size,
-          color: color,
-        ),
-      ),
+      text: isSelected ? this.widget.manager.getName(index) : "",
     );
   }
 }

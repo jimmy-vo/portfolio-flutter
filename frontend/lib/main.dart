@@ -12,6 +12,7 @@ class TextStyleBase {
   static const itemTitle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w900,
+    color: Colors.white,
   );
   static const itemOrganization = TextStyle(
     fontSize: 19,

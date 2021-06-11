@@ -14,8 +14,6 @@ class IndicatorContainer extends StatefulWidget {
     required this.length,
     required this.normalBuilder,
     required this.highlightedBuilder,
-    required this.highlightedName,
-    this.indicatorPadding = const EdgeInsets.all(8.0),
     this.alignment = MainAxisAlignment.center,
   }) : super(key: key);
 
@@ -23,8 +21,6 @@ class IndicatorContainer extends StatefulWidget {
   int length;
   IndicatorBuilder normalBuilder;
   IndicatorBuilder highlightedBuilder;
-  String Function(int) highlightedName;
-  EdgeInsets indicatorPadding;
   MainAxisAlignment alignment;
 
   @override
@@ -111,13 +107,12 @@ class _IndicatorContainerState extends State<IndicatorContainer>
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Row(
-        mainAxisAlignment: widget.alignment,
+    return Stack(
         children: _indicators
             .map<Widget>(
-              (indicator) => Padding(
-                padding: widget.indicatorPadding,
+              (indicator) => Positioned(
+                top: 0,
+                left: (indicator.index + 1) * 50,
                 child: Stack(
                   alignment: AlignmentDirectional.center,
                   children: [
@@ -129,14 +124,6 @@ class _IndicatorContainerState extends State<IndicatorContainer>
                 ),
               ),
             )
-            .toList(),
-      ),
-      Center(
-        child: SelectableText(
-          this.widget.highlightedName(widget.pageIndexNotifier.value),
-          style: TextStyleBase.itemTitle,
-        ),
-      )
-    ]);
+            .toList());
   }
 }
