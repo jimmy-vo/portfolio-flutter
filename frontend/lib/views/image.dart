@@ -14,8 +14,8 @@ class ImageView extends StatelessWidget {
     if (imageUrl == null) return Spacer();
 
     return Container(
-      width: 96.0,
-      height: 96.0,
+      width: 70,
+      height: 70,
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(10.0),

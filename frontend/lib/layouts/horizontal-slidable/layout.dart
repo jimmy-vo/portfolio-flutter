@@ -56,22 +56,39 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
           children: this.widget.manager.widgets,
           physics: AlwaysScrollableScrollPhysics(),
         ),
-        IndicatorContainer(
-          pageIndexNotifier: pageIndexNotifier,
-          length: this.widget.manager.widgets.length,
-          highlightedName: (index) => this.widget.manager.getName(index),
-          normalBuilder: (animationController, index) => ScaleTransition(
+        Container(
+          height: 100,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.black54.withOpacity(1),
+                Colors.black.withOpacity(1),
+                Colors.black54.withOpacity(1),
+                Colors.white.withOpacity(1),
+                Colors.white.withOpacity(.1),
+              ],
+              stops: [0.1, 0.2, 0.5, 0.9, 1],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: IndicatorContainer(
+            pageIndexNotifier: pageIndexNotifier,
+            length: this.widget.manager.widgets.length,
+            highlightedName: (index) => this.widget.manager.getName(index),
+            normalBuilder: (animationController, index) => ScaleTransition(
+                scale: CurvedAnimation(
+                  parent: animationController,
+                  curve: Curves.ease,
+                ),
+                child: _buildIndicator(index, false)),
+            highlightedBuilder: (animationController, index) => ScaleTransition(
               scale: CurvedAnimation(
                 parent: animationController,
                 curve: Curves.ease,
               ),
-              child: _buildGestureDetector(index, false)),
-          highlightedBuilder: (animationController, index) => ScaleTransition(
-            scale: CurvedAnimation(
-              parent: animationController,
-              curve: Curves.ease,
+              child: _buildIndicator(index, true),
             ),
-            child: _buildGestureDetector(index, true),
           ),
         ),
       ],
@@ -86,20 +103,19 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
         curve: Curves.linear,
       );
 
-  Widget _buildGestureDetector(int index, bool isSelected) {
+  Widget _buildIndicator(int index, bool isSelected) {
     double size = 30;
-    Color? color = Colors.black87;
-
-    if (isSelected) {
-      size = 45;
-      color = Colors.blue;
-    }
+    Color? color = Colors.white;
 
     if (hoveringIndex == index) {
       size = 45;
       color = Colors.greenAccent;
     }
 
+    if (isSelected) {
+      size = 45;
+      color = Colors.blue;
+    }
     return InkWell(
       onTap: () => moveToPage(index),
       onHover: (hovering) {

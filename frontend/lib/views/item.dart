@@ -48,10 +48,13 @@ class ItemHeaderView extends StatelessWidget {
             ? [ImageView(imageUrl: this.data.image)]
             : []),
         Expanded(
-          child: Container(
-            padding: EdgeInsets.all(5.0),
-            // height: 96,
-            child: ItemInfoView(data: this.data),
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              padding: EdgeInsets.all(5.0),
+              // height: 96,
+              child: ItemInfoView(data: this.data),
+            ),
           ),
         ),
       ],
