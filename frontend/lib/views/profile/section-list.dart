@@ -5,12 +5,12 @@ import 'package:frontend/views/profile/item.dart';
 
 // ignore: must_be_immutable
 class SectionListView extends StatelessWidget {
-  late Section data;
-  SectionListView({required this.data}) {}
+  late Section section;
+  SectionListView({required this.section}) {}
 
   @override
   Widget build(BuildContext context) {
-    List<SectionItem> items = this.data.items ?? [];
+    List<SectionItem> items = this.section.items ?? [];
     return ListView(
       shrinkWrap: true,
       physics: ScrollPhysics(),

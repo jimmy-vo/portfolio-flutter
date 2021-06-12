@@ -12,6 +12,6 @@ class HorizontalSlidableAchivement extends HorizontalSlidablePage {
     Section achivements = sections.firstWhere((element) => element.id == 4);
     super.icon = Icons.wine_bar_outlined;
     super.name = achivements.name ?? "";
-    super.child = SectionListView(data: achivements);
+    super.child = SectionListView(section: achivements);
   }
 }

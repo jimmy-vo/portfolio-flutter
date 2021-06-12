@@ -10,6 +10,6 @@ class HorizontalSlidableVolunteer extends HorizontalSlidablePage {
     Section activities = sections.firstWhere((element) => element.id == 5);
     super.icon = Icons.sports_kabaddi_outlined;
     super.name = activities.name ?? "";
-    super.child = SectionListView(data: activities);
+    super.child = SectionListView(section: activities);
   }
 }

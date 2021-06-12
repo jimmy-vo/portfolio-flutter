@@ -10,6 +10,6 @@ class HorizontalSlidableExperience extends HorizontalSlidablePage {
     Section experience = sections.firstWhere((element) => element.id == 1);
     super.icon = Icons.work_outline_rounded;
     super.name = experience.name ?? "";
-    super.child = SectionListView(data: experience);
+    super.child = SectionListView(section: experience);
   }
 }

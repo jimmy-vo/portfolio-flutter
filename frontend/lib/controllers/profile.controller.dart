@@ -8,6 +8,11 @@ import 'package:frontend/models/section.dart';
 class ProfileController with ChangeNotifier {
   List<Section> sections = [];
   late Contact contact;
+  late Section experience;
+  late Section achivements;
+  late Section skills;
+  late Section education;
+  late Section activities;
   bool isReady = false;
 
   ProfileController() {
@@ -20,8 +25,15 @@ class ProfileController with ChangeNotifier {
 
   Future load() async {
     this.isReady = false;
+
     await loadSections();
     await loadContact();
+    this.experience = sections.firstWhere((element) => element.id == 1);
+    this.education = sections.firstWhere((element) => element.id == 3);
+    this.skills = sections.firstWhere((element) => element.id == 2);
+    this.achivements = sections.firstWhere((element) => element.id == 4);
+    this.activities = sections.firstWhere((element) => element.id == 5);
+
     this.isReady = true;
   }
 

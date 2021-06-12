@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/controllers/profile.controller.dart';
 import 'package:frontend/controllers/settings.controller.dart';
 import 'package:frontend/layouts/horizontal-slidable/layout.dart';
+import 'package:frontend/layouts/static/static.dart';
 import 'package:frontend/page-stacks/settings.dart';
 import 'package:provider/provider.dart';
 
@@ -86,9 +87,16 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           drawer: SideDrawer(),
           body: ChangeNotifierProvider<ProfileController>(
-            create: (_) => ProfileController(),
-            child: HorizontalSlidableWrapper(),
-          ),
+              create: (_) => ProfileController(),
+              child: Consumer<SettingsController>(
+                  builder: (_, SettingsController controller, __) {
+                if (!controller.isReady)
+                  return Center(child: CircularProgressIndicator());
+
+                return controller.navEnable!.value
+                    ? HorizontalSlidableWrapper()
+                    : StaticLayout();
+              })),
         ),
       ),
     );
