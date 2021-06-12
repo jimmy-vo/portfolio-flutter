@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/layouts/horizontal-slidable/template.dart';
+import 'package:frontend/views/setting-item-wrapper.dart';
 import 'package:frontend/views/settings/nav-hover.dart';
 import 'package:frontend/views/settings/nav-position.dart';
 
@@ -12,11 +13,13 @@ class HorizontalSlidableSettings extends HorizontalSlidablePage {
       children: <Widget>[
         ExpansionTile(
           maintainState: true,
+          initiallyExpanded: true,
           childrenPadding: const EdgeInsets.only(left: 20),
-          title: Text("Settings"),
+          title: Text("Navigation bar"),
+          expandedAlignment: Alignment.topLeft,
           children: <Widget>[
-            NavBarPosistion(),
-            NavBarHover(),
+            SettingItemWrapper(label: "Position", child: NavBarPosistion()),
+            SettingItemWrapper(label: "Select on hover", child: NavBarHover()),
           ],
         ),
       ],

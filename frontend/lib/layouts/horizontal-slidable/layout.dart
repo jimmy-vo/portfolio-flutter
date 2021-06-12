@@ -47,6 +47,7 @@ class HorizontalSlidable extends StatefulWidget {
 class HorizontalSlidableState extends State<HorizontalSlidable> {
   final pageIndexNotifier = ValueNotifier<int>(0);
   late NavSelectOnHover? navSelectOnHover = null;
+  late NavPosition? navPosition = null;
   PageController pageController = PageController(
     viewportFraction: 1,
     keepPage: true,
@@ -64,7 +65,8 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
         builder: (_, SettingsController controller, __) {
       if (!controller.isReady) return CircularProgressIndicator();
 
-      navSelectOnHover = controller.navHover;
+      this.navSelectOnHover = controller.navHover;
+      this.navPosition = controller.navPosition;
 
       return Stack(
         alignment: controller.navPosition!.value == NavPositionValue.Top
@@ -73,14 +75,13 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
         clipBehavior: Clip.none,
         children: <Widget>[
           _buildPageView(),
-          _buildIndicatorWrapper(
-              navPositionValue: controller.navPosition!.value),
+          _buildIndicatorWrapper(),
         ],
       );
     });
   }
 
-  Widget _buildIndicatorWrapper({required NavPositionValue navPositionValue}) {
+  Widget _buildIndicatorWrapper() {
     double wrapperOffset = (MediaQuery.of(context).size.width -
             (widget.offsets.last - widget.offsets.first)) /
         2;
@@ -97,7 +98,7 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
       height: 100,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: navPositionValue == NavPositionValue.Top
+          colors: this.navPosition!.value == NavPositionValue.Top
               ? colors
               : colors.reversed.toList(),
           stops: [0.1, 0.2, 0.5, 0.9, 1],
@@ -106,7 +107,7 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
         ),
       ),
       child: IndicatorContainer(
-        navPositionValue: navPositionValue,
+        navPositionValue: this.navPosition!.value,
         pageIndexNotifier: pageIndexNotifier,
         length: this.widget.manager.widgets.length,
         getOffset: (int index) => widget.offsets[index] + wrapperOffset,
@@ -115,13 +116,13 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
               parent: animationController,
               curve: Curves.ease,
             ),
-            child: _buildIndicator(index, navPositionValue, false)),
+            child: _buildIndicator(index, this.navPosition!.value, false)),
         highlightedBuilder: (animationController, index) => ScaleTransition(
           scale: CurvedAnimation(
             parent: animationController,
             curve: Curves.ease,
           ),
-          child: _buildIndicator(index, navPositionValue, true),
+          child: _buildIndicator(index, this.navPosition!.value, true),
         ),
       ),
     );
