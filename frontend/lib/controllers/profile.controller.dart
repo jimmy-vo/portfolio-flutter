@@ -5,12 +5,12 @@ import 'package:frontend/environment.dart';
 import 'package:frontend/models/contact.dart';
 import 'package:frontend/models/section.dart';
 
-class Controller with ChangeNotifier {
+class ProfileController with ChangeNotifier {
   List<Section> sections = [];
   late Contact contact;
   bool isReady = false;
 
-  Controller() {
+  ProfileController() {
     this.load().then((value) => notifyListeners());
   }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/controller.dart';
+import 'package:frontend/controllers/profile.controller.dart';
 import 'package:frontend/layouts/horizontal-slidable/indicator-group.dart';
 import 'package:frontend/layouts/horizontal-slidable/manager.dart';
 import 'package:provider/provider.dart';
@@ -9,8 +9,8 @@ import 'indicator-container.dart';
 class HorizontalSlidableWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Consumer<Controller>(
-      builder: (_, Controller controller, __) {
+    return Consumer<ProfileController>(
+      builder: (_, ProfileController controller, __) {
         if (!controller.isReady)
           return Center(child: CircularProgressIndicator());
 

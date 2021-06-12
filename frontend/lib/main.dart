@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/controller.dart';
+import 'package:frontend/controllers/profile.controller.dart';
+import 'package:frontend/controllers/settings.controller.dart';
 import 'package:frontend/layouts/horizontal-slidable/layout.dart';
 import 'package:provider/provider.dart';
 
@@ -74,9 +75,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: ChangeNotifierProvider<Controller>(
-          create: (_) => Controller(),
-          child: HorizontalSlidableWrapper(),
+        body: ChangeNotifierProvider<SettingsController>(
+          create: (context) => SettingsController(),
+          child: ChangeNotifierProvider<ProfileController>(
+            create: (_) => ProfileController(),
+            child: HorizontalSlidableWrapper(),
+          ),
         ),
       ),
     );
