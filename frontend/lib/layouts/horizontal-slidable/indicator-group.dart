@@ -30,17 +30,21 @@ class IndicatorGroup extends StatefulWidget {
 class IndicatorGroupState extends State<IndicatorGroup> {
   @override
   Widget build(BuildContext context) {
-    double size = 30;
-    Color? color = Colors.white;
+    double iconSize = 30;
+    Color? iconColor = Colors.white;
+    TextStyle? textStyle = TextStyleBase.indicatorTextSelected;
 
     if (widget.isSelected) {
-      size = 45;
-      color = Colors.blue;
+      iconSize = 45;
+      iconColor = Colors.blue;
+      textStyle = TextStyleBase.indicatorTextSelected;
     }
     if (widget.hoveringIndex == widget.index) {
-      size = 45;
-      color = Colors.greenAccent;
+      iconSize = 45;
+      iconColor = Colors.greenAccent;
+      textStyle = TextStyleBase.indicatorTextHighlight;
     }
+
     Widget iconWidget = InkWell(
       onTap: () {
         this.widget.onHover!(true);
@@ -55,9 +59,9 @@ class IndicatorGroupState extends State<IndicatorGroup> {
       },
       // onHover: this.onHover,
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 100),
+        duration: const Duration(microseconds: 2),
         curve: Curves.ease,
-        child: Icon(this.widget.icon, size: size, color: color),
+        child: Icon(this.widget.icon, size: iconSize, color: iconColor),
       ),
     );
 
@@ -66,13 +70,16 @@ class IndicatorGroupState extends State<IndicatorGroup> {
       child: Center(
         child: Column(
           children: [
-            iconWidget,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: iconWidget,
+            ),
             AnimatedContainer(
-              duration: const Duration(milliseconds: 0),
+              duration: const Duration(microseconds: 2),
               curve: Curves.ease,
               child: Text(
                 this.widget.text ?? "",
-                style: TextStyleBase.itemTitle,
+                style: textStyle,
               ),
             ),
           ],

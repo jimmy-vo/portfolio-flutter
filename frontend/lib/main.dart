@@ -9,10 +9,19 @@ class TextStyleBase {
     fontWeight: FontWeight.bold,
     fontStyle: FontStyle.normal,
   );
+  static const indicatorTextSelected = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w900,
+    color: Colors.blueAccent,
+  );
+  static const indicatorTextHighlight = TextStyle(
+    fontSize: 50,
+    fontWeight: FontWeight.w900,
+    color: Colors.greenAccent,
+  );
   static const itemTitle = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w900,
-    color: Colors.white,
   );
   static const itemOrganization = TextStyle(
     fontSize: 19,
@@ -37,6 +46,18 @@ class TextStyleBase {
     fontSize: 16,
     fontWeight: FontWeight.normal,
     fontStyle: FontStyle.normal,
+  );
+  static const socialLabel = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+  static const linkText = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.italic,
+    color: Colors.blue,
+    decoration: TextDecoration.underline,
   );
 }
 

@@ -1,5 +1,6 @@
 // ignore: must_be_immutable
 import 'package:flutter/material.dart';
+import 'package:frontend/main.dart';
 import 'package:frontend/models/contact-social.dart';
 import 'package:frontend/views/card-group.dart';
 import 'package:frontend/views/flex-grid.dart';
@@ -13,7 +14,7 @@ class SocialView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CardGroup(
-      title: 'Info',
+      title: 'Connect',
       child: FlexGridView(
         children: this
             .contactSocial
@@ -26,13 +27,20 @@ class SocialView extends StatelessWidget {
                       padding: const EdgeInsets.all(3.0),
                       child: SocialIconView(imageUrl: e.icon),
                     ),
-                    LinkText(text: e.text, url: e.url, size: 12)
+                    Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Text(e.label, style: TextStyleBase.socialLabel),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: LinkText(text: e.text, url: e.url),
+                    ),
                   ],
                 ),
               ),
             )
             .toList(),
-        maxColumnWidth: 210,
+        maxColumnWidth: 350,
         wrapperWidth: MediaQuery.of(context).size.width - 100,
       ),
     );

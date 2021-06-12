@@ -23,31 +23,43 @@
                 {
                     "url": "https://goo.gl/maps/ioDsGZqAqiWgADMp6",
                     "text": "Winnipeg, Manitoba",
+                    "label": "Map",
                     "icon": "img/icon/address.jpg"
                 },
                 {
                     "url": "tel:++1 (204) 599 1138",
                     "text": "+1 (204) 599 1138",
+                    "label": "Phone",
                     "icon": "img/icon/phone.jpg"
                 },
                 {
                     "url": "mailto:jimmy.vo.mb@gmail.com",
                     "text": "jimmy.vo.mb@gmail.com",
+                    "label": "Email",
                     "icon": "img/icon/email.jpg"
                 },
                 {
                     "url": "https://dev.jimmy-vo.com",
                     "text": "dev.jimmy-vo.com",
+                    "label": "Web",
+                    "icon": "img/icon/web.jpg"
+                },
+                {
+                    "url": "https://dev.jimmy-vo.com/resume",
+                    "text": "dev.jimmy-vo.com/resume",
+                    "label": "Resume",
                     "icon": "img/icon/web.jpg"
                 },
                 {
                     "url": "https://www.linkedin.com/in/jimmy-vo-space/",
                     "text": "linkedin.com/in/jimmy-vo-space",
+                    "label": "Linkedin",
                     "icon": "img/icon/linkedin.jpg"
                 },
                 {
                     "url": "https://github.com/jimmy-vo",
                     "text": "github.com/jimmy-vo",
+                    "label": "Github",
                     "icon": "img/icon/github.jpg"
                 }
             ]
@@ -61,31 +73,43 @@
                 {
                     "url": "https://goo.gl/maps/ioDsGZqAqiWgADMp6",
                     "text": "Winnipeg, Manitoba",
+                    "label": "Map",
                     "icon": "img/icon/address.jpg"
                 },
                 {
                     "url": "tel:++1 (204) 599 1138",
                     "text": "+1 (204) 599 1138",
+                    "label": "Phone",
                     "icon": "img/icon/phone.jpg"
                 },
                 {
                     "url": "mailto:jimmy.vo.mb@gmail.com",
                     "text": "jimmy.vo.mb@gmail.com",
+                    "label": "Email",
                     "icon": "img/icon/email.jpg"
                 },
                 {
                     "url": "https://tech.jimmy-vo.com",
-                    "text": "dev.jimmy-vo.com",
+                    "text": "tech.jimmy-vo.com",
+                    "label": "Web",
+                    "icon": "img/icon/web.jpg"
+                },
+                {
+                    "url": "https://tech.jimmy-vo.com/resume",
+                    "text": "tech.jimmy-vo.com/resume",
+                    "label": "Resume",
                     "icon": "img/icon/web.jpg"
                 },
                 {
                     "url": "https://www.linkedin.com/in/jimmy-vo-space/",
                     "text": "linkedin.com/in/jimmy-vo-space",
+                    "label": "Linkedin",
                     "icon": "img/icon/linkedin.jpg"
                 },
                 {
                     "url": "https://github.com/jimmy-vo",
                     "text": "github.com/jimmy-vo",
+                    "label": "Github",
                     "icon": "img/icon/github.jpg"
                 }
             ]

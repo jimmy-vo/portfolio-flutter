@@ -6,11 +6,13 @@ class ContactSocial {
   String url;
   String text;
   String icon;
+  String label;
 
   ContactSocial({
     required this.url,
     required this.text,
     required this.icon,
+    required this.label,
   });
 
   //////////////////////////////////////////////////////////////////////////////

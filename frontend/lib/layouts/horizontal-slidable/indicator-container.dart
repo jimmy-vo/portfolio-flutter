@@ -107,6 +107,7 @@ class _IndicatorContainerState extends State<IndicatorContainer>
   @override
   Widget build(BuildContext context) {
     return Stack(
+        clipBehavior: Clip.none,
         children: _indicators
             .map<Widget>(
               (indicator) => Positioned(

@@ -62,6 +62,7 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
         2;
     return Stack(
       alignment: FractionalOffset.topCenter,
+      clipBehavior: Clip.none,
       children: <Widget>[
         PageView(
           controller: pageController,
@@ -124,10 +125,13 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
       index: index,
       isSelected: isSelected,
       onHover: (bool hovering) {
-        setState(() {
-          hoveringIndex = hovering ? index : null;
-        });
-        moveToPage(index);
+        int? newHoveringIndex = hovering ? index : null;
+        if (newHoveringIndex != hoveringIndex) {
+          setState(() {
+            hoveringIndex = newHoveringIndex;
+          });
+          moveToPage(index);
+        }
       },
       text: isSelected ? this.widget.manager.getName(index) : "",
     );
