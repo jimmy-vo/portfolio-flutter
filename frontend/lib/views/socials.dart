@@ -29,7 +29,8 @@ class SocialView extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(3.0),
-                      child: Text(e.label, style: TextStyleBase.socialLabel),
+                      child:
+                          Text(e.label + ":", style: TextStyleBase.socialLabel),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(3.0),
