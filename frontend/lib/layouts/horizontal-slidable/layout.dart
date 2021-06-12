@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:frontend/controller.dart';
 import 'package:frontend/layouts/horizontal-slidable/indicator-group.dart';
 import 'package:frontend/layouts/horizontal-slidable/manager.dart';
-import 'package:frontend/main.dart';
 import 'package:provider/provider.dart';
-
 import 'indicator-container.dart';
 
+// ignore: must_be_immutable
 class HorizontalSlidableWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,8 +24,17 @@ class HorizontalSlidableWrapper extends StatelessWidget {
 
 // ignore: must_be_immutable
 class HorizontalSlidable extends StatefulWidget {
+  final double indicatorWrapperWidth = 500;
+  final double indicatorOfsetFactor = 50;
+  List<double> offsets = [];
   late HorizontalSlidableManager manager;
-  HorizontalSlidable({required this.manager});
+
+  HorizontalSlidable({required this.manager}) {
+    for (int i = 0; i < this.manager.widgets.length; i++) {
+      offsets
+          .add(i * this.indicatorOfsetFactor - this.indicatorWrapperWidth / 2);
+    }
+  }
 
   @override
   HorizontalSlidableState createState() => HorizontalSlidableState();
@@ -49,6 +57,9 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
 
   @override
   Widget build(BuildContext context) {
+    double wrapperOffset = (MediaQuery.of(context).size.width -
+            (widget.offsets.last - widget.offsets.first)) /
+        2;
     return Stack(
       alignment: FractionalOffset.topCenter,
       children: <Widget>[
@@ -77,6 +88,7 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
           child: IndicatorContainer(
             pageIndexNotifier: pageIndexNotifier,
             length: this.widget.manager.widgets.length,
+            getOffset: (int index) => widget.offsets[index] + wrapperOffset,
             normalBuilder: (animationController, index) => ScaleTransition(
                 scale: CurvedAnimation(
                   parent: animationController,
@@ -106,6 +118,7 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
 
   Widget _buildIndicator(int index, bool isSelected) {
     return IndicatorGroup(
+      wrapperWidth: widget.indicatorWrapperWidth,
       hoveringIndex: hoveringIndex,
       icon: this.widget.manager.widgets[index].icon,
       index: index,

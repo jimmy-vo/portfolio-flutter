@@ -4,18 +4,22 @@ import 'package:frontend/main.dart';
 // ignore: must_be_immutable
 class IndicatorGroup extends StatefulWidget {
   int index;
+  double wrapperWidth;
   int? hoveringIndex;
   bool isSelected;
   String? text;
   IconData icon;
   void Function(bool)? onHover;
 
+  ValueNotifier<Key?> iconKeyNotifier = ValueNotifier<Key?>(null);
+
   IndicatorGroup({
-    required this.icon,
     required this.index,
-    required this.text,
+    required this.wrapperWidth,
     required this.hoveringIndex,
     required this.isSelected,
+    required this.text,
+    required this.icon,
     required this.onHover,
   });
 
@@ -37,43 +41,43 @@ class IndicatorGroupState extends State<IndicatorGroup> {
       size = 45;
       color = Colors.greenAccent;
     }
+    Widget iconWidget = InkWell(
+      onTap: () {
+        this.widget.onHover!(true);
+      },
+      onTapDown: (_) {
+        this.widget.onHover!(true);
+      },
+      onHover: (bool hovering) {
+        setState(() {
+          this.widget.onHover!(hovering);
+        });
+      },
+      // onHover: this.onHover,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 100),
+        curve: Curves.ease,
+        child: Icon(this.widget.icon, size: size, color: color),
+      ),
+    );
 
-    return Column(
-      children: [
-        Align(
-          alignment: Alignment.topLeft,
-          child: InkWell(
-            onTap: () {
-              this.widget.onHover!(true);
-            },
-            onTapDown: (_) {
-              this.widget.onHover!(true);
-            },
-            onHover: (bool hovering) {
-              setState(() {
-                this.widget.onHover!(hovering);
-              });
-            },
-            // onHover: this.onHover,
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 100),
+    return Container(
+      width: widget.wrapperWidth,
+      child: Center(
+        child: Column(
+          children: [
+            iconWidget,
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 0),
               curve: Curves.ease,
-              child: Icon(this.widget.icon, size: size, color: color),
+              child: Text(
+                this.widget.text ?? "",
+                style: TextStyleBase.itemTitle,
+              ),
             ),
-          ),
+          ],
         ),
-        Align(
-          alignment: Alignment.topLeft,
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 0),
-            curve: Curves.ease,
-            child: Text(
-              this.widget.text ?? "",
-              style: TextStyleBase.itemTitle,
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

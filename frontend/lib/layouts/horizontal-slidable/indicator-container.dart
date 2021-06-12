@@ -9,19 +9,18 @@ typedef Widget IndicatorBuilder(AnimationController controller, int index);
 // ignore: must_be_immutable
 class IndicatorContainer extends StatefulWidget {
   IndicatorContainer({
-    Key? key,
     required this.pageIndexNotifier,
     required this.length,
+    required this.getOffset,
     required this.normalBuilder,
     required this.highlightedBuilder,
-    this.alignment = MainAxisAlignment.center,
-  }) : super(key: key);
+  });
 
   ValueNotifier<int> pageIndexNotifier;
   int length;
   IndicatorBuilder normalBuilder;
   IndicatorBuilder highlightedBuilder;
-  MainAxisAlignment alignment;
+  double Function(int) getOffset;
 
   @override
   _IndicatorContainerState createState() => _IndicatorContainerState();
@@ -111,8 +110,7 @@ class _IndicatorContainerState extends State<IndicatorContainer>
         children: _indicators
             .map<Widget>(
               (indicator) => Positioned(
-                top: 0,
-                left: (indicator.index + 1) * 50,
+                left: widget.getOffset(indicator.index),
                 child: Stack(
                   alignment: AlignmentDirectional.center,
                   children: [
