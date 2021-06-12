@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/controllers/profile.controller.dart';
 import 'package:frontend/controllers/settings.controller.dart';
 import 'package:frontend/layouts/horizontal-slidable/layout.dart';
+import 'package:frontend/page-stacks/settings.dart';
 import 'package:provider/provider.dart';
 
 class TextStyleBase {
@@ -74,19 +75,46 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        body: ChangeNotifierProvider<SettingsController>(
-          create: (context) => SettingsController(),
-          child: ChangeNotifierProvider<ProfileController>(
+    return ChangeNotifierProvider<SettingsController>(
+      create: (context) => SettingsController(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: Scaffold(
+          drawer: SideDrawer(),
+          body: ChangeNotifierProvider<ProfileController>(
             create: (_) => ProfileController(),
             child: HorizontalSlidableWrapper(),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class SideDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: Column(
+        children: <Widget>[
+          DrawerHeader(
+            child: Center(
+              child: Text(
+                'Side menu  FlutterCorner',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white, fontSize: 25),
+              ),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.black,
+            ),
+          ),
+          HorizontalSlidableSettings()
+        ],
       ),
     );
   }

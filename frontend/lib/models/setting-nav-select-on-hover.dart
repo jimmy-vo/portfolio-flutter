@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-part 'setting-nav-hover.g.dart';
+part 'setting-nav-select-on-hover.g.dart';
 
 @JsonSerializable()
 class NavSelectOnHover {
@@ -16,8 +16,8 @@ class NavSelectOnHover {
 
   //////////////////////////////////////////////////////////////////////////////
   factory NavSelectOnHover.fromJson(Map<String, dynamic> json) =>
-      _$NavHoverFromJson(json);
-  Map<String, dynamic> toJson() => _$NavHoverToJson(this);
+      _$NavSelectOnHoverFromJson(json);
+  Map<String, dynamic> toJson() => _$NavSelectOnHoverToJson(this);
 
   static String _key = "NavHover";
   static late SharedPreferences? _prefs;

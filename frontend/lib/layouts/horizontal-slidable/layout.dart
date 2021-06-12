@@ -3,7 +3,7 @@ import 'package:frontend/controllers/profile.controller.dart';
 import 'package:frontend/controllers/settings.controller.dart';
 import 'package:frontend/layouts/horizontal-slidable/indicator-group.dart';
 import 'package:frontend/layouts/horizontal-slidable/manager.dart';
-import 'package:frontend/models/setting-nav-hover.dart';
+import 'package:frontend/models/setting-nav-select-on-hover.dart';
 import 'package:frontend/models/setting-nav-position.dart';
 import 'package:provider/provider.dart';
 import 'indicator-container.dart';

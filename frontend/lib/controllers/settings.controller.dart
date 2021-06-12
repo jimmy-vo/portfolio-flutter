@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/models/setting-nav-hover.dart';
+import 'package:frontend/models/setting-nav-enable.dart';
 import 'package:frontend/models/setting-nav-position.dart';
+import 'package:frontend/models/setting-nav-select-on-hover.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsController with ChangeNotifier {
   late SharedPreferences _prefs;
   late NavPosition? navPosition;
   late NavSelectOnHover? navHover;
+  late NavEnable? navEnable;
   bool isReady = false;
 
   SettingsController() {
@@ -21,6 +23,7 @@ class SettingsController with ChangeNotifier {
     this._prefs = await SharedPreferences.getInstance();
     this.navPosition = NavPosition.fromStorage(this._prefs);
     this.navHover = NavSelectOnHover.fromStorage(this._prefs);
+    this.navEnable = NavEnable.fromStorage(this._prefs);
     this.isReady = true;
   }
 
@@ -33,6 +36,12 @@ class SettingsController with ChangeNotifier {
   void setNavHover(bool value) {
     this.navHover!.value = value;
     this.navHover!.toStorage();
+    notifyListeners();
+  }
+
+  void setNavEnable(bool value) {
+    this.navEnable!.value = value;
+    this.navEnable!.toStorage();
     notifyListeners();
   }
 }
