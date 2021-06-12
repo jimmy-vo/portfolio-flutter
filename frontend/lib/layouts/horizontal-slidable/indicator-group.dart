@@ -6,27 +6,22 @@ import 'package:frontend/models/setting-nav-position.dart';
 class IndicatorGroup extends StatefulWidget {
   int index;
   double wrapperWidth;
-  int? hoveringIndex;
   bool isSelected;
-  bool selectOnHover;
   void Function(int) onSelected;
   String? text;
   IconData icon;
   NavPositionValue? navPositionValue;
-  void Function(bool) onHover;
-
   ValueNotifier<Key?> iconKeyNotifier = ValueNotifier<Key?>(null);
+  bool selectOnHover;
 
   IndicatorGroup({
     required this.index,
     required this.wrapperWidth,
-    required this.selectOnHover,
-    required this.hoveringIndex,
     required this.isSelected,
     required this.text,
     required this.icon,
+    required this.selectOnHover,
     required this.onSelected,
-    required this.onHover,
     required this.navPositionValue,
   });
 
@@ -35,17 +30,19 @@ class IndicatorGroup extends StatefulWidget {
 }
 
 class IndicatorGroupState extends State<IndicatorGroup> {
+  bool isHover = false;
+
   @override
   Widget build(BuildContext context) {
     double iconSize = 30;
     Color? iconColor = Colors.white;
-    TextStyle? textStyle = TextStyleBase.indicatorTextSelected;
+    TextStyle? textStyle = TextStyleBase.indicatorTextNormal;
 
-    if (widget.hoveringIndex == widget.index) {
+    if (this.isHover) {
       iconSize = 50;
       iconColor = Colors.greenAccent;
       textStyle = TextStyleBase.indicatorTextHighlight;
-    } else if (widget.hoveringIndex == null && widget.isSelected) {
+    } else if (widget.isSelected) {
       iconSize = 50;
       iconColor = Colors.blue;
       textStyle = TextStyleBase.indicatorTextSelected;
@@ -58,13 +55,14 @@ class IndicatorGroupState extends State<IndicatorGroup> {
       onTapDown: (_) {
         this.widget.onSelected(widget.index);
       },
-      onHover: (bool hovering) {
-        setState(() {
-          this.widget.onHover(hovering);
-          if (this.widget.selectOnHover) {
-            this.widget.onSelected(widget.index);
-          }
-        });
+      onHover: (bool isHover) {
+        if (this.isHover != isHover)
+          setState(() {
+            this.isHover = isHover;
+            if (this.widget.selectOnHover) {
+              this.widget.onSelected(widget.index);
+            }
+          });
       },
       child: AnimatedContainer(
         duration: const Duration(microseconds: 2),

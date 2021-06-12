@@ -45,7 +45,6 @@ class HorizontalSlidable extends StatefulWidget {
 
 // ignore: must_be_immutable
 class HorizontalSlidableState extends State<HorizontalSlidable> {
-  int? hoveringIndex;
   final pageIndexNotifier = ValueNotifier<int>(0);
   late NavSelectOnHover? navSelectOnHover = null;
   PageController pageController = PageController(
@@ -154,21 +153,12 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
     return IndicatorGroup(
       navPositionValue: navPositionValue,
       wrapperWidth: widget.indicatorWrapperWidth,
-      hoveringIndex: hoveringIndex,
       icon: this.widget.manager.widgets[index].icon,
       index: index,
       isSelected: isSelected,
       onSelected: moveToPage,
       selectOnHover: this.navSelectOnHover!.value,
-      onHover: (bool hovering) {
-        int? newHoveringIndex = hovering ? index : null;
-        if (newHoveringIndex != hoveringIndex) {
-          setState(() {
-            hoveringIndex = newHoveringIndex;
-          });
-        }
-      },
-      text: isSelected ? this.widget.manager.getName(index) : "",
+      text: this.widget.manager.getName(index),
     );
   }
 }

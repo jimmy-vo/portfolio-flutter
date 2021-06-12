@@ -10,10 +10,15 @@ class TextStyleBase {
     fontWeight: FontWeight.bold,
     fontStyle: FontStyle.normal,
   );
+  static const indicatorTextNormal = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w900,
+    color: Colors.transparent,
+  );
   static const indicatorTextSelected = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w900,
-    color: Colors.blueAccent,
+    color: Colors.transparent,
   );
   static const indicatorTextHighlight = TextStyle(
     fontSize: 20,
