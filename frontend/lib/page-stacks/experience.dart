@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/layouts/horizontal-slidable/template.dart';
 import 'package:frontend/models/section.dart';
-import 'package:frontend/views/section-list.dart';
+import 'package:frontend/views/profile/section-list.dart';
 
 // ignore: must_be_immutable
 class HorizontalSlidableExperience extends HorizontalSlidablePage {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/models/description.dart';
 import 'package:frontend/models/section-item.dart';
-import 'package:frontend/views/description.dart';
+import 'package:frontend/views/profile/description.dart';
 import 'package:frontend/views/flex-grid.dart';
-import 'package:frontend/views/image.dart';
+import 'package:frontend/views/profile/image.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 // ignore: must_be_immutable
 class ItemView extends StatelessWidget {

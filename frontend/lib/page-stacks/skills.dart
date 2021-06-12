@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/layouts/horizontal-slidable/template.dart';
 import 'package:frontend/models/section.dart';
 import 'package:frontend/views/flex-grid.dart';
-import 'package:frontend/views/item.dart';
+import 'package:frontend/views/profile/item.dart';
 
 // ignore: must_be_immutable
 class HorizontalSlidableSkills extends HorizontalSlidablePage {

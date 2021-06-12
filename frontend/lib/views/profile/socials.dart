@@ -4,7 +4,7 @@ import 'package:frontend/main.dart';
 import 'package:frontend/models/contact-social.dart';
 import 'package:frontend/views/card-group.dart';
 import 'package:frontend/views/flex-grid.dart';
-import 'package:frontend/views/link-text.dart';
+import 'package:frontend/views/profile/link-text.dart';
 
 // ignore: must_be_immutable
 class SocialView extends StatelessWidget {

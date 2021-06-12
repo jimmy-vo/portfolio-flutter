@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:frontend/models/section-item.dart';
 import 'package:frontend/views/card-group.dart';
 import 'package:frontend/views/flex-grid.dart';
-import 'package:frontend/views/item.dart';
+import 'package:frontend/views/profile/item.dart';
 
 // ignore: must_be_immutable
 class RecentItems extends StatelessWidget {

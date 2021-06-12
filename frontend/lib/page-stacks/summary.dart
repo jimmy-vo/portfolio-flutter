@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:frontend/layouts/horizontal-slidable/template.dart';
 import 'package:frontend/models/contact.dart';
 import 'package:frontend/models/section.dart';
-import 'package:frontend/views/introduction.dart';
-import 'package:frontend/views/recent-items.dart';
-import 'package:frontend/views/socials.dart';
+import 'package:frontend/views/profile/introduction.dart';
+import 'package:frontend/views/profile/recent-items.dart';
+import 'package:frontend/views/profile/socials.dart';
 
 // ignore: must_be_immutable
 class HorizontalSlidableSummary extends HorizontalSlidablePage {
