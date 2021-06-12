@@ -21,7 +21,7 @@ class NavPosition {
       _$NavPositionFromJson(json);
   Map<String, dynamic> toJson() => _$NavPositionToJson(this);
 
-  static String _key = "Settings";
+  static String _key = "NavPositionValue";
   static late SharedPreferences? _prefs;
 
   static NavPosition fromStorage(SharedPreferences ref) {

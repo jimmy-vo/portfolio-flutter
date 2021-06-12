@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/controllers/profile.controller.dart';
+import 'package:frontend/controllers/settings.controller.dart';
 import 'package:frontend/layouts/horizontal-slidable/indicator-group.dart';
 import 'package:frontend/layouts/horizontal-slidable/manager.dart';
+import 'package:frontend/models/setting-nav-hover.dart';
+import 'package:frontend/models/setting-nav-position.dart';
 import 'package:provider/provider.dart';
 import 'indicator-container.dart';
 
@@ -44,6 +47,7 @@ class HorizontalSlidable extends StatefulWidget {
 class HorizontalSlidableState extends State<HorizontalSlidable> {
   int? hoveringIndex;
   final pageIndexNotifier = ValueNotifier<int>(0);
+  late NavSelectOnHover? navSelectOnHover = null;
   PageController pageController = PageController(
     viewportFraction: 1,
     keepPage: true,
@@ -57,80 +61,111 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
 
   @override
   Widget build(BuildContext context) {
+    return Consumer<SettingsController>(
+        builder: (_, SettingsController controller, __) {
+      if (!controller.isReady) return CircularProgressIndicator();
+
+      navSelectOnHover = controller.navHover;
+
+      return Stack(
+        alignment: controller.navPosition!.value == NavPositionValue.Top
+            ? Alignment.topCenter
+            : Alignment.bottomCenter,
+        clipBehavior: Clip.none,
+        children: <Widget>[
+          _buildPageView(),
+          _buildIndicatorWrapper(
+              navPositionValue: controller.navPosition!.value),
+        ],
+      );
+    });
+  }
+
+  Widget _buildIndicatorWrapper({required NavPositionValue navPositionValue}) {
     double wrapperOffset = (MediaQuery.of(context).size.width -
             (widget.offsets.last - widget.offsets.first)) /
         2;
-    return Stack(
-      alignment: FractionalOffset.topCenter,
-      clipBehavior: Clip.none,
-      children: <Widget>[
-        PageView(
-          controller: pageController,
-          onPageChanged: (index) => pageIndexNotifier.value = index,
-          children: this.widget.manager.widgets,
-          physics: AlwaysScrollableScrollPhysics(),
+
+    List<Color> colors = [
+      Colors.black54.withOpacity(1),
+      Colors.black.withOpacity(1),
+      Colors.black54.withOpacity(1),
+      Colors.white.withOpacity(1),
+      Colors.white.withOpacity(.1),
+    ];
+
+    return Container(
+      height: 100,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: navPositionValue == NavPositionValue.Top
+              ? colors
+              : colors.reversed.toList(),
+          stops: [0.1, 0.2, 0.5, 0.9, 1],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
         ),
-        Container(
-          height: 100,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.black54.withOpacity(1),
-                Colors.black.withOpacity(1),
-                Colors.black54.withOpacity(1),
-                Colors.white.withOpacity(1),
-                Colors.white.withOpacity(.1),
-              ],
-              stops: [0.1, 0.2, 0.5, 0.9, 1],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+      ),
+      child: IndicatorContainer(
+        navPositionValue: navPositionValue,
+        pageIndexNotifier: pageIndexNotifier,
+        length: this.widget.manager.widgets.length,
+        getOffset: (int index) => widget.offsets[index] + wrapperOffset,
+        normalBuilder: (animationController, index) => ScaleTransition(
+            scale: CurvedAnimation(
+              parent: animationController,
+              curve: Curves.ease,
             ),
+            child: _buildIndicator(index, navPositionValue, false)),
+        highlightedBuilder: (animationController, index) => ScaleTransition(
+          scale: CurvedAnimation(
+            parent: animationController,
+            curve: Curves.ease,
           ),
-          child: IndicatorContainer(
-            pageIndexNotifier: pageIndexNotifier,
-            length: this.widget.manager.widgets.length,
-            getOffset: (int index) => widget.offsets[index] + wrapperOffset,
-            normalBuilder: (animationController, index) => ScaleTransition(
-                scale: CurvedAnimation(
-                  parent: animationController,
-                  curve: Curves.ease,
-                ),
-                child: _buildIndicator(index, false)),
-            highlightedBuilder: (animationController, index) => ScaleTransition(
-              scale: CurvedAnimation(
-                parent: animationController,
-                curve: Curves.ease,
-              ),
-              child: _buildIndicator(index, true),
-            ),
-          ),
+          child: _buildIndicator(index, navPositionValue, true),
         ),
-      ],
+      ),
     );
   }
 
-  void moveToPage(int index) => pageController.animateToPage(
-        index,
-        duration: Duration(
-            milliseconds:
-                (250 * ((index - pageIndexNotifier.value)).abs() + 1)),
-        curve: Curves.linear,
-      );
+  Widget _buildPageView() {
+    return PageView(
+      controller: pageController,
+      onPageChanged: (index) => pageIndexNotifier.value = index,
+      children: this.widget.manager.widgets,
+      physics: AlwaysScrollableScrollPhysics(),
+    );
+  }
 
-  Widget _buildIndicator(int index, bool isSelected) {
+  void moveToPage(int index) {
+    pageController.animateToPage(
+      index,
+      duration: Duration(
+          milliseconds: (250 * ((index - pageIndexNotifier.value)).abs() + 1)),
+      curve: Curves.linear,
+    );
+  }
+
+  Widget _buildIndicator(
+    int index,
+    NavPositionValue navPositionValue,
+    bool isSelected,
+  ) {
     return IndicatorGroup(
+      navPositionValue: navPositionValue,
       wrapperWidth: widget.indicatorWrapperWidth,
       hoveringIndex: hoveringIndex,
       icon: this.widget.manager.widgets[index].icon,
       index: index,
       isSelected: isSelected,
+      onSelected: moveToPage,
+      selectOnHover: this.navSelectOnHover!.value,
       onHover: (bool hovering) {
         int? newHoveringIndex = hovering ? index : null;
         if (newHoveringIndex != hoveringIndex) {
           setState(() {
             hoveringIndex = newHoveringIndex;
           });
-          moveToPage(index);
         }
       },
       text: isSelected ? this.widget.manager.getName(index) : "",

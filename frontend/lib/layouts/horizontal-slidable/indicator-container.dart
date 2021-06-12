@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:frontend/layouts/horizontal-slidable/indicator.dart';
 import 'package:frontend/main.dart';
+import 'package:frontend/models/setting-nav-position.dart';
 
 typedef Widget IndicatorBuilder(AnimationController controller, int index);
 
@@ -14,8 +15,10 @@ class IndicatorContainer extends StatefulWidget {
     required this.getOffset,
     required this.normalBuilder,
     required this.highlightedBuilder,
+    required this.navPositionValue,
   });
 
+  NavPositionValue? navPositionValue;
   ValueNotifier<int> pageIndexNotifier;
   int length;
   IndicatorBuilder normalBuilder;
@@ -111,6 +114,9 @@ class _IndicatorContainerState extends State<IndicatorContainer>
         children: _indicators
             .map<Widget>(
               (indicator) => Positioned(
+                top: widget.navPositionValue == NavPositionValue.Top ? 0 : null,
+                bottom:
+                    widget.navPositionValue == NavPositionValue.Top ? null : 0,
                 left: widget.getOffset(indicator.index),
                 child: Stack(
                   alignment: AlignmentDirectional.center,

@@ -16,7 +16,7 @@ class TextStyleBase {
     color: Colors.blueAccent,
   );
   static const indicatorTextHighlight = TextStyle(
-    fontSize: 50,
+    fontSize: 20,
     fontWeight: FontWeight.w900,
     color: Colors.greenAccent,
   );

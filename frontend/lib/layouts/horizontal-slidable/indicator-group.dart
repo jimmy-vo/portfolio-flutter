@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/main.dart';
+import 'package:frontend/models/setting-nav-position.dart';
 
 // ignore: must_be_immutable
 class IndicatorGroup extends StatefulWidget {
@@ -7,20 +8,26 @@ class IndicatorGroup extends StatefulWidget {
   double wrapperWidth;
   int? hoveringIndex;
   bool isSelected;
+  bool selectOnHover;
+  void Function(int) onSelected;
   String? text;
   IconData icon;
-  void Function(bool)? onHover;
+  NavPositionValue? navPositionValue;
+  void Function(bool) onHover;
 
   ValueNotifier<Key?> iconKeyNotifier = ValueNotifier<Key?>(null);
 
   IndicatorGroup({
     required this.index,
     required this.wrapperWidth,
+    required this.selectOnHover,
     required this.hoveringIndex,
     required this.isSelected,
     required this.text,
     required this.icon,
+    required this.onSelected,
     required this.onHover,
+    required this.navPositionValue,
   });
 
   @override
@@ -34,30 +41,31 @@ class IndicatorGroupState extends State<IndicatorGroup> {
     Color? iconColor = Colors.white;
     TextStyle? textStyle = TextStyleBase.indicatorTextSelected;
 
-    if (widget.isSelected) {
-      iconSize = 45;
-      iconColor = Colors.blue;
-      textStyle = TextStyleBase.indicatorTextSelected;
-    }
     if (widget.hoveringIndex == widget.index) {
-      iconSize = 45;
+      iconSize = 50;
       iconColor = Colors.greenAccent;
       textStyle = TextStyleBase.indicatorTextHighlight;
+    } else if (widget.hoveringIndex == null && widget.isSelected) {
+      iconSize = 50;
+      iconColor = Colors.blue;
+      textStyle = TextStyleBase.indicatorTextSelected;
     }
 
     Widget iconWidget = InkWell(
       onTap: () {
-        this.widget.onHover!(true);
+        this.widget.onSelected(widget.index);
       },
       onTapDown: (_) {
-        this.widget.onHover!(true);
+        this.widget.onSelected(widget.index);
       },
       onHover: (bool hovering) {
         setState(() {
-          this.widget.onHover!(hovering);
+          this.widget.onHover(hovering);
+          if (this.widget.selectOnHover) {
+            this.widget.onSelected(widget.index);
+          }
         });
       },
-      // onHover: this.onHover,
       child: AnimatedContainer(
         duration: const Duration(microseconds: 2),
         curve: Curves.ease,
@@ -65,25 +73,28 @@ class IndicatorGroupState extends State<IndicatorGroup> {
       ),
     );
 
+    List<Widget> children = [
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: iconWidget,
+      ),
+      AnimatedContainer(
+        duration: const Duration(microseconds: 2),
+        curve: Curves.ease,
+        child: Text(
+          this.widget.text ?? "",
+          style: textStyle,
+        ),
+      ),
+    ];
+
     return Container(
       width: widget.wrapperWidth,
       child: Center(
         child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: iconWidget,
-            ),
-            AnimatedContainer(
-              duration: const Duration(microseconds: 2),
-              curve: Curves.ease,
-              child: Text(
-                this.widget.text ?? "",
-                style: textStyle,
-              ),
-            ),
-          ],
-        ),
+            children: widget.navPositionValue == NavPositionValue.Top
+                ? children
+                : children.reversed.toList()),
       ),
     );
   }
