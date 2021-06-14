@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:frontend/controllers/settings.controller.dart';
 import 'package:provider/provider.dart';
 
-class NavEnable extends StatefulWidget {
-  const NavEnable({Key? key}) : super(key: key);
+class NavEnableControl extends StatefulWidget {
+  const NavEnableControl({Key? key}) : super(key: key);
 
   @override
-  State<NavEnable> createState() => _NavEnableState();
+  State<NavEnableControl> createState() => _NavEnableControlState();
 }
 
-class _NavEnableState extends State<NavEnable> {
+class _NavEnableControlState extends State<NavEnableControl> {
   @override
   Widget build(BuildContext context) {
     return Consumer<SettingsController>(

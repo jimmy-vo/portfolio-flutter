@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:frontend/controllers/settings.controller.dart';
 import 'package:frontend/views/setting-item-wrapper.dart';
 import 'package:frontend/views/settings/nav-enable.dart';
-import 'package:frontend/views/settings/nav-hover.dart';
+import 'package:frontend/views/settings/select-on-hover.dart';
 import 'package:frontend/views/settings/nav-position.dart';
+import 'package:frontend/views/settings/themes.dart';
 import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
@@ -27,17 +28,22 @@ class MenuPageStack extends StatelessWidget {
                 expandedAlignment: Alignment.topLeft,
                 children: <Widget>[
                   SettingItemWrapper(
+                    label: "Theme",
+                    child: ThemeControl(),
+                  ),
+                  SettingItemWrapper(
                     label: "Select on hover",
-                    child: NavBarHover(),
+                    child: SelectOnHoverControl(),
                   ),
                   SettingItemWrapper(
                     label: "Navigation bar",
-                    child: NavEnable(),
+                    child: NavEnableControl(),
                   ),
                   SettingItemWrapper(
                     label: "Navigation bar position",
-                    child:
-                        NavBarPosistion(disabled: !controller.navEnable!.value),
+                    child: NavBarPosistionControl(
+                      disabled: !controller.navEnable!.value,
+                    ),
                   ),
                 ],
               ),
