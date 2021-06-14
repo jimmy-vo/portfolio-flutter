@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/layouts/horizontal-slidable/template.dart';
 import 'package:frontend/views/setting-item-wrapper.dart';
 import 'package:frontend/views/settings/nav-enable.dart';
 import 'package:frontend/views/settings/nav-hover.dart';
@@ -28,8 +27,6 @@ class HorizontalSlidableSettings extends StatelessWidget {
           child: NavBarHover(),
         ),
       ],
-      trailing: Spacer(),
-      leading: Spacer(),
     );
   }
 }

@@ -2,7 +2,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:frontend/layouts/horizontal-slidable/indicator.dart';
-import 'package:frontend/main.dart';
 import 'package:frontend/models/setting-nav-position.dart';
 
 typedef Widget IndicatorBuilder(AnimationController controller, int index);
@@ -110,25 +109,26 @@ class _IndicatorContainerState extends State<IndicatorContainer>
   @override
   Widget build(BuildContext context) {
     return Stack(
-        clipBehavior: Clip.none,
-        children: _indicators
-            .map<Widget>(
-              (indicator) => Positioned(
-                top: widget.navPositionValue == NavPositionValue.Top ? 0 : null,
-                bottom:
-                    widget.navPositionValue == NavPositionValue.Top ? null : 0,
-                left: widget.getOffset(indicator.index),
-                child: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    widget.normalBuilder(
-                        indicator.normalController, indicator.index),
-                    widget.highlightedBuilder(
-                        indicator.highlightedController, indicator.index),
-                  ],
-                ),
+      clipBehavior: Clip.none,
+      children: _indicators
+          .map<Widget>(
+            (indicator) => Positioned(
+              top: widget.navPositionValue == NavPositionValue.Top ? 0 : null,
+              bottom:
+                  widget.navPositionValue == NavPositionValue.Top ? null : 0,
+              left: widget.getOffset(indicator.index),
+              child: Stack(
+                alignment: AlignmentDirectional.center,
+                children: [
+                  widget.normalBuilder(
+                      indicator.normalController, indicator.index),
+                  widget.highlightedBuilder(
+                      indicator.highlightedController, indicator.index),
+                ],
               ),
-            )
-            .toList());
+            ),
+          )
+          .toList(),
+    );
   }
 }
