@@ -6,8 +6,8 @@ import 'package:frontend/views/flex-grid.dart';
 import 'package:frontend/views/profile/item.dart';
 
 // ignore: must_be_immutable
-class HorizontalSlidableSkills extends HorizontalSlidablePage {
-  HorizontalSlidableSkills({required List<Section> sections}) {
+class SkillsPageStack extends HorizontalSlidablePage {
+  SkillsPageStack({required List<Section> sections}) {
     Section skills = sections.firstWhere((element) => element.id == 2);
     super.icon = Icons.lightbulb_outline_rounded;
     super.name = skills.name ?? "";

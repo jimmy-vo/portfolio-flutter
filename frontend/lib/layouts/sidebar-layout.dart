@@ -4,7 +4,7 @@ import 'package:frontend/controllers/settings.controller.dart';
 import 'package:frontend/layouts/horizontal-slidable/layout.dart';
 import 'package:frontend/layouts/static/static.dart';
 import 'package:frontend/models/setting-nav-position.dart';
-import 'package:frontend/page-stacks/settings.dart';
+import 'package:frontend/page-stacks/menu.dart';
 import 'package:provider/provider.dart';
 
 class SideBarLayout extends StatelessWidget {
@@ -130,7 +130,7 @@ class SideDrawerState extends State<SideDrawer> {
                 },
               ),
             ),
-            HorizontalSlidableSettings()
+            MenuPageStack()
           ],
         ),
       ),

@@ -17,16 +17,16 @@ class HorizontalSlidableManager {
     required this.sections,
   }) {
     this.widgets.add(
-          HorizontalSlidableSummary(
+          SummaryPageStack(
             sections: sections,
             contact: contact,
             moveToPage: moveToPage,
           ),
         );
-    this.widgets.add(HorizontalSlidableExperience(sections: sections));
-    this.widgets.add(HorizontalSlidableSkills(sections: sections));
-    this.widgets.add(HorizontalSlidableAchivement(sections: sections));
-    this.widgets.add(HorizontalSlidableVolunteer(sections: sections));
+    this.widgets.add(ExperiencePageStack(sections: sections));
+    this.widgets.add(SkillsPageStack(sections: sections));
+    this.widgets.add(AchivementPageStack(sections: sections));
+    this.widgets.add(ActivitiesPageStack(sections: sections));
   }
 
   String getName(int index) {

@@ -8,8 +8,8 @@ import 'package:frontend/views/profile/recent-items.dart';
 import 'package:frontend/views/profile/socials.dart';
 
 // ignore: must_be_immutable
-class HorizontalSlidableSummary extends HorizontalSlidablePage {
-  HorizontalSlidableSummary({
+class SummaryPageStack extends HorizontalSlidablePage {
+  SummaryPageStack({
     required List<Section> sections,
     required Contact contact,
     required Function(int)? moveToPage,

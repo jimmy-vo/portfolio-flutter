@@ -5,10 +5,10 @@ import 'package:frontend/models/section.dart';
 import 'package:frontend/views/profile/section-list.dart';
 
 // ignore: must_be_immutable
-class HorizontalSlidableAchivement extends HorizontalSlidablePage {
+class AchivementPageStack extends HorizontalSlidablePage {
   late Section achivements;
 
-  HorizontalSlidableAchivement({required List<Section> sections}) {
+  AchivementPageStack({required List<Section> sections}) {
     Section achivements = sections.firstWhere((element) => element.id == 4);
     super.icon = Icons.wine_bar_outlined;
     super.name = achivements.name ?? "";

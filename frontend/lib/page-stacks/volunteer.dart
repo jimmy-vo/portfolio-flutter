@@ -5,8 +5,8 @@ import 'package:frontend/models/section.dart';
 import 'package:frontend/views/profile/section-list.dart';
 
 // ignore: must_be_immutable
-class HorizontalSlidableVolunteer extends HorizontalSlidablePage {
-  HorizontalSlidableVolunteer({required List<Section> sections}) {
+class ActivitiesPageStack extends HorizontalSlidablePage {
+  ActivitiesPageStack({required List<Section> sections}) {
     Section activities = sections.firstWhere((element) => element.id == 5);
     super.icon = Icons.sports_kabaddi_outlined;
     super.name = activities.name ?? "";

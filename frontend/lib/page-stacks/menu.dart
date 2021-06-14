@@ -5,7 +5,7 @@ import 'package:frontend/views/settings/nav-hover.dart';
 import 'package:frontend/views/settings/nav-position.dart';
 
 // ignore: must_be_immutable
-class HorizontalSlidableSettings extends StatelessWidget {
+class MenuPageStack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
