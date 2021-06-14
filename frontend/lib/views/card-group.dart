@@ -17,7 +17,7 @@ class CardGroup extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(15.0),
               child: Text(this.title, style: TextStyleBase.cardTitle),
             ),
           ),

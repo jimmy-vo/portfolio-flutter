@@ -22,12 +22,7 @@ class IntroductionView extends StatelessWidget {
     items.first.descriptions!.first.text = items.first.title;
     return CardGroup(
       title: "Hightlights",
-      child: Row(
-        children: [
-          ImageView(imageUrl: contact.avatar),
-          Expanded(child: DescriptionView(data: items.first.descriptions ?? []))
-        ],
-      ),
+      child: DescriptionView(data: items.first.descriptions ?? []),
     );
   }
 }

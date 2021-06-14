@@ -80,9 +80,11 @@ class MyApp extends StatelessWidget {
         create: (_) => ProfileController(),
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'Jimmy Vo',
             theme: ThemeData(
               primarySwatch: Colors.blue,
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
             ),
             home: SideBarLayout()),
       ),

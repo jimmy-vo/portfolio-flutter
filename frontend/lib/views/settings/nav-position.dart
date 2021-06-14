@@ -3,8 +3,13 @@ import 'package:frontend/controllers/settings.controller.dart';
 import 'package:frontend/models/setting-nav-position.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class NavBarPosistion extends StatefulWidget {
-  const NavBarPosistion({Key? key}) : super(key: key);
+  final bool disabled;
+
+  const NavBarPosistion({
+    this.disabled = false,
+  });
 
   @override
   State<NavBarPosistion> createState() => _NavBarPosistionState();
@@ -23,11 +28,13 @@ class _NavBarPosistionState extends State<NavBarPosistion> {
             value: controller.navPosition!.value,
             icon: const Icon(Icons.arrow_drop_down),
             style: const TextStyle(color: Colors.deepPurple),
-            onChanged: (NavPositionValue? newValue) {
-              setState(() {
-                controller.setNavPosition(newValue!);
-              });
-            },
+            onChanged: widget.disabled
+                ? null
+                : (NavPositionValue? newValue) {
+                    setState(() {
+                      controller.setNavPosition(newValue!);
+                    });
+                  },
             items: NavPositionValue.values
                 .map((value) => DropdownMenuItem<NavPositionValue>(
                       value: value,
