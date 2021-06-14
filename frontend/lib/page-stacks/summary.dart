@@ -23,6 +23,7 @@ class SummaryPageStack extends HorizontalSlidablePage {
     super.child = Column(
       children: [
         IntroductionView(summary: summary, contact: contact),
+        SocialView(contactSocial: contact.social.first.data),
         RecentItems(
           title: "Recent Experiences",
           items: experience.items ?? [],
@@ -40,7 +41,6 @@ class SummaryPageStack extends HorizontalSlidablePage {
           count: 2,
           onPressed: () => moveToPage!(3),
         ),
-        SocialView(contactSocial: contact.social.first.data),
       ],
     );
   }

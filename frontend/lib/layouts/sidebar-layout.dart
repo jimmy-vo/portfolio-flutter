@@ -99,13 +99,17 @@ class SideDrawer extends StatefulWidget {
 }
 
 class SideDrawerState extends State<SideDrawer> {
+  // this check if pop is already requested
+  bool popped = false;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: InkWell(
         onTap: () {},
         onHover: (bool isHover) {
-          if (!isHover && widget.controller.navHover!.value) {
+          if (widget.controller.navHover!.value && !isHover && !popped) {
+            popped = true;
             Navigator.of(context).pop();
           }
         },

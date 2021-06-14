@@ -14,7 +14,7 @@ class SocialView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CardGroup(
-      title: 'Connect',
+      title: 'Info',
       child: FlexGridView(
         children: this
             .contactSocial

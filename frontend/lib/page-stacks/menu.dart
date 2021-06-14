@@ -8,23 +8,33 @@ import 'package:frontend/views/settings/nav-position.dart';
 class MenuPageStack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ExpansionTile(
-      maintainState: true,
-      initiallyExpanded: true,
-      childrenPadding: const EdgeInsets.only(left: 20),
-      title: SettingItemWrapper(
-        label: "Navigation bar",
-        child: NavEnable(),
-      ),
-      expandedAlignment: Alignment.topLeft,
-      children: <Widget>[
-        SettingItemWrapper(
-          label: "Position",
-          child: NavBarPosistion(),
+    return Column(
+      children: [
+        ExpansionTile(
+          maintainState: true,
+          initiallyExpanded: true,
+          childrenPadding: const EdgeInsets.only(left: 20),
+          title: SettingItemWrapper(
+            label: "Select on hover",
+            child: NavBarHover(),
+          ),
+          expandedAlignment: Alignment.topLeft,
         ),
-        SettingItemWrapper(
-          label: "Select on hover",
-          child: NavBarHover(),
+        ExpansionTile(
+          maintainState: true,
+          initiallyExpanded: true,
+          childrenPadding: const EdgeInsets.only(left: 20),
+          title: SettingItemWrapper(
+            label: "Navigation bar",
+            child: NavEnable(),
+          ),
+          expandedAlignment: Alignment.topLeft,
+          children: <Widget>[
+            SettingItemWrapper(
+              label: "Position",
+              child: NavBarPosistion(),
+            ),
+          ],
         ),
       ],
     );
