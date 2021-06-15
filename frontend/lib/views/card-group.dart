@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/main.dart';
+import 'package:frontend/themes/theme-manager.dart';
 
 // ignore: must_be_immutable
 class CardGroup extends StatelessWidget {
@@ -18,7 +18,10 @@ class CardGroup extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Padding(
               padding: const EdgeInsets.all(15.0),
-              child: Text(this.title, style: TextStyleBase.cardTitle),
+              child: Text(
+                this.title,
+                style: ThemeManager.instance!.cardHeaderStyle,
+              ),
             ),
           ),
           child

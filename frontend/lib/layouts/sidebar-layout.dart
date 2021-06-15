@@ -5,6 +5,7 @@ import 'package:frontend/layouts/horizontal-slidable/layout.dart';
 import 'package:frontend/layouts/static/static.dart';
 import 'package:frontend/models/setting-nav-position.dart';
 import 'package:frontend/page-stacks/menu.dart';
+import 'package:frontend/themes/theme-manager.dart';
 import 'package:provider/provider.dart';
 
 class SideBarLayout extends StatelessWidget {
@@ -14,6 +15,8 @@ class SideBarLayout extends StatelessWidget {
       builder: (_, SettingsController controller, __) {
         if (!controller.isReady)
           return Center(child: CircularProgressIndicator());
+
+        ThemeManager.init(controller.theme!.value);
 
         return Scaffold(
           drawer: SideDrawer(controller: controller),

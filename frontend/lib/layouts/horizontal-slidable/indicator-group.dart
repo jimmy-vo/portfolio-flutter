@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/main.dart';
 import 'package:frontend/models/setting-nav-position.dart';
+import 'package:frontend/themes/theme-manager.dart';
 
 // ignore: must_be_immutable
 class IndicatorGroup extends StatefulWidget {
@@ -36,16 +36,16 @@ class IndicatorGroupState extends State<IndicatorGroup> {
   Widget build(BuildContext context) {
     double iconSize = 30;
     Color? iconColor = Colors.white;
-    TextStyle? textStyle = TextStyleBase.indicatorTextNormal;
+    TextStyle textStyle = ThemeManager.instance!.indicatorNormalStyle;
 
     if (this.isHover) {
       iconSize = 50;
       iconColor = Colors.greenAccent;
-      textStyle = TextStyleBase.indicatorTextHighlight;
+      textStyle = ThemeManager.instance!.indicatorHighlightStyle;
     } else if (widget.isSelected) {
       iconSize = 50;
       iconColor = Colors.blue;
-      textStyle = TextStyleBase.indicatorTextSelected;
+      textStyle = ThemeManager.instance!.indicatorHighlightStyle;
     }
 
     Widget iconWidget = InkWell(

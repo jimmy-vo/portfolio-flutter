@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/main.dart';
+import 'package:frontend/themes/theme-manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
@@ -24,7 +24,7 @@ class LinkTextState extends State<LinkText> {
           children: [
             TextSpan(
               text: widget.text,
-              style: TextStyleBase.linkText,
+              style: ThemeManager.instance!.linkTextStyle,
               recognizer: TapGestureRecognizer()
                 ..onTap = () async {
                   var url = widget.url;

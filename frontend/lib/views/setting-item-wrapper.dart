@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:frontend/main.dart';
+import 'package:frontend/themes/theme-manager.dart';
 
 // ignore: must_be_immutable
 class SettingItemWrapper extends StatelessWidget {
@@ -21,7 +22,7 @@ class SettingItemWrapper extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(label, style: TextStyleBase.socialLabel),
+              Text(label, style: ThemeManager.instance!.socialLabelStyle),
               Expanded(
                   child: Align(
                 child: this.child,

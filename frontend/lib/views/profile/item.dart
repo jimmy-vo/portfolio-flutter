@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/models/section-item.dart';
+import 'package:frontend/themes/theme-manager.dart';
 import 'package:frontend/views/profile/description.dart';
 import 'package:frontend/views/profile/image.dart';
-
-import '../../main.dart';
 
 // ignore: must_be_immutable
 class ItemView extends StatelessWidget {
@@ -70,7 +69,7 @@ class ItemInfoView extends StatelessWidget {
   Widget build(BuildContext context) {
     String title = this.data.title ?? "";
     if (!this.data.hasInfo())
-      return SelectableText(title, style: TextStyleBase.itemTitle);
+      return SelectableText(title, style: ThemeManager.instance!.titleStyle);
 
     String organization = "\n" + (this.data.organization ?? "");
     String location = "\n" + (this.data.location ?? "") + "\n";
@@ -83,14 +82,18 @@ class ItemInfoView extends StatelessWidget {
         Align(
           alignment: Alignment.topLeft,
           child: SelectableText.rich(TextSpan(children: [
-            TextSpan(text: title, style: TextStyleBase.itemTitle),
-            TextSpan(text: organization, style: TextStyleBase.itemOrganization),
-            TextSpan(text: location, style: TextStyleBase.itemLocation)
+            TextSpan(text: title, style: ThemeManager.instance!.titleStyle),
+            TextSpan(
+                text: organization,
+                style: ThemeManager.instance!.organizationStyle),
+            TextSpan(
+                text: location, style: ThemeManager.instance!.locationStyle)
           ])),
         ),
         Align(
             alignment: Alignment.topRight,
-            child: SelectableText(date, style: TextStyleBase.itemDate))
+            child:
+                SelectableText(date, style: ThemeManager.instance!.dateStyle))
       ],
     );
   }

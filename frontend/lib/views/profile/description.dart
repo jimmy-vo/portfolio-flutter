@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/main.dart';
 import 'package:frontend/models/description.dart';
+import 'package:frontend/themes/theme-manager.dart';
 
 // ignore: must_be_immutable
 class DescriptionView extends StatelessWidget {
@@ -18,7 +18,7 @@ class DescriptionView extends StatelessWidget {
       list.add(
         TextSpan(
           text: (list.length != 0 ? "\n\n" : "") + text,
-          style: TextStyleBase.itemDescritionText,
+          style: ThemeManager.instance!.descritionTextStyle,
         ),
       );
     }
@@ -26,7 +26,7 @@ class DescriptionView extends StatelessWidget {
       list.add(
         TextSpan(
           text: (text != "" ? "\n" : "") + bulletText,
-          style: TextStyleBase.itemDescritionBullet,
+          style: ThemeManager.instance!.descritionBulletStyle,
         ),
       );
     }
