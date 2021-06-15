@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/controllers/profile.controller.dart';
 import 'package:frontend/controllers/settings.controller.dart';
 import 'package:frontend/layouts/sidebar-layout.dart';
+import 'package:frontend/themes/theme-manager.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -20,9 +21,12 @@ class MyApp extends StatelessWidget {
             if (!controller.isReady)
               return Center(child: CircularProgressIndicator());
 
+            ThemeManager.init(controller.theme!.value);
+            print(ThemeManager.instance!.getBackgroundColor());
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Jimmy Vo',
+              color: ThemeManager.instance!.getBackgroundColor(),
               theme: ThemeData(
                 primarySwatch: Colors.blue,
                 splashColor: Colors.transparent,

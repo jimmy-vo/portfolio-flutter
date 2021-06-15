@@ -16,8 +16,6 @@ class SideBarLayout extends StatelessWidget {
         if (!controller.isReady)
           return Center(child: CircularProgressIndicator());
 
-        ThemeManager.init(controller.theme!.value);
-
         return Scaffold(
           drawer: SideDrawer(controller: controller),
           backgroundColor: ThemeManager.instance!.getBackgroundColor(),
