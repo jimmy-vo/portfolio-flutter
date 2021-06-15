@@ -20,6 +20,7 @@ class SideBarLayout extends StatelessWidget {
 
         return Scaffold(
           drawer: SideDrawer(controller: controller),
+          backgroundColor: ThemeManager.instance!.getBackgroundColor(),
           body: Stack(
             children: [
               controller.navEnable!.value

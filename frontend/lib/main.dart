@@ -15,15 +15,23 @@ class MyApp extends StatelessWidget {
       create: (context) => SettingsController(),
       child: ChangeNotifierProvider<ProfileController>(
         create: (_) => ProfileController(),
-        child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Jimmy Vo',
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-            ),
-            home: SideBarLayout()),
+        child: Consumer<SettingsController>(
+          builder: (_, SettingsController controller, __) {
+            if (!controller.isReady)
+              return Center(child: CircularProgressIndicator());
+
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Jimmy Vo',
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+              ),
+              home: SideBarLayout(),
+            );
+          },
+        ),
       ),
     );
   }

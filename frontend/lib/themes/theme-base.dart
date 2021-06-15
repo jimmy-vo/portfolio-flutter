@@ -97,7 +97,7 @@ abstract class IsCustomTheme {
   Color getDescritionBulletColor();
   Color getSocialLabelColor();
 
-  Color getCardBackgroundColor();
+  Color getBackgroundColor();
 
   double getIndicatorSize() => 20;
   double getHeaderSize() => 30;

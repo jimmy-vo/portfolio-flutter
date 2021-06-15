@@ -39,5 +39,5 @@ class LightTheme extends IsCustomTheme {
   Color getSocialLabelColor() => Colors.black;
 
   @override
-  Color getCardBackgroundColor() => Colors.white;
+  Color getBackgroundColor() => Colors.white;
 }
