@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:frontend/controllers/base.controller.dart';
 import 'package:frontend/environment.dart';
 import 'package:frontend/models/contact.dart';
 import 'package:frontend/models/section.dart';
 
-class ProfileController with ChangeNotifier {
+class ProfileController extends BaseController {
   List<Section> sections = [];
   late Contact contact;
   late Section experience;

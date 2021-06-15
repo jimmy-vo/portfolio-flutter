@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:frontend/controllers/base.controller.dart';
 import 'package:frontend/models/setting-nav-enable.dart';
 import 'package:frontend/models/setting-nav-position.dart';
 import 'package:frontend/models/setting-nav-select-on-hover.dart';
 import 'package:frontend/models/setting-themes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SettingsController with ChangeNotifier {
+class SettingsController extends BaseController {
   late SharedPreferences _prefs;
   late NavPosition? navPosition;
   late NavSelectOnHover? navHover;
