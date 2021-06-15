@@ -18,7 +18,7 @@ class SideBarLayout extends StatelessWidget {
 
         return Scaffold(
           drawer: SideDrawer(controller: controller),
-          backgroundColor: ThemeManager.instance!.getBackgroundColor(),
+          // backgroundColor: ThemeManager.instance!.getBackgroundColor(),
           body: Stack(
             children: [
               controller.navEnable!.value
@@ -107,37 +107,40 @@ class SideDrawerState extends State<SideDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: InkWell(
-        onTap: () {},
-        onHover: (bool isHover) {
-          if (widget.controller.navHover!.value && !isHover && !popped) {
-            popped = true;
-            Navigator.of(context).pop();
-          }
-        },
-        child: Column(
-          children: <Widget>[
-            DrawerHeader(
-              padding: EdgeInsets.all(0),
-              margin: EdgeInsets.all(0),
-              child: Consumer<ProfileController>(
-                builder: (_, ProfileController controller, __) {
-                  if (!controller.isReady) return CircularProgressIndicator();
+      child: Container(
+        color: ThemeManager.instance!.getBackgroundColor(),
+        child: InkWell(
+          onTap: () {},
+          onHover: (bool isHover) {
+            if (widget.controller.navHover!.value && !isHover && !popped) {
+              popped = true;
+              Navigator.of(context).pop();
+            }
+          },
+          child: Column(
+            children: <Widget>[
+              DrawerHeader(
+                padding: EdgeInsets.all(0),
+                margin: EdgeInsets.all(0),
+                child: Consumer<ProfileController>(
+                  builder: (_, ProfileController controller, __) {
+                    if (!controller.isReady) return CircularProgressIndicator();
 
-                  return Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      image: DecorationImage(
-                        fit: BoxFit.fitWidth,
-                        image: AssetImage(controller.contact.avatar),
+                    return Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        image: DecorationImage(
+                          fit: BoxFit.fitWidth,
+                          image: AssetImage(controller.contact.avatar),
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-            ),
-            MenuPageStack()
-          ],
+              MenuPageStack()
+            ],
+          ),
         ),
       ),
     );

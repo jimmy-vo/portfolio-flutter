@@ -26,8 +26,12 @@ class MyApp extends StatelessWidget {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Jimmy Vo',
-              color: ThemeManager.instance!.getBackgroundColor(),
+              // color: ThemeManager.instance!.getBackgroundColor(),
               theme: ThemeData(
+                scaffoldBackgroundColor:
+                    ThemeManager.instance!.getBackgroundColor(),
+                cardColor: ThemeManager.instance!.getBackgroundColor(),
+                backgroundColor: ThemeManager.instance!.getBackgroundColor(),
                 primarySwatch: Colors.blue,
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,

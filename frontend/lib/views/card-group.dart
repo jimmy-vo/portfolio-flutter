@@ -11,21 +11,27 @@ class CardGroup extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Text(
-                this.title,
-                style: ThemeManager.instance!.cardHeaderStyle,
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Card(
+        borderOnForeground: true,
+        child: Container(
+          child: Column(
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Text(
+                    this.title,
+                    style: ThemeManager.instance!.cardHeaderStyle,
+                  ),
+                ),
               ),
-            ),
+              child
+            ],
           ),
-          child
-        ],
+        ),
       ),
     );
   }

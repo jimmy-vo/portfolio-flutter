@@ -37,5 +37,5 @@ class DartTheme extends IsCustomTheme {
   Color getSocialLabelColor() => Colors.white;
 
   @override
-  Color getBackgroundColor() => Colors.white;
+  Color getBackgroundColor() => Colors.black;
 }
