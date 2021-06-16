@@ -18,27 +18,34 @@ class SideBarLayout extends StatelessWidget {
 
         return Scaffold(
           drawer: SideDrawer(controller: controller),
-          // backgroundColor: ThemeManager.instance!.getBackgroundColor(),
-          body: Stack(
-            children: [
-              controller.navEnable!.value
-                  ? HorizontalSlidableWrapper()
-                  : StaticLayout(),
-              Positioned(
-                bottom: (controller.navEnable!.value &&
-                        controller.navPosition!.value ==
-                            NavPositionValue.Bottom)
-                    ? 15
-                    : null,
-                top: (controller.navEnable!.value &&
-                        controller.navPosition!.value ==
-                            NavPositionValue.Bottom)
-                    ? null
-                    : 15,
-                left: 15,
-                child: SideDrawerButton(controller: controller),
+          body: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("img/background.jpeg"),
+                fit: BoxFit.cover,
               ),
-            ],
+            ),
+            child: Stack(
+              children: [
+                controller.navEnable!.value
+                    ? HorizontalSlidableWrapper()
+                    : StaticLayout(),
+                Positioned(
+                  bottom: (controller.navEnable!.value &&
+                          controller.navPosition!.value ==
+                              NavPositionValue.Bottom)
+                      ? 5
+                      : null,
+                  top: (controller.navEnable!.value &&
+                          controller.navPosition!.value ==
+                              NavPositionValue.Bottom)
+                      ? null
+                      : 5,
+                  left: 5,
+                  child: SideDrawerButton(controller: controller),
+                ),
+              ],
+            ),
           ),
         );
       },
@@ -56,7 +63,7 @@ class SideDrawerButton extends StatefulWidget {
 
 class SideDrawerButtonState extends State<SideDrawerButton> {
   double size = 30;
-  Color color = Colors.white;
+  Color color = ThemeManager.instance!.getIndicatorIconNormalColor();
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +77,9 @@ class SideDrawerButtonState extends State<SideDrawerButton> {
       onHover: (bool isHover) {
         setState(() {
           size = isHover ? 45 : 30;
-          color = isHover ? Colors.greenAccent : Colors.white;
+          color = isHover
+              ? ThemeManager.instance!.getIndicatorIconHoverColor()
+              : ThemeManager.instance!.getIndicatorIconNormalColor();
         });
         if (widget.controller.navHover!.value) {
           Scaffold.of(context).openDrawer();

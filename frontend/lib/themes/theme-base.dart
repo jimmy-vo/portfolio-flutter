@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 abstract class IsCustomTheme {
   late TextStyle cardHeaderStyle;
-  late TextStyle indicatorNormalStyle;
-  late TextStyle indicatorSelectedStyle;
-  late TextStyle indicatorHighlightStyle;
+  late TextStyle indicatorTextNormalStyle;
+  late TextStyle indicatorTextSelectedStyle;
+  late TextStyle indicatorTextHoverStyle;
   late TextStyle titleStyle;
   late TextStyle organizationStyle;
   late TextStyle dateStyle;
@@ -14,28 +14,31 @@ abstract class IsCustomTheme {
   late TextStyle descritionBulletStyle;
   late TextStyle socialLabelStyle;
   late TextStyle linkTextStyle;
+  late ColorFilter navColorFilter;
+  AssetImage navBackground = AssetImage("img/nav-blue.jpg");
 
   IsCustomTheme() {
+    this.navColorFilter = this.getNavColorFilter();
     this.cardHeaderStyle = TextStyle(
       fontSize: getHeaderSize(),
       fontWeight: FontWeight.bold,
       fontStyle: FontStyle.normal,
       color: getCardHeaderColor(),
     );
-    this.indicatorNormalStyle = TextStyle(
-      fontSize: getIndicatorSize(),
+    this.indicatorTextNormalStyle = TextStyle(
+      fontSize: getIndicatorTextSize(),
       fontWeight: FontWeight.w900,
-      color: getIndicatorNormalColor(),
+      color: getIndicatorTextNormalColor(),
     );
-    this.indicatorSelectedStyle = TextStyle(
-      fontSize: getIndicatorSize(),
+    this.indicatorTextSelectedStyle = TextStyle(
+      fontSize: getIndicatorTextSize(),
       fontWeight: FontWeight.w900,
-      color: getIndicatorSelectedColor(),
+      color: getIndicatorTextSelectedColor(),
     );
-    this.indicatorHighlightStyle = TextStyle(
-      fontSize: getIndicatorSize(),
+    this.indicatorTextHoverStyle = TextStyle(
+      fontSize: getIndicatorTextSize(),
       fontWeight: FontWeight.w900,
-      color: getIndicatorHighlightColor(),
+      color: getIndicatorTextHoverColor(),
     );
     this.titleStyle = TextStyle(
       fontSize: getTitleSize(),
@@ -86,9 +89,12 @@ abstract class IsCustomTheme {
   }
 
   Color getCardHeaderColor();
-  Color getIndicatorNormalColor();
-  Color getIndicatorSelectedColor();
-  Color getIndicatorHighlightColor();
+  Color getIndicatorIconNormalColor();
+  Color getIndicatorIconSelectedColor();
+  Color getIndicatorIconHoverColor();
+  Color getIndicatorTextNormalColor();
+  Color getIndicatorTextSelectedColor();
+  Color getIndicatorTextHoverColor();
   Color getTitleColor();
   Color getOrganizationColor();
   Color getDateColor();
@@ -98,8 +104,9 @@ abstract class IsCustomTheme {
   Color getSocialLabelColor();
 
   Color getBackgroundColor();
+  ColorFilter getNavColorFilter();
 
-  double getIndicatorSize() => 20;
+  double getIndicatorTextSize() => 20;
   double getHeaderSize() => 30;
   double getTitleSize() => 20;
   double getInfoSize() => 18;

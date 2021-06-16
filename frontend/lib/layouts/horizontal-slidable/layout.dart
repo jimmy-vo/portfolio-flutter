@@ -5,6 +5,7 @@ import 'package:frontend/layouts/horizontal-slidable/indicator-group.dart';
 import 'package:frontend/layouts/horizontal-slidable/manager.dart';
 import 'package:frontend/models/setting-nav-select-on-hover.dart';
 import 'package:frontend/models/setting-nav-position.dart';
+import 'package:frontend/themes/theme-manager.dart';
 import 'package:provider/provider.dart';
 import 'indicator-container.dart';
 
@@ -86,24 +87,13 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
             (widget.offsets.last - widget.offsets.first)) /
         2;
 
-    List<Color> colors = [
-      Colors.black54.withOpacity(1),
-      Colors.black.withOpacity(1),
-      Colors.black54.withOpacity(1),
-      Colors.white.withOpacity(1),
-      Colors.white.withOpacity(.1),
-    ];
-
     return Container(
-      height: 100,
+      height: 50,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: this.navPosition!.value == NavPositionValue.Top
-              ? colors
-              : colors.reversed.toList(),
-          stops: [0.1, 0.2, 0.5, 0.9, 1],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
+        image: DecorationImage(
+          image: ThemeManager.instance!.navBackground,
+          fit: BoxFit.cover,
+          colorFilter: ThemeManager.instance!.navColorFilter,
         ),
       ),
       child: IndicatorContainer(

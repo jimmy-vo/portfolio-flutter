@@ -9,13 +9,22 @@ class LightTheme extends IsCustomTheme {
   Color getCardHeaderColor() => Colors.black;
 
   @override
-  Color getIndicatorNormalColor() => Colors.transparent;
+  Color getIndicatorIconNormalColor() => Colors.black;
 
   @override
-  Color getIndicatorHighlightColor() => Colors.blueAccent;
+  Color getIndicatorIconHoverColor() => Colors.blueAccent;
 
   @override
-  Color getIndicatorSelectedColor() => Colors.greenAccent;
+  Color getIndicatorIconSelectedColor() => Colors.greenAccent;
+
+  @override
+  Color getIndicatorTextNormalColor() => Colors.transparent;
+
+  @override
+  Color getIndicatorTextHoverColor() => Colors.blueAccent;
+
+  @override
+  Color getIndicatorTextSelectedColor() => Colors.greenAccent;
 
   @override
   Color getTitleColor() => Colors.black;
@@ -40,4 +49,8 @@ class LightTheme extends IsCustomTheme {
 
   @override
   Color getBackgroundColor() => Colors.white;
+
+  @override
+  ColorFilter getNavColorFilter() =>
+      ColorFilter.mode(Colors.white.withOpacity(0.5), BlendMode.hardLight);
 }

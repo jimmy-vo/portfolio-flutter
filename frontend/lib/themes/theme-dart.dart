@@ -7,13 +7,22 @@ class DartTheme extends IsCustomTheme {
   Color getCardHeaderColor() => Colors.white;
 
   @override
-  Color getIndicatorNormalColor() => Colors.transparent;
+  Color getIndicatorIconNormalColor() => Colors.white;
 
   @override
-  Color getIndicatorHighlightColor() => Colors.blueAccent;
+  Color getIndicatorIconHoverColor() => Colors.blueAccent;
 
   @override
-  Color getIndicatorSelectedColor() => Colors.greenAccent;
+  Color getIndicatorIconSelectedColor() => Colors.greenAccent;
+
+  @override
+  Color getIndicatorTextNormalColor() => Colors.transparent;
+
+  @override
+  Color getIndicatorTextHoverColor() => Colors.blueAccent;
+
+  @override
+  Color getIndicatorTextSelectedColor() => Colors.greenAccent;
 
   @override
   Color getTitleColor() => Colors.white;
@@ -38,4 +47,8 @@ class DartTheme extends IsCustomTheme {
 
   @override
   Color getBackgroundColor() => Colors.black;
+
+  @override
+  ColorFilter getNavColorFilter() =>
+      ColorFilter.mode(Colors.black.withOpacity(.4), BlendMode.hardLight);
 }

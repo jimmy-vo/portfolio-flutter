@@ -35,17 +35,17 @@ class IndicatorGroupState extends State<IndicatorGroup> {
   @override
   Widget build(BuildContext context) {
     double iconSize = 30;
-    Color? iconColor = Colors.white;
-    TextStyle textStyle = ThemeManager.instance!.indicatorNormalStyle;
+    Color? iconColor = ThemeManager.instance!.getIndicatorIconNormalColor();
+    TextStyle textStyle = ThemeManager.instance!.indicatorTextNormalStyle;
 
     if (this.isHover) {
       iconSize = 50;
-      iconColor = Colors.greenAccent;
-      textStyle = ThemeManager.instance!.indicatorHighlightStyle;
+      iconColor = ThemeManager.instance!.getIndicatorIconHoverColor();
+      textStyle = ThemeManager.instance!.indicatorTextHoverStyle;
     } else if (widget.isSelected) {
       iconSize = 50;
-      iconColor = Colors.blue;
-      textStyle = ThemeManager.instance!.indicatorHighlightStyle;
+      iconColor = ThemeManager.instance!.getIndicatorIconSelectedColor();
+      textStyle = ThemeManager.instance!.indicatorTextHoverStyle;
     }
 
     Widget iconWidget = InkWell(
@@ -73,7 +73,7 @@ class IndicatorGroupState extends State<IndicatorGroup> {
 
     List<Widget> children = [
       Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(0.0),
         child: iconWidget,
       ),
       AnimatedContainer(
