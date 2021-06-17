@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:frontend/models/section-item.dart';
-import 'package:frontend/views/card-group.dart';
+import 'package:frontend/layouts/card-group.dart';
 import 'package:frontend/views/flex-grid.dart';
 import 'package:frontend/views/profile/item.dart';
 

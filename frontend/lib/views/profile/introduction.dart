@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:frontend/models/contact.dart';
 import 'package:frontend/models/section-item.dart';
 import 'package:frontend/models/section.dart';
-import 'package:frontend/views/card-group.dart';
+import 'package:frontend/layouts/card-group.dart';
 import 'package:frontend/views/profile/description.dart';
-import 'package:frontend/views/profile/image.dart';
 
 // ignore: must_be_immutable
 class IntroductionView extends StatelessWidget {

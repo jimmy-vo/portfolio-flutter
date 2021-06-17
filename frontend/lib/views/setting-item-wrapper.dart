@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:frontend/main.dart';
 import 'package:frontend/themes/theme-manager.dart';
 
 // ignore: must_be_immutable

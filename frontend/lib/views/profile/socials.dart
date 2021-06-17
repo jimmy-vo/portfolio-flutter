@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/models/contact-social.dart';
 import 'package:frontend/themes/theme-manager.dart';
-import 'package:frontend/views/card-group.dart';
+import 'package:frontend/layouts/card-group.dart';
 import 'package:frontend/views/flex-grid.dart';
 import 'package:frontend/views/profile/link-text.dart';
 
