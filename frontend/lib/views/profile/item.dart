@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/layouts/card-group.dart';
 import 'package:frontend/models/section-item.dart';
 import 'package:frontend/themes/theme-manager.dart';
 import 'package:frontend/views/profile/description.dart';
@@ -13,21 +14,15 @@ class ItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-      margin: EdgeInsets.all(10),
-      child: Padding(
-        padding: const EdgeInsets.all(5.0),
+    return CardGroup(
         child: Column(
-          children: [
-            ItemHeaderView(data: this.data),
-            ...hideDescription != true
-                ? [DescriptionView(data: this.data.descriptions ?? [])]
-                : [],
-          ],
-        ),
-      ),
-    );
+      children: [
+        ItemHeaderView(data: this.data),
+        ...hideDescription != true
+            ? [DescriptionView(data: this.data.descriptions ?? [])]
+            : [],
+      ],
+    ));
   }
 }
 

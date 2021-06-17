@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/layouts/horizontal-slidable/template.dart';
 import 'package:frontend/models/section.dart';
-import 'package:frontend/views/profile/section-list.dart';
+import 'package:frontend/views/profile/item.dart';
 
 // ignore: must_be_immutable
 class ExperiencePageStack extends HorizontalSlidablePage {
@@ -10,6 +10,8 @@ class ExperiencePageStack extends HorizontalSlidablePage {
     Section experience = sections.firstWhere((element) => element.id == 1);
     super.icon = Icons.work_outline_rounded;
     super.name = experience.name ?? "";
-    super.child = SectionListView(section: experience);
+    super.child = Column(
+      children: experience.items!.map((e) => ItemView(data: e)).toList(),
+    );
   }
 }
