@@ -32,6 +32,7 @@ class RecentItems extends StatelessWidget {
                 .map((e) => ItemView(
                       data: e,
                       hideDescription: onPressed != null,
+                      narrowView: true,
                     ))
                 .toList(),
           ),
