@@ -72,7 +72,12 @@ class ItemHeaderView extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
-                    padding: EdgeInsets.all(5.0),
+                    padding: EdgeInsets.only(
+                      left: 15,
+                      right: 15,
+                      top: 5,
+                      bottom: 5,
+                    ),
                     // height: 96,
                     child: ItemInfoView(
                       data: this.data,

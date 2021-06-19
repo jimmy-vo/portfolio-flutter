@@ -1,5 +1,6 @@
 // ignore: must_be_immutable
 import 'package:flutter/material.dart';
+import 'package:frontend/themes/theme-manager.dart';
 
 // ignore: must_be_immutable
 class ImageView extends StatelessWidget {
@@ -19,6 +20,18 @@ class ImageView extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(10.0),
+        boxShadow: [
+          BoxShadow(
+            color:
+                ThemeManager.instance!.getOrganizationColor().withOpacity(0.3),
+            spreadRadius: 3,
+            blurRadius: 5,
+          ),
+        ],
+        border: Border.all(
+          color: ThemeManager.instance!.getOrganizationColor(),
+          width: 2,
+        ),
         image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage(imageUrl ?? ""),
