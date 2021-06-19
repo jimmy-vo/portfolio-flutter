@@ -24,7 +24,10 @@ class CardGroup extends StatelessWidget {
       constraints: BoxConstraints(maxWidth: 1080),
       child: Card(
         shape: RoundedRectangleBorder(
-          side: BorderSide(color: Colors.white70, width: 1),
+          side: BorderSide(
+            color: ThemeManager.instance!.getCardHeaderColor(),
+            width: 0.5,
+          ),
           borderRadius: BorderRadius.circular(20),
         ),
         borderOnForeground: true,
