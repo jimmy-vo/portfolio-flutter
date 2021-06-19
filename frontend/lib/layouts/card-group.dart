@@ -28,6 +28,8 @@ class CardGroup extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         borderOnForeground: true,
+        shadowColor: Colors.grey,
+        elevation: 30,
         child: Container(
           child: Column(
             children: [
