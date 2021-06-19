@@ -67,6 +67,7 @@ class SideDrawerButtonState extends State<SideDrawerButton> {
 
   @override
   Widget build(BuildContext context) {
+    color = ThemeManager.instance!.getIndicatorIconNormalColor();
     return InkWell(
       onTap: () {
         Scaffold.of(context).openDrawer();
@@ -86,8 +87,8 @@ class SideDrawerButtonState extends State<SideDrawerButton> {
         }
       },
       child: Container(
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         child: Center(
           child: Icon(
             Icons.menu_rounded,
