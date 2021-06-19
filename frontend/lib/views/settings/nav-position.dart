@@ -20,9 +20,6 @@ class _NavBarPosistionControlState extends State<NavBarPosistionControl> {
   Widget build(BuildContext context) {
     return Consumer<SettingsController>(
       builder: (_, SettingsController controller, __) {
-        if (!controller.isReady) return CircularProgressIndicator();
-
-        print("Consumer<SettingsController> in _NavBarPosistionState");
         return Container(
           child: DropdownButton<NavPositionValue>(
             value: controller.navPosition!.value,

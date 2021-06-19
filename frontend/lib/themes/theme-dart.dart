@@ -51,4 +51,10 @@ class DartTheme extends IsCustomTheme {
   @override
   ColorFilter getNavColorFilter() =>
       ColorFilter.mode(Colors.black.withOpacity(.4), BlendMode.hardLight);
+
+  @override
+  Color getNavColor() {
+    // TODO: implement getNavColor
+    throw UnimplementedError();
+  }
 }

@@ -25,6 +25,7 @@ class RecentItems extends StatelessWidget {
       children: [
         CardGroup(
           title: title,
+          noSpacing: true,
           child: FlexGridView(
             maxColumnWidth: 700,
             children: items

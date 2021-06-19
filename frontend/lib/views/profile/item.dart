@@ -10,27 +10,36 @@ class ItemView extends StatelessWidget {
   SectionItem data;
   bool? hideDescription;
   bool? narrowView;
+  bool? noSpacing;
 
   ItemView({
     required this.data,
     this.hideDescription,
+    this.noSpacing,
     this.narrowView,
   }) {}
 
   @override
   Widget build(BuildContext context) {
     return CardGroup(
-        child: Column(
-      children: [
-        ItemHeaderView(
-          data: this.data,
-          narrowView: this.narrowView,
-        ),
-        ...hideDescription != true
-            ? [DescriptionView(data: this.data.descriptions ?? [])]
-            : [],
-      ],
-    ));
+      noSpacing: this.noSpacing,
+      child: Column(
+        children: [
+          ItemHeaderView(
+            data: this.data,
+            narrowView: this.narrowView,
+          ),
+          ...hideDescription != true
+              ? [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: DescriptionView(data: this.data.descriptions ?? []),
+                  )
+                ]
+              : [],
+        ],
+      ),
+    );
   }
 }
 
@@ -54,6 +63,7 @@ class ItemHeaderView extends StatelessWidget {
                 style: ThemeManager.instance!.titleStyle),
           )
         : Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ...(this.data.image != null
                   ? [ImageView(imageUrl: this.data.image)]

@@ -13,7 +13,12 @@ class SkillsPageStack extends HorizontalSlidablePage {
     super.name = skills.name ?? "";
     super.child = FlexGridView(
       maxColumnWidth: 500,
-      children: (skills.items ?? []).map((e) => ItemView(data: e)).toList(),
+      children: (skills.items ?? [])
+          .map((e) => ItemView(
+                data: e,
+                noSpacing: true,
+              ))
+          .toList(),
     );
   }
 }

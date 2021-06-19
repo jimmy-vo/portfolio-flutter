@@ -82,6 +82,37 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
     });
   }
 
+  BoxDecoration _buildBoxDecorationGradient() {
+    Color background = ThemeManager.instance!.getBackgroundColor();
+    List<Color> colors = [
+      background.withOpacity(1),
+      background.withOpacity(1),
+      background.withOpacity(1),
+      background.withOpacity(1),
+      background.withOpacity(.1),
+    ];
+    return BoxDecoration(
+      gradient: LinearGradient(
+        colors: this.navPosition!.value == NavPositionValue.Top
+            ? colors
+            : colors.reversed.toList(),
+        stops: [0.1, 0.2, 0.5, 0.9, 1],
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+      ),
+    );
+  }
+
+  BoxDecoration _buildBoxDecorationImage() {
+    return BoxDecoration(
+      image: DecorationImage(
+        image: ThemeManager.instance!.navBackground,
+        fit: BoxFit.cover,
+        colorFilter: ThemeManager.instance!.navColorFilter,
+      ),
+    );
+  }
+
   Widget _buildIndicatorWrapper() {
     double wrapperOffset = (MediaQuery.of(context).size.width -
             (widget.offsets.last - widget.offsets.first)) /
@@ -89,13 +120,7 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
 
     return Container(
       height: 50,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: ThemeManager.instance!.navBackground,
-          fit: BoxFit.cover,
-          colorFilter: ThemeManager.instance!.navColorFilter,
-        ),
-      ),
+      decoration: _buildBoxDecorationGradient(),
       child: IndicatorContainer(
         navPositionValue: this.navPosition!.value,
         pageIndexNotifier: pageIndexNotifier,
