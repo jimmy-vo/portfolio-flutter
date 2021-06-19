@@ -6,6 +6,7 @@ class CardGroup extends StatelessWidget {
   bool? noSpacing;
   String? title;
   Widget child;
+  Widget? actionButton;
   CardGroup({
     this.title,
     this.noSpacing,

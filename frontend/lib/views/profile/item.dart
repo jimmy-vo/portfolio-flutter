@@ -63,10 +63,16 @@ class ItemHeaderView extends StatelessWidget {
                 style: ThemeManager.instance!.titleStyle),
           )
         : Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ...(this.data.image != null
-                  ? [ImageView(imageUrl: this.data.image)]
+                  ? [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5, bottom: 5),
+                        child: ImageView(imageUrl: this.data.image),
+                      )
+                    ]
                   : []),
               Expanded(
                 child: Align(
