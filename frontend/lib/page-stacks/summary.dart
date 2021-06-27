@@ -20,28 +20,41 @@ class SummaryPageStack extends HorizontalSlidablePage {
     Section activities = sections.firstWhere((element) => element.id == 5);
     super.icon = Icons.account_circle_outlined;
     super.name = summary.name ?? "";
-    super.child = Column(
-      children: [
-        IntroductionView(summary: summary, contact: contact),
-        SocialView(contactSocial: contact.social.first.data),
-        RecentItems(
+    super.children = [
+      HorizontalSlidablePageChild(
+        id: "${summary.id}-intro",
+        child: IntroductionView(summary: summary, contact: contact),
+      ),
+      HorizontalSlidablePageChild(
+        id: "${summary.id}-social",
+        child: SocialView(contactSocial: contact.social.first.data),
+      ),
+      HorizontalSlidablePageChild(
+        id: "${summary.id}-experience",
+        child: RecentItems(
           title: "Recent Experiences",
           items: experience.items ?? [],
           count: 2,
           onPressed: () => moveToPage!(1),
         ),
-        RecentItems(
+      ),
+      HorizontalSlidablePageChild(
+        id: "${summary.id}-education",
+        child: RecentItems(
           title: education.name ?? "",
           items: education.items ?? [],
           count: 2,
         ),
-        RecentItems(
+      ),
+      HorizontalSlidablePageChild(
+        id: "${summary.id}-activities",
+        child: RecentItems(
           title: "Recent Activities",
           items: activities.items ?? [],
           count: 2,
           onPressed: () => moveToPage!(3),
         ),
-      ],
-    );
+      ),
+    ];
   }
 }

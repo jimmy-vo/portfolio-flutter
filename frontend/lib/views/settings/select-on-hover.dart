@@ -16,7 +16,6 @@ class _SelectOnHoverControlState extends State<SelectOnHoverControl> {
       builder: (_, SettingsController controller, __) {
         if (!controller.isReady) return CircularProgressIndicator();
 
-        print("Consumer<SettingsController> in _SelectOnHoverState");
         return Container(
           child: Switch(
               value: controller.navHover!.value,

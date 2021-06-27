@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/controllers/profile.controller.dart';
+import 'package:frontend/controllers/route.controller.dart';
 import 'package:frontend/controllers/settings.controller.dart';
 import 'package:frontend/layouts/horizontal-slidable/indicator-group.dart';
 import 'package:frontend/layouts/horizontal-slidable/manager.dart';
@@ -103,16 +104,6 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
     );
   }
 
-  BoxDecoration _buildBoxDecorationImage() {
-    return BoxDecoration(
-      image: DecorationImage(
-        image: ThemeManager.instance!.navBackground,
-        fit: BoxFit.cover,
-        colorFilter: ThemeManager.instance!.navColorFilter,
-      ),
-    );
-  }
-
   Widget _buildIndicatorWrapper() {
     double wrapperOffset = (MediaQuery.of(context).size.width -
             (widget.offsets.last - widget.offsets.first)) /
@@ -144,12 +135,19 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
   }
 
   Widget _buildPageView() {
-    return PageView(
-      controller: pageController,
-      onPageChanged: (index) => pageIndexNotifier.value = index,
-      children: this.widget.manager.widgets,
-      physics: AlwaysScrollableScrollPhysics(),
-    );
+    return Consumer<RouteController>(
+        builder: (_, RouteController controller, __) {
+      return PageView(
+        controller: pageController,
+        onPageChanged: (index) {
+          pageIndexNotifier.value = index;
+          controller.notifyHorizontalSlidable(
+              this.widget.manager.widgets[index].name);
+        },
+        children: this.widget.manager.widgets,
+        physics: AlwaysScrollableScrollPhysics(),
+      );
+    });
   }
 
   void moveToPage(int index) {

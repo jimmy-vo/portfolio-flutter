@@ -10,8 +10,13 @@ class ActivitiesPageStack extends HorizontalSlidablePage {
     Section activities = sections.firstWhere((element) => element.id == 5);
     super.icon = Icons.sports_kabaddi_outlined;
     super.name = activities.name ?? "";
-    super.child = Column(
-      children: activities.items!.map((e) => ItemView(data: e)).toList(),
-    );
+    super.children = activities.items!
+        .map(
+          (e) => HorizontalSlidablePageChild(
+            id: "${activities.id}-${e.id}",
+            child: ItemView(data: e),
+          ),
+        )
+        .toList();
   }
 }

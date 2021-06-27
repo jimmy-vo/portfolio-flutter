@@ -22,7 +22,6 @@ class _ThemeControlState extends State<ThemeControl> {
       builder: (_, SettingsController controller, __) {
         if (!controller.isReady) return CircularProgressIndicator();
 
-        print("Consumer<SettingsController> in _ThemesState");
         return Container(
           child: DropdownButton<SettingsThemeValue>(
             value: controller.theme!.value,

@@ -16,7 +16,6 @@ class _NavEnableControlState extends State<NavEnableControl> {
       builder: (_, SettingsController controller, __) {
         if (!controller.isReady) return CircularProgressIndicator();
 
-        print("Consumer<SettingsController> in _NavEnableState");
         return Container(
           child: Switch(
               value: controller.navEnable!.value,

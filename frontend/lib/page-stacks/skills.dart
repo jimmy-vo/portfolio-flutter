@@ -11,14 +11,19 @@ class SkillsPageStack extends HorizontalSlidablePage {
     Section skills = sections.firstWhere((element) => element.id == 2);
     super.icon = Icons.lightbulb_outline_rounded;
     super.name = skills.name ?? "";
-    super.child = FlexGridView(
-      maxColumnWidth: 500,
-      children: (skills.items ?? [])
-          .map((e) => ItemView(
-                data: e,
-                noSpacing: true,
-              ))
-          .toList(),
-    );
+    super.children = [
+      HorizontalSlidablePageChild(
+        id: "${skills.id}",
+        child: FlexGridView(
+          maxColumnWidth: 500,
+          children: (skills.items ?? [])
+              .map((e) => ItemView(
+                    data: e,
+                    noSpacing: true,
+                  ))
+              .toList(),
+        ),
+      )
+    ];
   }
 }
