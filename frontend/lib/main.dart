@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:frontend/controllers/profile.controller.dart';
 import 'package:frontend/controllers/route.controller.dart';
 import 'package:frontend/controllers/settings.controller.dart';
+import 'package:frontend/layouts/sidebar-layout.dart';
 import 'package:frontend/themes/theme-manager.dart';
 import 'package:provider/provider.dart';
 
-import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
+// import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
 
 void main() {
-  configureApp();
+  // configureApp();
   runApp(MyApp());
 }
 
@@ -27,25 +28,19 @@ class MyApp extends StatelessWidget {
                 return Center(child: CircularProgressIndicator());
 
               ThemeManager.init(settingsController.theme!.value);
-              return Consumer<RouteController>(
-                builder: (_, RouteController routeController, __) {
-                  return MaterialApp(
-                    debugShowCheckedModeBanner: false,
-                    title: 'Jimmy Vo',
-                    onGenerateRoute: routeController.onGenerateRoute,
-                    theme: ThemeData(
-                      scaffoldBackgroundColor:
-                          ThemeManager.instance!.getBackgroundColor(),
-                      cardColor: ThemeManager.instance!.getBackgroundColor(),
-                      backgroundColor:
-                          ThemeManager.instance!.getBackgroundColor(),
-                      primarySwatch: Colors.blue,
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                    ),
-                    // home: SideBarLayout(),
-                  );
-                },
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                title: 'Jimmy Vo',
+                theme: ThemeData(
+                  scaffoldBackgroundColor:
+                      ThemeManager.instance!.getBackgroundColor(),
+                  cardColor: ThemeManager.instance!.getBackgroundColor(),
+                  backgroundColor: ThemeManager.instance!.getBackgroundColor(),
+                  primarySwatch: Colors.blue,
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                ),
+                home: SideBarLayout(),
               );
             },
           ),

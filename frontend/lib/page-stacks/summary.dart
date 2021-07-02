@@ -22,15 +22,18 @@ class SummaryPageStack extends HorizontalSlidablePage {
     super.name = summary.name ?? "";
     super.children = [
       HorizontalSlidablePageChild(
-        id: "${summary.id}-intro",
+        sectionId: summary.id,
+        sectionItemId: 1,
         child: IntroductionView(summary: summary, contact: contact),
       ),
       HorizontalSlidablePageChild(
-        id: "${summary.id}-social",
+        sectionId: summary.id,
+        sectionItemId: 2,
         child: SocialView(contactSocial: contact.social.first.data),
       ),
       HorizontalSlidablePageChild(
-        id: "${summary.id}-experience",
+        sectionId: summary.id,
+        sectionItemId: 3,
         child: RecentItems(
           title: "Recent Experiences",
           items: experience.items ?? [],
@@ -39,7 +42,8 @@ class SummaryPageStack extends HorizontalSlidablePage {
         ),
       ),
       HorizontalSlidablePageChild(
-        id: "${summary.id}-education",
+        sectionId: summary.id,
+        sectionItemId: 4,
         child: RecentItems(
           title: education.name ?? "",
           items: education.items ?? [],
@@ -47,7 +51,8 @@ class SummaryPageStack extends HorizontalSlidablePage {
         ),
       ),
       HorizontalSlidablePageChild(
-        id: "${summary.id}-activities",
+        sectionId: summary.id,
+        sectionItemId: 5,
         child: RecentItems(
           title: "Recent Activities",
           items: activities.items ?? [],

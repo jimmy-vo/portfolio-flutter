@@ -135,19 +135,20 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
   }
 
   Widget _buildPageView() {
-    return Consumer<RouteController>(
+    return Selector<RouteController, RouteController>(
+        selector: (_, RouteController controller) => controller,
         builder: (_, RouteController controller, __) {
-      return PageView(
-        controller: pageController,
-        onPageChanged: (index) {
-          pageIndexNotifier.value = index;
-          controller.notifyHorizontalSlidable(
-              this.widget.manager.widgets[index].name);
-        },
-        children: this.widget.manager.widgets,
-        physics: AlwaysScrollableScrollPhysics(),
-      );
-    });
+          return PageView(
+            controller: pageController,
+            onPageChanged: (index) {
+              pageIndexNotifier.value = index;
+              controller
+                  .notifyNewStackName(this.widget.manager.widgets[index].name);
+            },
+            children: this.widget.manager.widgets,
+            physics: AlwaysScrollableScrollPhysics(),
+          );
+        });
   }
 
   void moveToPage(int index) {

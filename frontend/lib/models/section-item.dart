@@ -15,8 +15,12 @@ class SectionItem {
   String? location;
   String? image;
   Config? config;
+
   @JsonKey(name: "description")
   List<Description>? descriptions;
+
+  @JsonKey(ignore: true)
+  late String fragmentName;
 
   SectionItem({
     required this.id,
@@ -29,6 +33,12 @@ class SectionItem {
     required this.image,
     required this.descriptions,
   });
+
+  void setFragmentName({required num sectionId, required num sectionItemId}) {
+    this.fragmentName = "#section-${sectionId}-${sectionItemId}";
+  }
+
+  String getFragmentName() => this.fragmentName;
 
   bool hasInfo() {
     bool value =

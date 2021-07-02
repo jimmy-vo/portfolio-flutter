@@ -7,12 +7,13 @@ import 'package:frontend/views/profile/item.dart';
 // ignore: must_be_immutable
 class AchivementPageStack extends HorizontalSlidablePage {
   AchivementPageStack({required List<Section> sections}) {
-    Section achivements = sections.firstWhere((element) => element.id == 4);
+    Section section = sections.firstWhere((element) => element.id == 4);
     super.icon = Icons.wine_bar_outlined;
-    super.name = achivements.name ?? "";
-    super.children = achivements.items!
+    super.name = section.name ?? "";
+    super.children = section.items!
         .map((e) => HorizontalSlidablePageChild(
-              id: "${achivements.id}-${e.id}",
+              sectionId: section.id,
+              sectionItemId: e.id,
               child: ItemView(data: e),
             ))
         .toList();

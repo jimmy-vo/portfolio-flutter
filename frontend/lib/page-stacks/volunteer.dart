@@ -7,16 +7,15 @@ import 'package:frontend/views/profile/item.dart';
 // ignore: must_be_immutable
 class ActivitiesPageStack extends HorizontalSlidablePage {
   ActivitiesPageStack({required List<Section> sections}) {
-    Section activities = sections.firstWhere((element) => element.id == 5);
+    Section section = sections.firstWhere((element) => element.id == 5);
     super.icon = Icons.sports_kabaddi_outlined;
-    super.name = activities.name ?? "";
-    super.children = activities.items!
-        .map(
-          (e) => HorizontalSlidablePageChild(
-            id: "${activities.id}-${e.id}",
-            child: ItemView(data: e),
-          ),
-        )
+    super.name = section.name ?? "";
+    super.children = section.items!
+        .map((e) => HorizontalSlidablePageChild(
+              sectionId: section.id,
+              sectionItemId: e.id,
+              child: ItemView(data: e),
+            ))
         .toList();
   }
 }
