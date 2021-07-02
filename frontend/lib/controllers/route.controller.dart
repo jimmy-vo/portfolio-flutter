@@ -11,14 +11,12 @@ class RouteController extends ChangeNotifier {
   String currentFragment = '';
   String targetFragment = '';
 
-  RouteController() {
-    Uri uri = Uri.parse(window.location.href);
+  RouteController(Uri uri) {
     this.setFirstRoutePath(
         uri.pathSegments.length > 0 ? uri.pathSegments[0] : "");
-    this.targetFragment = uri.fragment;
-
-    // print(uri.fragment);
-    // print(uri.queryParametersAll);
+    this.targetFragment = uri.fragment != "" ? "#${uri.fragment}" : "";
+    this.currentFragment = this.targetFragment;
+    _pushRoute();
   }
 
   String getFirstRoutePath() {
@@ -30,12 +28,29 @@ class RouteController extends ChangeNotifier {
 
   String getHorizontalSlidablePage() => this.currentStackPageName;
 
-  bool checkgetHorizontalSlidablePage(String pageName) =>
-      this.currentStackPageName == pageName;
-
   int getHorizontalSlidablePageIndex(
-          List<HorizontalSlidablePageChild> children) =>
-      children.indexWhere((element) => element.fragment == this.targetFragment);
+      String stackPageName, List<HorizontalSlidablePageChild> children) {
+    if (this.currentStackPageName != stackPageName) return -1;
+    return children
+        .indexWhere((element) => element.fragment == this.targetFragment);
+  }
+
+  int getTargetPageStack(List<HorizontalSlidablePage> children) {
+    if (targetFragment == '') return 0;
+    List<int> indices = children
+        .map((element) => element
+            .getFragments()
+            .indexWhere((page) => page == this.targetFragment))
+        .toList();
+
+    int index = indices.indexWhere((element) => element >= 0);
+    if (index == -1) {
+      index = 0;
+    }
+    currentStackPageName = children[index].name;
+
+    return index;
+  }
 
   void setFirstRoutePath(String name) {
     this._currentFirstRoutePath = FirstRoutePath.values.firstWhere(
@@ -47,7 +62,7 @@ class RouteController extends ChangeNotifier {
   void _pushRoute() {
     String firstPath = this.getFirstRoutePath();
     String path = firstPath;
-    window.history.pushState(null, "Home", "${path}${currentFragment}");
+    window.history.replaceState(null, "Home", "${path}${currentFragment}");
   }
 
   void notifyFragment(String stackPageName, String fragment) {

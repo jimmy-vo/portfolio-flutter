@@ -50,10 +50,7 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
   final pageIndexNotifier = ValueNotifier<int>(0);
   late NavSelectOnHover? navSelectOnHover = null;
   late NavPosition? navPosition = null;
-  PageController pageController = PageController(
-    viewportFraction: 1,
-    keepPage: true,
-  );
+  late PageController pageController;
 
   @override
   initState() {
@@ -138,6 +135,13 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
     return Selector<RouteController, RouteController>(
         selector: (_, RouteController controller) => controller,
         builder: (_, RouteController controller, __) {
+          pageIndexNotifier.value =
+              controller.getTargetPageStack(this.widget.manager.widgets);
+          pageController = PageController(
+            initialPage: pageIndexNotifier.value,
+            viewportFraction: 1,
+            keepPage: true,
+          );
           return PageView(
             controller: pageController,
             onPageChanged: (index) {

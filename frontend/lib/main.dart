@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:frontend/controllers/profile.controller.dart';
 import 'package:frontend/controllers/route.controller.dart';
@@ -6,20 +8,24 @@ import 'package:frontend/layouts/sidebar-layout.dart';
 import 'package:frontend/themes/theme-manager.dart';
 import 'package:provider/provider.dart';
 
-// import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
+import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
 
 void main() {
-  // configureApp();
-  runApp(MyApp());
+  configureApp();
+  runApp(MyApp(Uri.parse(window.location.href)));
 }
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
+  Uri uri;
+  MyApp(this.uri);
+
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<SettingsController>(
-      create: (context) => SettingsController(),
-      child: ChangeNotifierProvider<RouteController>(
-        create: (_) => RouteController(),
+    return ChangeNotifierProvider<RouteController>(
+      create: (context) => RouteController(this.uri),
+      child: ChangeNotifierProvider<SettingsController>(
+        create: (_) => SettingsController(),
         child: ChangeNotifierProvider<ProfileController>(
           create: (_) => ProfileController(),
           child: Consumer<SettingsController>(

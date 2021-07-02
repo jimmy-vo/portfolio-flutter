@@ -27,6 +27,14 @@ class HorizontalSlidablePage extends StatefulWidget {
   late IconData icon;
   late String name;
   late List<HorizontalSlidablePageChild> children;
+  late List<String> _fragments = [];
+
+  List<String> getFragments() {
+    if (_fragments.length != children.length)
+      _fragments = children.map((e) => e.fragment).toList();
+
+    return _fragments;
+  }
 
   @override
   _HorizontalSlidablePageState createState() => _HorizontalSlidablePageState();
@@ -54,15 +62,10 @@ class _HorizontalSlidablePageState extends State<HorizontalSlidablePage> {
             itemPositionsListener.itemPositions
                 .addListener(listener(controller));
 
-            Widget child = snapshot.data as Widget;
+            int index = controller.getHorizontalSlidablePageIndex(
+                widget.name, widget.children);
 
-            if (controller.checkgetHorizontalSlidablePage(widget.name))
-              return child;
-
-            int index =
-                controller.getHorizontalSlidablePageIndex(widget.children);
-
-            if (index == -1) return child;
+            if (index == -1) return snapshot.data as Widget;
 
             SchedulerBinding.instance!.addPostFrameCallback((_) {
               itemScrollController.scrollTo(
