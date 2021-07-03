@@ -139,7 +139,7 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
               controller.getTargetPageStack(this.widget.manager.widgets);
           pageController = PageController(
             initialPage: pageIndexNotifier.value,
-            viewportFraction: 1,
+            viewportFraction: 0.999,
             keepPage: true,
           );
           return PageView(
