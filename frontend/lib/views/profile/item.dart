@@ -142,24 +142,22 @@ class ItemInfoView extends StatelessWidget {
   }
 
   Widget _buildNarrowView() {
-    String combined =
-        (this.data.title ?? "") + " \@ " + (this.data.organization ?? "");
     return Align(
       alignment: Alignment.topLeft,
       child: SelectableText.rich(
         TextSpan(
           children: [
             TextSpan(
-              text: combined,
+              text: this.data.title,
               style: ThemeManager.instance!.titleStyle,
+            ),
+            TextSpan(
+              text: "\n" + (this.data.organization ?? ""),
+              style: ThemeManager.instance!.organizationStyle,
             ),
             TextSpan(
               text: "\n" + (this.data.date ?? ""),
               style: ThemeManager.instance!.dateStyle,
-            ),
-            TextSpan(
-              text: "\n" + (this.data.location ?? ""),
-              style: ThemeManager.instance!.locationStyle,
             ),
           ],
         ),
