@@ -88,6 +88,7 @@ class TableCardGroupState extends State<TableCardGroup> {
                     ? CrossFadeState.showSecond
                     : CrossFadeState.showFirst,
                 duration: const Duration(milliseconds: 400),
+                reverseDuration: const Duration(milliseconds: 400),
               ),
               Container(
                 height: 20,
