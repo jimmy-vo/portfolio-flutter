@@ -4,6 +4,7 @@ import 'package:frontend/controllers/route.controller.dart';
 import 'package:frontend/controllers/settings.controller.dart';
 import 'package:frontend/layouts/horizontal-slidable/indicator-group.dart';
 import 'package:frontend/layouts/horizontal-slidable/manager.dart';
+import 'package:frontend/layouts/responsive.dart';
 import 'package:frontend/models/setting-nav-select-on-hover.dart';
 import 'package:frontend/models/setting-nav-position.dart';
 import 'package:frontend/themes/theme-manager.dart';
@@ -74,7 +75,9 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
         clipBehavior: Clip.none,
         children: <Widget>[
           _buildPageView(),
-          _buildIndicatorWrapper(),
+          ResponsiveWidget.same(
+            build: (_, width) => _buildIndicatorWrapper(width),
+          ),
         ],
       );
     });
@@ -101,10 +104,9 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
     );
   }
 
-  Widget _buildIndicatorWrapper() {
-    double wrapperOffset = (MediaQuery.of(context).size.width -
-            (widget.offsets.last - widget.offsets.first)) /
-        2;
+  Widget _buildIndicatorWrapper(double screenWidth) {
+    double wrapperOffset =
+        (screenWidth - (widget.offsets.last - widget.offsets.first)) / 2;
 
     return Container(
       height: 50,

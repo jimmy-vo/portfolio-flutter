@@ -10,19 +10,16 @@ class ItemView extends StatelessWidget {
   SectionItem data;
   bool? hideDescription;
   bool? narrowView;
-  bool? noSpacing;
 
   ItemView({
     required this.data,
     this.hideDescription,
-    this.noSpacing,
     this.narrowView,
   }) {}
 
   @override
   Widget build(BuildContext context) {
     return CardGroup(
-      noSpacing: this.noSpacing,
       child: Column(
         children: [
           ItemHeaderView(

@@ -14,6 +14,7 @@ abstract class IsCustomTheme {
   late TextStyle descritionBulletStyle;
   late TextStyle socialLabelStyle;
   late TextStyle linkTextStyle;
+  late ButtonStyle buttonStyle;
   late ColorFilter navColorFilter;
   AssetImage navBackground = AssetImage("img/nav-blue.jpg");
 
@@ -86,6 +87,15 @@ abstract class IsCustomTheme {
       color: Colors.blue,
       decoration: TextDecoration.underline,
     );
+
+    this.buttonStyle = ButtonStyle(
+      backgroundColor: MaterialStateProperty.all<Color>(this.getButtonColor()),
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+      ),
+    );
   }
 
   Color getCardHeaderColor();
@@ -104,6 +114,7 @@ abstract class IsCustomTheme {
   Color getSocialLabelColor();
 
   Color getBackgroundColor();
+  Color getButtonColor();
   ColorFilter getNavColorFilter();
 
   double getIndicatorTextSize() => 20;

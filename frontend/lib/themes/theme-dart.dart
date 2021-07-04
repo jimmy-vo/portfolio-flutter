@@ -49,6 +49,9 @@ class DartTheme extends IsCustomTheme {
   Color getBackgroundColor() => Colors.black;
 
   @override
+  Color getButtonColor() => Colors.white.withOpacity(0.7);
+
+  @override
   ColorFilter getNavColorFilter() =>
       ColorFilter.mode(Colors.black.withOpacity(.4), BlendMode.hardLight);
 }

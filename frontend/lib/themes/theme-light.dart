@@ -51,6 +51,9 @@ class LightTheme extends IsCustomTheme {
   Color getBackgroundColor() => Colors.white;
 
   @override
+  Color getButtonColor() => Colors.black.withOpacity(0.01);
+
+  @override
   ColorFilter getNavColorFilter() =>
       ColorFilter.mode(Colors.white.withOpacity(0.5), BlendMode.hardLight);
 }

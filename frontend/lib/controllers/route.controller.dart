@@ -35,7 +35,7 @@ class RouteController extends ChangeNotifier {
         .indexWhere((element) => element.fragment == this.targetFragment);
   }
 
-  int getTargetPageStack(List<HorizontalSlidablePage> children) {
+  int getTargetPageStack(List<IsHorizontalSlidablePage> children) {
     if (targetFragment == '') return 0;
     List<int> indices = children
         .map((element) => element
