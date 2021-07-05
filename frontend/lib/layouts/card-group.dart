@@ -5,14 +5,16 @@ import 'package:frontend/themes/theme-manager.dart';
 class CardGroup extends StatelessWidget {
   String? title;
   Widget child;
+  VoidCallback? onTap;
   CardGroup({
     this.title,
     required this.child,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    Widget card = Card(
       shape: RoundedRectangleBorder(
         side: BorderSide(
           color: ThemeManager.instance!.getCardHeaderColor(),
@@ -48,5 +50,12 @@ class CardGroup extends StatelessWidget {
         ),
       ),
     );
+
+    return onTap == null
+        ? card
+        : InkWell(
+            child: card,
+            onTap: onTap,
+          );
   }
 }

@@ -19,7 +19,10 @@ class StaticLayout extends StatelessWidget {
         FlexGridView(
           maxColumnWidth: 500,
           children: (controller.skills.items ?? [])
-              .map((e) => ItemView(data: e))
+              .map((e) => ItemView(
+                    sectionItem: e,
+                    sectionId: controller.skills.id,
+                  ))
               .toList(),
         ),
         SectionListView(section: controller.education),

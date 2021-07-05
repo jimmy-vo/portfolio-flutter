@@ -7,30 +7,34 @@ import 'package:frontend/views/profile/image.dart';
 
 // ignore: must_be_immutable
 class ItemView extends StatelessWidget {
-  SectionItem data;
+  SectionItem sectionItem;
   bool? hideDescription;
-  bool? narrowView;
+  bool? clickable;
+  num? sectionId;
 
   ItemView({
-    required this.data,
+    required this.sectionItem,
     this.hideDescription,
-    this.narrowView,
-  }) {}
+    this.clickable,
+    required this.sectionId,
+  });
 
   @override
   Widget build(BuildContext context) {
     return CardGroup(
+      onTap: clickable == null ? null : () => {},
       child: Column(
         children: [
           ItemHeaderView(
-            data: this.data,
-            narrowView: this.narrowView,
+            sectionItem: this.sectionItem,
+            narrowView: this.clickable,
           ),
           ...hideDescription != true
               ? [
                   Padding(
                     padding: const EdgeInsets.only(top: 15),
-                    child: DescriptionView(data: this.data.descriptions ?? []),
+                    child: DescriptionView(
+                        data: this.sectionItem.descriptions ?? []),
                   )
                 ]
               : [],
@@ -42,32 +46,32 @@ class ItemView extends StatelessWidget {
 
 // ignore: must_be_immutable
 class ItemHeaderView extends StatelessWidget {
-  late SectionItem data;
+  late SectionItem sectionItem;
   bool? narrowView;
 
   ItemHeaderView({
-    required this.data,
+    required this.sectionItem,
     this.narrowView,
   });
 
   @override
   Widget build(BuildContext context) {
-    return !this.data.hasInfo()
+    return !this.sectionItem.hasInfo()
         ? Container(
             padding: EdgeInsets.all(5.0),
             alignment: Alignment.centerLeft,
-            child: SelectableText(this.data.title ?? "",
+            child: SelectableText(this.sectionItem.title ?? "",
                 style: ThemeManager.instance!.titleStyle),
           )
         : Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              ...(this.data.image != null
+              ...(this.sectionItem.image != null
                   ? [
                       Padding(
                         padding: const EdgeInsets.only(top: 5, bottom: 5),
-                        child: ImageView(imageUrl: this.data.image),
+                        child: ImageView(imageUrl: this.sectionItem.image),
                       )
                     ]
                   : []),
@@ -83,7 +87,7 @@ class ItemHeaderView extends StatelessWidget {
                     ),
                     // height: 96,
                     child: ItemInfoView(
-                      data: this.data,
+                      data: this.sectionItem,
                       narrowView: this.narrowView,
                     ),
                   ),

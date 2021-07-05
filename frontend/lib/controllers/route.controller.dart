@@ -29,7 +29,7 @@ class RouteController extends ChangeNotifier {
   String getHorizontalSlidablePage() => this.currentStackPageName;
 
   int getHorizontalSlidablePageIndex(
-      String stackPageName, List<HorizontalSlidablePageChild> children) {
+      String stackPageName, List<HorizontalSlidablePageFragment> children) {
     if (this.currentStackPageName != stackPageName) return -1;
     return children
         .indexWhere((element) => element.fragment == this.targetFragment);

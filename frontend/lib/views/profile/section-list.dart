@@ -14,7 +14,12 @@ class SectionListView extends StatelessWidget {
     return ListView(
       shrinkWrap: true,
       physics: ScrollPhysics(),
-      children: items.map((e) => ItemView(data: e)).toList(),
+      children: items
+          .map((e) => ItemView(
+                sectionItem: e,
+                sectionId: this.section.id,
+              ))
+          .toList(),
     );
   }
 }

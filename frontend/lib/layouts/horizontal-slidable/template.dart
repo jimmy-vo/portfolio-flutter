@@ -8,20 +8,18 @@ import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 // ignore: must_be_immutable
-class HorizontalSlidablePageChild extends StatelessWidget {
-  Widget child;
+class HorizontalSlidablePageFragment extends StatelessWidget {
+  Widget? child;
   late String fragment;
-  num? sectionId;
-  num? sectionItemId;
+  String sectionId;
+  String sectionItemId;
 
-  HorizontalSlidablePageChild({
+  HorizontalSlidablePageFragment({
     required this.child,
     required this.sectionId,
     required this.sectionItemId,
   }) {
-    this.fragment = (this.sectionId != null || this.sectionItemId != null)
-        ? "#section-${sectionId}-${sectionItemId}"
-        : "";
+    this.fragment = "#section-${sectionId}-${sectionItemId}";
   }
 
   @override
@@ -46,13 +44,28 @@ class HorizontalSlidablePageChild extends StatelessWidget {
       ),
     );
   }
+
+  static HorizontalSlidablePageFragment Spacer() =>
+      HorizontalSlidablePageFragment(
+        child: Container(height: 40),
+        sectionId: "null",
+        sectionItemId: "null",
+      );
+
+  static HorizontalSlidablePageFragment FromItemView(
+          {required ItemView child}) =>
+      HorizontalSlidablePageFragment(
+        child: child,
+        sectionId: child.sectionId.toString(),
+        sectionItemId: child.sectionItem.id.toString(),
+      );
 }
 
 // ignore: must_be_immutable
 abstract class IsHorizontalSlidablePage extends StatefulWidget {
   late IconData icon;
   late String name;
-  late List<HorizontalSlidablePageChild> children;
+  late List<HorizontalSlidablePageFragment> children;
   List<String> getFragments();
 }
 
@@ -61,7 +74,7 @@ class HorizontalSlidablePage extends StatefulWidget
     implements IsHorizontalSlidablePage {
   IconData icon;
   String name;
-  List<HorizontalSlidablePageChild> children;
+  List<HorizontalSlidablePageFragment> children;
   late List<String> _fragments = [];
 
   HorizontalSlidablePage({
@@ -70,25 +83,8 @@ class HorizontalSlidablePage extends StatefulWidget
     required this.name,
     required this.children,
   }) {
-    children.insert(
-      0,
-      HorizontalSlidablePageChild(
-        child: Container(
-          height: 60,
-        ),
-        sectionId: null,
-        sectionItemId: null,
-      ),
-    );
-    children.add(
-      HorizontalSlidablePageChild(
-        child: Container(
-          height: 60,
-        ),
-        sectionId: null,
-        sectionItemId: null,
-      ),
-    );
+    children.insert(0, HorizontalSlidablePageFragment.Spacer());
+    children.add(HorizontalSlidablePageFragment.Spacer());
   }
 
   List<String> getFragments() {
@@ -105,11 +101,14 @@ class HorizontalSlidablePage extends StatefulWidget
       {required Section section, required IconData icon}) {
     return HorizontalSlidablePage(
       children: section.items!
-          .map((e) => HorizontalSlidablePageChild(
+          .map(
+            (e) => HorizontalSlidablePageFragment.FromItemView(
+              child: ItemView(
+                sectionItem: e,
                 sectionId: section.id,
-                sectionItemId: e.id,
-                child: ItemView(data: e),
-              ))
+              ),
+            ),
+          )
           .toList(),
       icon: icon,
       name: section.name!,

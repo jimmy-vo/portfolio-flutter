@@ -28,57 +28,60 @@ class HorizontalSlidableManager {
             icon: Icons.account_circle_outlined,
             name: summary.name!,
             children: [
-              HorizontalSlidablePageChild(
-                sectionId: summary.id,
-                sectionItemId: 1,
+              HorizontalSlidablePageFragment(
+                sectionId: summary.id.toString(),
+                sectionItemId: "intro",
                 child: IntroductionView(summary: summary, contact: contact),
               ),
-              HorizontalSlidablePageChild(
-                sectionId: summary.id,
-                sectionItemId: 2,
+              HorizontalSlidablePageFragment(
+                sectionId: summary.id.toString(),
+                sectionItemId: "Social",
                 child: SocialView(contactSocial: contact.social.first.data),
               ),
-              HorizontalSlidablePageChild(
-                sectionId: summary.id,
-                sectionItemId: 3,
+              HorizontalSlidablePageFragment(
+                sectionId: summary.id.toString(),
+                sectionItemId: "Experiences",
                 child: TableCardGroup(
                   title: "Recent Experiences",
                   column: 2,
                   children: (experience.items ?? [])
                       .map((e) => ItemView(
-                            data: e,
+                            sectionId: experience.id,
+                            sectionItem: e,
                             hideDescription: true,
-                            narrowView: true,
+                            clickable: true,
                           ))
                       .toList(),
                 ),
               ),
-              HorizontalSlidablePageChild(
-                sectionId: summary.id,
-                sectionItemId: 4,
+              HorizontalSlidablePageFragment(
+                sectionId: summary.id.toString(),
+                sectionItemId: "Education",
                 child: TableCardGroup(
                   title: education.name ?? "",
                   column: 2,
                   children: (education.items ?? [])
                       .map((e) => ItemView(
-                            data: e,
+                            sectionId: education.id,
+                            sectionItem: e,
                             hideDescription: true,
-                            narrowView: true,
+                            clickable: true,
                           ))
                       .toList(),
                 ),
               ),
-              HorizontalSlidablePageChild(
-                sectionId: summary.id,
-                sectionItemId: 5,
+              HorizontalSlidablePageFragment(
+                sectionId: summary.id.toString(),
+                sectionItemId: "Activities",
                 child: TableCardGroup(
                   title: "Recent Activities",
                   column: 2,
                   children: (activities.items ?? [])
                       .map((e) => ItemView(
-                            data: e,
+                            sectionId: activities.id,
+                            sectionItem: e,
                             hideDescription: true,
-                            narrowView: true,
+                            clickable: true,
                           ))
                       .toList(),
                 ),

@@ -12,7 +12,7 @@
 //     super.icon = Icons.lightbulb_outline_rounded;
 //     super.name = skills.name ?? "";
 //     super.children = [
-//       HorizontalSlidablePageChild(
+//       HorizontalSlidablePageFragment(
 //         sectionId: skills.id,
 //         sectionItemId: skills.items![0].id,
 //         child: FlexGridView(
