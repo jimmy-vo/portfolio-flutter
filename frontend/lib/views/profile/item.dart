@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/controllers/route.controller.dart';
 import 'package:frontend/layouts/card-group.dart';
 import 'package:frontend/models/section-item.dart';
 import 'package:frontend/themes/theme-manager.dart';
 import 'package:frontend/views/profile/description.dart';
 import 'package:frontend/views/profile/image.dart';
+import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class ItemView extends StatelessWidget {
@@ -21,25 +23,32 @@ class ItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CardGroup(
-      onTap: clickable == null ? null : () => {},
-      child: Column(
-        children: [
-          ItemHeaderView(
-            sectionItem: this.sectionItem,
-            narrowView: this.clickable,
+    return Selector<RouteController, RouteController>(
+      selector: (_, RouteController controller) => controller,
+      builder: (_, RouteController controller, __) {
+        return CardGroup(
+          onTap: clickable == null
+              ? null
+              : () => controller.navigateToFragment(sectionItem.fragment),
+          child: Column(
+            children: [
+              ItemHeaderView(
+                sectionItem: this.sectionItem,
+                narrowView: this.clickable,
+              ),
+              ...hideDescription != true
+                  ? [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15),
+                        child: DescriptionView(
+                            data: this.sectionItem.descriptions ?? []),
+                      )
+                    ]
+                  : [],
+            ],
           ),
-          ...hideDescription != true
-              ? [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: DescriptionView(
-                        data: this.sectionItem.descriptions ?? []),
-                  )
-                ]
-              : [],
-        ],
-      ),
+        );
+      },
     );
   }
 }
@@ -148,7 +157,7 @@ class ItemInfoView extends StatelessWidget {
   Widget _buildNarrowView() {
     return Align(
       alignment: Alignment.topLeft,
-      child: SelectableText.rich(
+      child: Text.rich(
         TextSpan(
           children: [
             TextSpan(

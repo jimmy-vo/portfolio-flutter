@@ -32,8 +32,8 @@ class HorizontalSlidableWrapper extends StatelessWidget {
 class HorizontalSlidable extends StatefulWidget {
   final double indicatorWrapperWidth = 500;
   final double indicatorOfsetFactor = 50;
-  List<double> offsets = [];
-  late HorizontalSlidableManager manager;
+  final List<double> offsets = [];
+  final HorizontalSlidableManager manager;
 
   HorizontalSlidable({required this.manager}) {
     for (int i = 0; i < this.manager.widgets.length; i++) {
@@ -48,15 +48,12 @@ class HorizontalSlidable extends StatefulWidget {
 
 // ignore: must_be_immutable
 class HorizontalSlidableState extends State<HorizontalSlidable> {
-  final pageIndexNotifier = ValueNotifier<int>(0);
   late NavSelectOnHover? navSelectOnHover = null;
   late NavPosition? navPosition = null;
-  late PageController pageController;
 
   @override
   initState() {
     super.initState();
-    this.widget.manager.moveToPage = this.moveToPage;
   }
 
   @override
@@ -109,61 +106,50 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
         (screenWidth - (widget.offsets.last - widget.offsets.first)) / 2;
 
     return Container(
-      height: 50,
-      decoration: _buildBoxDecorationGradient(),
-      child: IndicatorContainer(
-        navPositionValue: this.navPosition!.value,
-        pageIndexNotifier: pageIndexNotifier,
-        length: this.widget.manager.widgets.length,
-        getOffset: (int index) => widget.offsets[index] + wrapperOffset,
-        normalBuilder: (animationController, index) => ScaleTransition(
-            scale: CurvedAnimation(
-              parent: animationController,
-              curve: Curves.ease,
-            ),
-            child: _buildIndicator(index, this.navPosition!.value, false)),
-        highlightedBuilder: (animationController, index) => ScaleTransition(
-          scale: CurvedAnimation(
-            parent: animationController,
-            curve: Curves.ease,
-          ),
-          child: _buildIndicator(index, this.navPosition!.value, true),
-        ),
-      ),
-    );
+        height: 50,
+        decoration: _buildBoxDecorationGradient(),
+        child: Selector<RouteController, RouteController>(
+            selector: (_, RouteController controller) => controller,
+            builder: (_, RouteController controller, __) {
+              controller.setHorizontalSlidablePages(widget.manager.widgets);
+
+              return IndicatorContainer(
+                  navPositionValue: this.navPosition!.value,
+                  pageIndexNotifier: controller.pageIndexNotifier,
+                  length: this.widget.manager.widgets.length,
+                  getOffset: (int index) =>
+                      widget.offsets[index] + wrapperOffset,
+                  normalBuilder: (animationController, index) =>
+                      ScaleTransition(
+                          scale: CurvedAnimation(
+                            parent: animationController,
+                            curve: Curves.ease,
+                          ),
+                          child: _buildIndicator(
+                              index, this.navPosition!.value, false)),
+                  highlightedBuilder: (animationController, index) =>
+                      ScaleTransition(
+                        scale: CurvedAnimation(
+                          parent: animationController,
+                          curve: Curves.ease,
+                        ),
+                        child: _buildIndicator(
+                            index, this.navPosition!.value, true),
+                      ));
+            }));
   }
 
   Widget _buildPageView() {
     return Selector<RouteController, RouteController>(
         selector: (_, RouteController controller) => controller,
         builder: (_, RouteController controller, __) {
-          pageIndexNotifier.value =
-              controller.getTargetPageStack(this.widget.manager.widgets);
-          pageController = PageController(
-            initialPage: pageIndexNotifier.value,
-            viewportFraction: 0.999,
-            keepPage: true,
-          );
           return PageView(
-            controller: pageController,
-            onPageChanged: (index) {
-              pageIndexNotifier.value = index;
-              controller
-                  .notifyNewStackName(this.widget.manager.widgets[index].name);
-            },
+            controller: controller.pageController,
+            onPageChanged: (index) => controller.onPageChanged(index),
             children: this.widget.manager.widgets,
             physics: AlwaysScrollableScrollPhysics(),
           );
         });
-  }
-
-  void moveToPage(int index) {
-    pageController.animateToPage(
-      index,
-      duration: Duration(
-          milliseconds: (250 * ((index - pageIndexNotifier.value)).abs() + 1)),
-      curve: Curves.linear,
-    );
   }
 
   Widget _buildIndicator(
@@ -171,15 +157,20 @@ class HorizontalSlidableState extends State<HorizontalSlidable> {
     NavPositionValue navPositionValue,
     bool isSelected,
   ) {
-    return IndicatorGroup(
-      navPositionValue: navPositionValue,
-      wrapperWidth: widget.indicatorWrapperWidth,
-      icon: this.widget.manager.widgets[index].icon,
-      index: index,
-      isSelected: isSelected,
-      onSelected: moveToPage,
-      selectOnHover: this.navSelectOnHover!.value,
-      text: this.widget.manager.getName(index),
+    return Selector<RouteController, RouteController>(
+      selector: (_, RouteController controller) => controller,
+      builder: (_, RouteController controller, __) {
+        return IndicatorGroup(
+          navPositionValue: navPositionValue,
+          wrapperWidth: widget.indicatorWrapperWidth,
+          icon: this.widget.manager.widgets[index].icon,
+          index: index,
+          isSelected: isSelected,
+          onSelected: controller.moveToPage,
+          selectOnHover: this.navSelectOnHover!.value,
+          text: this.widget.manager.getName(index),
+        );
+      },
     );
   }
 }

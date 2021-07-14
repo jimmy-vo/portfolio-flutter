@@ -16,7 +16,11 @@ class Section {
     required this.name,
     required this.title,
     required this.items,
-  });
+  }) {
+    items!.forEach((element) {
+      element.setParrent(this);
+    });
+  }
 
   //////////////////////////////////////////////////////////////////////////////
   factory Section.fromJson(Map<String, dynamic> json) =>

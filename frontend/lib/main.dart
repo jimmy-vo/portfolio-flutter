@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:frontend/controllers/profile.controller.dart';
 import 'package:frontend/controllers/route.controller.dart';
@@ -12,7 +10,7 @@ import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
 
 void main() {
   configureApp();
-  runApp(MyApp(Uri.parse(window.location.href)));
+  runApp(MyApp(RouteController.getCurrentUri()));
 }
 
 // ignore: must_be_immutable
@@ -23,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<RouteController>(
-      create: (context) => RouteController(this.uri),
+      create: (context) => RouteController(this.uri, ""),
       child: ChangeNotifierProvider<SettingsController>(
         create: (_) => SettingsController(),
         child: ChangeNotifierProvider<ProfileController>(

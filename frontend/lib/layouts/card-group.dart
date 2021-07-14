@@ -55,7 +55,10 @@ class CardGroup extends StatelessWidget {
         ? card
         : InkWell(
             child: card,
-            onTap: onTap,
+            onTap: () {
+              print("op tap");
+              onTap!();
+            },
           );
   }
 }

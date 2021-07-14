@@ -52,15 +52,15 @@ class _IndicatorContainerState extends State<IndicatorContainer>
   void _indicatorsListener() {
     final currPage = widget.pageIndexNotifier.value;
 
-    if (currPage != _prevPage) {
-      _indicators[_prevPage].normalController.forward();
-      _indicators[_prevPage].highlightedController.reverse();
+    if (currPage == _prevPage) return;
 
-      _indicators[currPage].normalController.reverse();
-      _indicators[currPage].highlightedController.forward();
+    _indicators[_prevPage].normalController.forward();
+    _indicators[_prevPage].highlightedController.reverse();
 
-      _prevPage = currPage;
-    }
+    _indicators[currPage].normalController.reverse();
+    _indicators[currPage].highlightedController.forward();
+
+    _prevPage = currPage;
   }
 
   void _addIndicatorsListener() {

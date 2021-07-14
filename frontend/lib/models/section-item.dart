@@ -1,4 +1,5 @@
 // ignore: import_of_legacy_library_into_null_safe
+import 'package:frontend/models/section.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:frontend/models/description.dart';
 import 'package:frontend/models/config.dart';
@@ -19,6 +20,12 @@ class SectionItem {
   @JsonKey(name: "description")
   List<Description>? descriptions;
 
+  @JsonKey(ignore: true)
+  late Section section;
+
+  @JsonKey(ignore: true)
+  late String fragment;
+
   SectionItem({
     required this.id,
     required this.title,
@@ -36,6 +43,11 @@ class SectionItem {
         this.organization != null || this.location != null || this.date != null;
 
     return value;
+  }
+
+  void setParrent(Section section) {
+    this.section = section;
+    this.fragment = "#section-${section.id}-${this.id}";
   }
 
   //////////////////////////////////////////////////////////////////////////////

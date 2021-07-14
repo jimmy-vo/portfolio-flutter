@@ -10,7 +10,6 @@ import 'package:frontend/views/profile/socials.dart';
 class HorizontalSlidableManager {
   List<IsHorizontalSlidablePage> widgets = [];
   late List<Section> sections;
-  Function(int)? moveToPage;
 
   HorizontalSlidableManager({
     required Contact contact,
@@ -29,18 +28,15 @@ class HorizontalSlidableManager {
             name: summary.name!,
             children: [
               HorizontalSlidablePageFragment(
-                sectionId: summary.id.toString(),
-                sectionItemId: "intro",
+                fragment: "#Intro",
                 child: IntroductionView(summary: summary, contact: contact),
               ),
               HorizontalSlidablePageFragment(
-                sectionId: summary.id.toString(),
-                sectionItemId: "Social",
+                fragment: "#Social",
                 child: SocialView(contactSocial: contact.social.first.data),
               ),
               HorizontalSlidablePageFragment(
-                sectionId: summary.id.toString(),
-                sectionItemId: "Experiences",
+                fragment: "#Experiences",
                 child: TableCardGroup(
                   title: "Recent Experiences",
                   column: 2,
@@ -55,8 +51,7 @@ class HorizontalSlidableManager {
                 ),
               ),
               HorizontalSlidablePageFragment(
-                sectionId: summary.id.toString(),
-                sectionItemId: "Education",
+                fragment: "#Education",
                 child: TableCardGroup(
                   title: education.name ?? "",
                   column: 2,
@@ -71,8 +66,7 @@ class HorizontalSlidableManager {
                 ),
               ),
               HorizontalSlidablePageFragment(
-                sectionId: summary.id.toString(),
-                sectionItemId: "Activities",
+                fragment: "#Activities",
                 child: TableCardGroup(
                   title: "Recent Activities",
                   column: 2,
